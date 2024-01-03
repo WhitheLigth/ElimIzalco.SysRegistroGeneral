@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Interface - UI", "User Interface - UI", "{9230514A-5DCA-4D7A-B026-E149BC78EC01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities - EN", "Entities - EN", "{93E8D453-EACB-44C9-9DCE-E32FCC6814BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElimIzalco.SysRegistroGeneral.UI", "ElimIzalco.SysRegistroGeneral.UI\ElimIzalco.SysRegistroGeneral.UI.csproj", "{3192667F-2961-4FAC-9582-E34234D6A492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElimIzalco.SysRegistroGeneral.EN", "ElimIzalco.SysRegistroGeneral.EN\ElimIzalco.SysRegistroGeneral.EN.csproj", "{135BF8A7-D916-412D-A47B-6F655C688D2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer - DAL", "Data Access Layer - DAL", "{A52E39CF-E86C-4152-B783-BF0FE2C6A2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElimIzalco.SysRegistroGeneral.DAL", "ElimIzalco.SysRegistroGeneral.DAL\ElimIzalco.SysRegistroGeneral.DAL.csproj", "{5C7B469B-FAF0-4FAB-97B8-4051195D38B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic - BL", "Business Logic - BL", "{ECCAE77C-6C3C-4B47-8D09-69A68F6FD386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElimIzalco.SysRegistroGeneral.BL", "ElimIzalco.SysRegistroGeneral.BL\ElimIzalco.SysRegistroGeneral.BL.csproj", "{C260116E-CA0A-4E52-85A8-EC1055D93F00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3192667F-2961-4FAC-9582-E34234D6A492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3192667F-2961-4FAC-9582-E34234D6A492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3192667F-2961-4FAC-9582-E34234D6A492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3192667F-2961-4FAC-9582-E34234D6A492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135BF8A7-D916-412D-A47B-6F655C688D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135BF8A7-D916-412D-A47B-6F655C688D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135BF8A7-D916-412D-A47B-6F655C688D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135BF8A7-D916-412D-A47B-6F655C688D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C7B469B-FAF0-4FAB-97B8-4051195D38B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7B469B-FAF0-4FAB-97B8-4051195D38B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7B469B-FAF0-4FAB-97B8-4051195D38B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7B469B-FAF0-4FAB-97B8-4051195D38B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C260116E-CA0A-4E52-85A8-EC1055D93F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C260116E-CA0A-4E52-85A8-EC1055D93F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C260116E-CA0A-4E52-85A8-EC1055D93F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C260116E-CA0A-4E52-85A8-EC1055D93F00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3192667F-2961-4FAC-9582-E34234D6A492} = {9230514A-5DCA-4D7A-B026-E149BC78EC01}
+		{135BF8A7-D916-412D-A47B-6F655C688D2E} = {93E8D453-EACB-44C9-9DCE-E32FCC6814BA}
+		{5C7B469B-FAF0-4FAB-97B8-4051195D38B5} = {A52E39CF-E86C-4152-B783-BF0FE2C6A2CE}
+		{C260116E-CA0A-4E52-85A8-EC1055D93F00} = {ECCAE77C-6C3C-4B47-8D09-69A68F6FD386}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6F9E5AD-30A9-481B-9240-465C769D2871}
+	EndGlobalSection
+EndGlobal
