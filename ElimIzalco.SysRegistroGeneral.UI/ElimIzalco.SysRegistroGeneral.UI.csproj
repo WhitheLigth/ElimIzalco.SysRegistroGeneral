@@ -8,4 +8,23 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\IconHogar.png" />
+    <None Remove="Images\IconMembresia.png" />
+    <None Remove="Images\IconServidores.png" />
+    <None Remove="Images\Logo-Elim-White.png" />
+    <None Remove="Images\Logo-Sin-Letras-White.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\IconHogar.png" />
+    <Resource Include="Images\IconMembresia.png" />
+    <Resource Include="Images\IconServidores.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Logo-Elim-White.png" />
+    <Resource Include="Images\Logo-Sin-Letras-White.png" />
+  </ItemGroup>
+
 </Project>
