@@ -1,0 +1,49 @@
+﻿<Window x:Class="ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador.VistaGeneralAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador"
+        mc:Ignorable="d"
+        Title="  Sistema de Registro - ¨Mision Cristiana Elim Izalco¨ - Vista General Administador" Height="722" Width="1341" WindowStartupLocation="CenterScreen">
+    <Window.Icon>
+        <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
+    </Window.Icon>
+    <Grid Background="WhiteSmoke">
+        <DockPanel HorizontalAlignment="Center" Height="82" LastChildFill="False" VerticalAlignment="Top" Width="1342" Background="#091C77">
+            <StackPanel Width="32"/>
+            <Image Source="/Images/Logo-Elim-White.png" Stretch="Uniform" Width="152" Height="56" x:Name="LogoPrincipal"/>
+            <StackPanel Width="32" DockPanel.Dock="Right"/>
+            <Button Content="Cerrar Sesión" Width="NaN" BorderBrush="Transparent" Foreground="White" DockPanel.Dock="Right" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Focusable="False">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0.1"/>
+                </Button.Background>
+            </Button>
+            <StackPanel Width="32" DockPanel.Dock="Right"/>
+            <Label Content="Administrador" Foreground="White" FontWeight="Bold" FontSize="16" DockPanel.Dock="Right" Width="118" Height="29"/>
+            <Label Content="Usuario:" Foreground="White" FontSize="14" DockPanel.Dock="Right" Width="60" Height="26"/>
+            <StackPanel Width="346"/>
+            <StackPanel Width="60" DockPanel.Dock="Right"/>
+            <Button Width="73" Height="89" BorderBrush="Transparent">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/IconHogar.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Width="86" Height="96" BorderBrush="Transparent">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/IconMembresia.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Width="68" Height="86" BorderBrush="Transparent">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Images/IconServidores.png"/>
+                </Button.Background>
+            </Button>
+        </DockPanel>
+        <Label Content="Derechos Reservados" HorizontalAlignment="Left" Margin="589,638,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold"/>
+        <Label Content="&quot;Misión Cristiana Elim Izalco&quot;" HorizontalAlignment="Center" Margin="0,650,0,0" VerticalAlignment="Top" Width="188" Height="28"/>
+        <Image Margin="517,250,518,189" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Fill"/>
+
+
+    </Grid>
+</Window>
