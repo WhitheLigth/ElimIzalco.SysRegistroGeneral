@@ -6,44 +6,61 @@
         xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador"
         mc:Ignorable="d"
         Title="  Sistema de Registro - ¨Mision Cristiana Elim Izalco¨ - Vista General Administador" Height="722" Width="1341" WindowStartupLocation="CenterScreen">
+    <!--Insersion de Icono a la ventana-->
     <Window.Icon>
         <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
     </Window.Icon>
+    <!--Grid Principal-->
     <Grid Background="WhiteSmoke">
+        <!--Panel Superior - Menu Principal--> 
         <DockPanel HorizontalAlignment="Center" Height="82" LastChildFill="False" VerticalAlignment="Top" Width="1342" Background="#091C77">
+            <!--Panel De Separacion-->
             <StackPanel Width="32"/>
+            <!--Logo Principal-->
             <Image Source="/Images/Logo-Elim-White.png" Stretch="Uniform" Width="152" Height="56" x:Name="LogoPrincipal"/>
+            <!--Panel De Separacion-->
             <StackPanel Width="32" DockPanel.Dock="Right"/>
+            <!--Boton Para Cerrar Sesion-->
             <Button Content="Cerrar Sesión" Width="NaN" BorderBrush="Transparent" Foreground="White" DockPanel.Dock="Right" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Focusable="False">
                 <Button.Background>
                     <SolidColorBrush Opacity="0.1"/>
                 </Button.Background>
             </Button>
+            <!--Panel De Separacion-->
             <StackPanel Width="32" DockPanel.Dock="Right"/>
-            <Label Content="Administrador" Foreground="White" FontWeight="Bold" FontSize="16" DockPanel.Dock="Right" Width="118" Height="29"/>
+            <!--Texto De Reconocimiento de Que Rol a Iniciado Sesion-->
+            <Label x:Name="UsuarioRegistrado" Content="Administrador" Foreground="White" FontWeight="Bold" FontSize="16" DockPanel.Dock="Right" Width="118" Height="29"/>
             <Label Content="Usuario:" Foreground="White" FontSize="14" DockPanel.Dock="Right" Width="60" Height="26"/>
+            <!--Panel De Separacion-->
             <StackPanel Width="346"/>
+            <!--Panel De Separacion-->
             <StackPanel Width="60" DockPanel.Dock="Right"/>
+            <!--Boton Para Navegar hacia el Inicio el Sistema-->
             <Button Width="73" Height="89" BorderBrush="Transparent">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/IconHogar.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
+            <!--Boton Para Navegar hacia la Ventana de Membresia-->
             <Button Width="86" Height="96" BorderBrush="Transparent">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/IconMembresia.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
+            <!--Boton Para Navegar hacia la Ventana de Servidores-->
             <Button Width="68" Height="86" BorderBrush="Transparent">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Images/IconServidores.png"/>
                 </Button.Background>
             </Button>
         </DockPanel>
+        <!--Pie de Pagina-->
         <Label Content="Derechos Reservados" HorizontalAlignment="Left" Margin="589,638,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold"/>
         <Label Content="&quot;Misión Cristiana Elim Izalco&quot;" HorizontalAlignment="Center" Margin="0,650,0,0" VerticalAlignment="Top" Width="188" Height="28"/>
+        <!--Logo Central-->
         <Image Margin="517,250,518,189" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Fill"/>
-
-
+        <Frame x:Name="FrameContenido" Margin="0,0,0,0" NavigationUIVisibility="Hidden">
+            <!-- Contenido principal -->
+        </Frame>
     </Grid>
 </Window>
