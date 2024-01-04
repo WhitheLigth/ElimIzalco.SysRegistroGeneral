@@ -1,0 +1,125 @@
+﻿<Window x:Class="ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia._MantenimientoMembresia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia"
+        mc:Ignorable="d"
+        Title="  Sistema de Registro - ¨Mision Cristiana Elim Izalco¨ - Vista General Administador - Mantenimiento Para Membresia" Height="722" Width="1341" WindowStartupLocation="CenterScreen">
+    <!--Insersion de Icono a la ventana-->
+    <Window.Icon>
+        <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
+    </Window.Icon>
+    <!--Grid Principal-->
+    <Grid>
+        <!--Rectangulo Superior Titular-->
+        <Rectangle HorizontalAlignment="Center" Height="26" Stroke="#FF091C77" VerticalAlignment="Top" Width="1341" Fill="#FF091C77"/>
+        <!--Caja para agrupar la Informacion Personal-->
+        <GroupBox Header="Informacion Personal" Margin="10,31,372,353" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
+        <!--Conjunto para ingresar el Nombre-->
+        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="24,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="84"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="30,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="20"/>
+        <!--Conjunto para ingresar el Apellido-->
+        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="215,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="86"/>
+        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Margin="221,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="20"/>
+        <!--Conjunto para ingresar el Dui-->
+        <Label Content="Dui:" HorizontalAlignment="Left" Margin="407,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="86"/>
+        <TextBox x:Name="txtDui" HorizontalAlignment="Left" Margin="413,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Height="20"/>
+        <!--Conjunto para ingresar Fecha de Nacimiento-->
+        <Label Content="Fecha de Nacimiento:" HorizontalAlignment="Left" Margin="584,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <DatePicker x:Name="dtbFechaDeNacimiento" HorizontalAlignment="Left" Margin="587,81,0,0" VerticalAlignment="Top" Height="26" Width="196"/>
+        <!--Conjunto para ingresar La Edad-->
+        <Label Content="Edad:" HorizontalAlignment="Left" Margin="806,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Margin="810,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <!--Conjunto para ingresar El Sexo-->
+        <Label Content="Sexo:" HorizontalAlignment="Left" Margin="25,112,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="84"/>
+        <ComboBox x:Name="cbxSexo"  HorizontalAlignment="Left" Margin="30,142,0,0" VerticalAlignment="Top" Width="120" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar El Estado Civil-->
+        <Label Content="Estado Civil:" HorizontalAlignment="Left" Margin="176,112,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="103"/>
+        <ComboBox x:Name="cbxEstadoCivil"  HorizontalAlignment="Left" Margin="181,142,0,0" VerticalAlignment="Top" Width="120" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar El Telefono de la Membresia-->
+        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="323,111,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Margin="327,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <!--Conjunto para ingresar La Direccion o Domicilio de la Membresia-->
+        <Label Content="Direccion o Domicilio:" HorizontalAlignment="Left" Margin="470,111,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Margin="474,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="20"/>
+        <Label Content="Buscar - Prefesion u Oficio:" HorizontalAlignment="Left" Margin="24,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="204"/>
+        <TextBox x:Name="txtBuscarProfesionUOficio" HorizontalAlignment="Left" Margin="30,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="20"/>
+        <!--Grid donde se muestran todas las profesiones u Oficios Disponibles-->
+        <DataGrid x:Name="dgvResumenProfesionUOficio" HorizontalAlignment="Left" Height="73" Margin="30,236,0,0" VerticalAlignment="Top" Width="211" AutoGenerateColumns="False" ColumnWidth="*">
+            <!--Columnas del DataGrid-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--Boton para confirmar la seleccion del datagrid-->
+        <Button x:Name="btnConfirmacionProfesionUOficio" Content="OK" HorizontalAlignment="Left" Margin="196,202,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="34"/>
+        <!--Conjunto para Mostrar la Profesion u Oficio Seleccionada-->
+        <Label Content="Prefesion u Oficio:" HorizontalAlignment="Left" Margin="276,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="133"/>
+        <TextBox x:Name="txtProfesionUOficio" HorizontalAlignment="Left" Margin="282,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="20"/>
+        <!--Conjunto para Ingresar el Lugar de trabajo-->
+        <Label Content="Lugar de Trabajo:" HorizontalAlignment="Left" Margin="470,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="133"/>
+        <TextBox x:Name="txtLugarDeTrabajo" HorizontalAlignment="Left" Margin="475,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="20"/>
+        <!--Conjunto para Ingresar el Telefono del trabajo-->
+        <Label Content="Telefono del Trabajo:" HorizontalAlignment="Left" Margin="732,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="158"/>
+        <TextBox x:Name="txtTelefonoDelTrabajo" HorizontalAlignment="Left" Margin="736,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="20"/>
+        <!--Caja para agrupar la Informacion Complementaria-->
+        <GroupBox Header="Informacion Complementaria" Margin="10,340,372,35" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
+        <!--Conjunto para ingresar Fecha de Conversion-->
+        <Label Content="Fecha de Conversion:" HorizontalAlignment="Left" Margin="28,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <DatePicker x:Name="dtFechaDeConversion" HorizontalAlignment="Left" Margin="31,390,0,0" VerticalAlignment="Top" Height="26" Width="196"/>
+        <!--Conjunto para ingresar La Direccion o Domicilio de la Conversion-->
+        <Label Content="Direccion o Domicilio de Conversion:" HorizontalAlignment="Left" Margin="255,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="266"/>
+        <TextBox x:Name="txtDireccionDeConversion" HorizontalAlignment="Left" Margin="255,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Height="20"/>
+        <!--Conjunto para ingresar Si es Bautizado en Agua-->
+        <Label Content="Bautizmo en Agua:" HorizontalAlignment="Left" Margin="570,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="152"/>
+        <ComboBox x:Name="cbxBautizmoEnAgua"  HorizontalAlignment="Left" Margin="572,394,0,0" VerticalAlignment="Top" Width="156" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar Si es Bautizado en Espiritu Santo-->
+        <Label Content="Bautizmo en Espiritu Santo:" HorizontalAlignment="Left" Margin="752,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="198"/>
+        <ComboBox x:Name="cbxBautizmoEnEspirituSanto"  HorizontalAlignment="Left" Margin="768,394,0,0" VerticalAlignment="Top" Width="156" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar El Nombre del Pastor-->
+        <Label Content="Nombre Del Pastor:" HorizontalAlignment="Left" Margin="28,420,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="198"/>
+        <ComboBox x:Name="cbxNombreDelPastor"  HorizontalAlignment="Left" Margin="33,450,0,0" VerticalAlignment="Top" Width="208" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar El Nombre del Supervisor-->
+        <Label Content="Nombre Del Supervisor:" HorizontalAlignment="Left" Margin="271,420,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="198"/>
+        <ComboBox x:Name="cbxNombreDelSupervisor"  HorizontalAlignment="Left" Margin="276,450,0,0" VerticalAlignment="Top" Width="208" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar el Nombre del Lider-->
+        <Label Content="Nombre Del Lider:" HorizontalAlignment="Left" Margin="514,420,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="140"/>
+        <TextBox x:Name="txtNombreDelLider" HorizontalAlignment="Left" Margin="514,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="20"/>
+        <!--Conjunto para ingresar el Tiempo que tiene de asistir la Membresia-->
+        <Label Content="Tiempo de Congregarse:" HorizontalAlignment="Left" Margin="759,420,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="185"/>
+        <TextBox x:Name="txtDigito" HorizontalAlignment="Left" Margin="766,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="20"/>
+        <ComboBox x:Name="cbxListaCalendario"  HorizontalAlignment="Left" Margin="829,449,0,0" VerticalAlignment="Top" Width="95" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar a que Zona Pertenece-->
+        <Label Content="Zona:" HorizontalAlignment="Left" Margin="245,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxZona"  HorizontalAlignment="Left" Margin="215,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar a que Distrito Pertenece-->
+        <Label Content="Distrito:" HorizontalAlignment="Left" Margin="371,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="83"/>
+        <ComboBox x:Name="cbxDistrito"  HorizontalAlignment="Left" Margin="348,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar a que Sector Pertenece-->
+        <Label Content="Sector:" HorizontalAlignment="Left" Margin="506,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxSector"  HorizontalAlignment="Left" Margin="481,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para ingresar a que Celula Pertenece-->
+        <Label Content="Celula:" HorizontalAlignment="Center" Margin="0,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxCelula"  HorizontalAlignment="Left" Margin="614,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <!--Conjunto para Ingresar Comentario u Observaciones sobre la Membresia-->
+        <Label Content="Comentarios y Observaciones:" HorizontalAlignment="Left" Margin="35,544,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="266"/>
+        <TextBox x:Name="txtDireccionDeConversion_Copiar" HorizontalAlignment="Left" Margin="35,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="895" Height="60"/>
+        <!--Caja para agrupar la Fotografia Personal-->
+        <GroupBox Header="Fotografia" Margin="997,31,42,353" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
+        <Image x:Name="imgFoto" Height="246" Margin="1016,64,61,0" VerticalAlignment="Top"/>
+        <!--Boton para Importarn una Imagen para la Membresia-->
+        <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1086,303,0,0"/>
+        <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
+        <Image x:Name="imgBarraCode" Height="88" Margin="1003,350,48,0" VerticalAlignment="Top"/>
+
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Modificar" HorizontalAlignment="Left" Margin="997,494,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="997,539,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Fecha de Creacion:" HorizontalAlignment="Left" Margin="974,598,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <DatePicker x:Name="dtFechaDeCreacion" HorizontalAlignment="Left" Margin="977,624,0,0" VerticalAlignment="Top" Height="26" Width="149"/>
+        <Label Content="Fecha de Modificacion:" HorizontalAlignment="Left" Margin="1143,599,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
+        <DatePicker x:Name="dtFechadeModificacion" HorizontalAlignment="Left" Margin="1149,625,0,0" VerticalAlignment="Top" Height="26" Width="147"/>
+    </Grid>
+</Window>
