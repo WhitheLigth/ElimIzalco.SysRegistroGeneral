@@ -12,7 +12,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL
     public class ComunDB
     {
         //---Se coloca el link de conexion en una constante
-        const string StrConexion = @"";
+        const string StrConexion = @"Data Source=localhost;Initial Catalog=BdSysRegistroElimIzalco;Integrated Security=True;Trust Server Certificate=True";
         //----Establecemos la conexion con SQL
 
         private static SqlConnection ObtenerConexion()
