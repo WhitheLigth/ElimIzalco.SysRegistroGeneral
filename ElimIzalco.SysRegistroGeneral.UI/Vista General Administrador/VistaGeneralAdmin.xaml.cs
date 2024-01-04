@@ -23,13 +23,16 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
         public VistaGeneralAdmin()
         {
             InitializeComponent();
-        }
 
+            // Deshabilitar el botón de maximizar
+            this.ResizeMode = ResizeMode.CanMinimize;
+        }
+        // Metodo para Limpiar la Ventana Principal
         private void btnInicio_Click(object sender, RoutedEventArgs e)
         {
             FrameContenido.Content = null;
         }
-
+        // Metodo Para Navegar a la Pagina de Membresia
         private void btnMembresia_Click(object sender, RoutedEventArgs e)
         {
             FrameContenido.NavigationService.Navigate(new BuscarVerMembresia());
