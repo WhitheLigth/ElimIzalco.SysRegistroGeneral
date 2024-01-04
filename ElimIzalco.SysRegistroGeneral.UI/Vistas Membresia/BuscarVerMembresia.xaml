@@ -1,0 +1,47 @@
+﻿<Page x:Class="ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia.BuscarVerMembresia"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia"
+      mc:Ignorable="d" 
+      Title="BuscarVerMembresia" d:DesignHeight="825.295" d:DesignWidth="1322.995">
+    <!--Grid Principal-->
+    <Grid Background="WhiteSmoke">
+        <!--Rectangulo con el Titulo de la Pagina-->
+        <Rectangle HorizontalAlignment="Center" Height="61" Margin="0,32,0,0" Stroke="#FF091C77" VerticalAlignment="Top" Width="870" Fill="#FF091C77"/>
+        <Label Content="Buscar Membresia" HorizontalAlignment="Left" Margin="553,35,0,0" VerticalAlignment="Top" Width="272" Foreground="White" FontSize="30" FontWeight="Bold"/>
+        <!--Data Grid - Con el Resumen de la Informacion de la Membresia-->
+        <DataGrid x:Name="dgvMostrar_Membresias" AutoGenerateColumns="False" ColumnWidth="*" Margin="226,230,227,21">
+            <!--Columnas del DataGrid-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Dui" Binding="{Binding DUI}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nombre}"/>
+                <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus.Nombre}"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <!--Boton Para Buscar-->
+        <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="998,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/buscar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <!--Boton Para Recargar la Pagina-->
+        <Button x:Name="btnRecargar" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/recargar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <!--Caja de texto para ingresar la Busqueda-->
+        <TextBox x:Name="txtBuscarMembre" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18"/>
+        <!--Boton para las acciones de "Agregar, Modificar, Elminar y Visualizar"-->
+        <Button x:Name="btnAgregarMembresia" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnModificarMembresia" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnEliminarMembresia" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnVerMembresia" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+    </Grid>
+</Page>
