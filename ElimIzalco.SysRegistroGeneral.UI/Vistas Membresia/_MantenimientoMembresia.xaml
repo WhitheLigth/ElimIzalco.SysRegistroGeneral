@@ -113,10 +113,11 @@
         <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1086,303,0,0"/>
         <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
         <Image x:Name="imgBarraCode" Height="88" Margin="1003,350,48,0" VerticalAlignment="Top"/>
-
+        <!--Botones para las Acciones CRUD-->
         <Button Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button Content="Modificar" HorizontalAlignment="Left" Margin="997,494,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button Content="Eliminar" HorizontalAlignment="Left" Margin="997,539,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <!--Conjunto Donde se muestra la Fecha de Creacion y Modificacion-->
         <Label Content="Fecha de Creacion:" HorizontalAlignment="Left" Margin="974,598,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <DatePicker x:Name="dtFechaDeCreacion" HorizontalAlignment="Left" Margin="977,624,0,0" VerticalAlignment="Top" Height="26" Width="149"/>
         <Label Content="Fecha de Modificacion:" HorizontalAlignment="Left" Margin="1143,599,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
