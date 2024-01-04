@@ -122,5 +122,7 @@
         <DatePicker x:Name="dtFechaDeCreacion" HorizontalAlignment="Left" Margin="977,624,0,0" VerticalAlignment="Top" Height="26" Width="149"/>
         <Label Content="Fecha de Modificacion:" HorizontalAlignment="Left" Margin="1143,599,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <DatePicker x:Name="dtFechadeModificacion" HorizontalAlignment="Left" Margin="1149,625,0,0" VerticalAlignment="Top" Height="26" Width="147"/>
+        <!--Campo para Id-->
+        <TextBox x:Name="txtIdMembresia" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
