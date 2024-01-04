@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
         public VistaGeneralAdmin()
         {
             InitializeComponent();
+        }
+
+        private void btnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContenido.Content = null;
+        }
+
+        private void btnMembresia_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContenido.NavigationService.Navigate(new BuscarVerMembresia());
         }
     }
 }

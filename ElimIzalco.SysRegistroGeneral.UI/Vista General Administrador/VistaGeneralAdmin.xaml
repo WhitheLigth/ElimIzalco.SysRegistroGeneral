@@ -12,7 +12,7 @@
     </Window.Icon>
     <!--Grid Principal-->
     <Grid Background="WhiteSmoke">
-        <!--Panel Superior - Menu Principal--> 
+        <!--Panel Superior - Menu Principal-->
         <DockPanel HorizontalAlignment="Center" Height="82" LastChildFill="False" VerticalAlignment="Top" Width="1342" Background="#091C77">
             <!--Panel De Separacion-->
             <StackPanel Width="32"/>
@@ -36,13 +36,13 @@
             <!--Panel De Separacion-->
             <StackPanel Width="60" DockPanel.Dock="Right"/>
             <!--Boton Para Navegar hacia el Inicio el Sistema-->
-            <Button Width="73" Height="89" BorderBrush="Transparent">
+            <Button Width="73" Height="89" BorderBrush="Transparent" x:Name="btnInicio" Click="btnInicio_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/IconHogar.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <!--Boton Para Navegar hacia la Ventana de Membresia-->
-            <Button Width="86" Height="96" BorderBrush="Transparent">
+            <Button Width="86" Height="96" BorderBrush="Transparent" x:Name="btnMembresia" Click="btnMembresia_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/IconMembresia.png" Stretch="Uniform"/>
                 </Button.Background>
@@ -59,8 +59,9 @@
         <Label Content="&quot;Misión Cristiana Elim Izalco&quot;" HorizontalAlignment="Center" Margin="0,650,0,0" VerticalAlignment="Top" Width="188" Height="28"/>
         <!--Logo Central-->
         <Image Margin="517,250,518,189" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Fill"/>
-        <Frame x:Name="FrameContenido" Margin="0,0,0,0" NavigationUIVisibility="Hidden">
+        <Frame x:Name="FrameContenido" NavigationUIVisibility="Hidden" Margin="0,82,0,42">
             <!-- Contenido principal -->
         </Frame>
+
     </Grid>
 </Window>
