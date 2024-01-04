@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ElimIzalco.SysRegistroGeneral.DAL\ElimIzalco.SysRegistroGeneral.DAL.csproj" />
+    <ProjectReference Include="..\ElimIzalco.SysRegistroGeneral.EN\ElimIzalco.SysRegistroGeneral.EN.csproj" />
+  </ItemGroup>
+
 </Project>

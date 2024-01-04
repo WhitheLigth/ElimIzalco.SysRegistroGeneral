@@ -14,4 +14,8 @@
     <Folder Include="Document\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ElimIzalco.SysRegistroGeneral.EN\ElimIzalco.SysRegistroGeneral.EN.csproj" />
+  </ItemGroup>
+
 </Project>
