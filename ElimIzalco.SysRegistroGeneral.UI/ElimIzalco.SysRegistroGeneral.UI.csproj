@@ -9,14 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\buscar.png" />
     <None Remove="Images\IconHogar.png" />
     <None Remove="Images\IconMembresia.png" />
     <None Remove="Images\IconServidores.png" />
     <None Remove="Images\Logo-Elim-White.png" />
     <None Remove="Images\Logo-Sin-Letras-White.png" />
+    <None Remove="Images\recargar.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\buscar.png" />
     <Resource Include="Images\IconHogar.png" />
     <Resource Include="Images\IconMembresia.png" />
     <Resource Include="Images\IconServidores.png" />
@@ -25,6 +28,7 @@
   <ItemGroup>
     <Resource Include="Images\Logo-Elim-White.png" />
     <Resource Include="Images\Logo-Sin-Letras-White.png" />
+    <Resource Include="Images\recargar.png" />
   </ItemGroup>
 
 </Project>
