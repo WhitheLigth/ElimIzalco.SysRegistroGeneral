@@ -25,23 +25,25 @@
 
         </DataGrid>
         <!--Boton Para Buscar-->
-        <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="998,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+        <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="998,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent" Click="btnBuscar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <!--Boton Para Recargar la Pagina-->
-        <Button x:Name="btnRecargar" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+        <Button x:Name="btnRecargar" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent" Click="btnRecargar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/recargar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <!--Caja de texto para ingresar la Busqueda-->
-        <TextBox x:Name="txtBuscarMembre" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18"/>
+        <TextBox x:Name="txtBuscarMembre" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18" TextChanged="btnBuscar_Click"/>
         <!--Boton para las acciones de "Agregar, Modificar, Elminar y Visualizar"-->
-        <Button x:Name="btnAgregarMembresia" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnModificarMembresia" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnEliminarMembresia" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnVerMembresia" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnAgregarMembresia" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnAgregarMembresia_Click"/>
+        <Button x:Name="btnModificarMembresia" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnModificarMembresia_Click"/>
+        <Button x:Name="btnEliminarMembresia" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnEliminarMembresia_Click"/>
+        <Button x:Name="btnVerMembresia" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnVerMembresia_Click"/>
+        <!--Campo para Id-->
+        <TextBox x:Name="txtIdMembresia" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
     </Grid>
 </Page>
