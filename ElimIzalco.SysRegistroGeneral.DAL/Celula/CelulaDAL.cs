@@ -48,7 +48,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Celula
 
         #region ObtenerCelulaPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
-        public CelulaEN c(int? pId)
+        public CelulaEN ObtenerCelulaPorId(int? pId)
         {
             // Creamos una instancia de CelulaEN para acceder a los atributos
             CelulaEN celula = new CelulaEN();
