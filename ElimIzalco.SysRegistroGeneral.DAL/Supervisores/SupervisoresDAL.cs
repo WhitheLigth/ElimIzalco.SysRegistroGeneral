@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Supervisores
 {
     public class SupervisoresDAL
     {
+        #region ObtenerSupervisor
         // Metodo para Obtener una lista completa
         public List<SupervisoresEN> ObtenerSupervisor()
         {
@@ -49,6 +50,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Supervisores
             // Retornamos el listado
             return listaSupervisor;
         }
+        #endregion
+
+        #region ObtenerSupervisorPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public SupervisoresEN ObtenerSupervisorPorId(int? pId)
         {
@@ -82,5 +86,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Supervisores
             // Retornamos el listado
             return supervisor;
         }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Distrito
 {
     public class DistritoDAL
     {
+        #region ObtenerDistrito
         // Metodo para Obtener una lista completa
         public List<DistritoEN> ObtenerDistrito()
         {
@@ -44,6 +45,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Distrito
             return listaDistrito;
 
         }
+        #endregion
+
+        #region ObtenerDistritoPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public DistritoEN ObtenerDistritoPorId(int? pId)
         {
@@ -70,7 +74,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Distrito
             }
             // Retornamos el listado
             return distrito;
-
         }
+        #endregion
     }
 }

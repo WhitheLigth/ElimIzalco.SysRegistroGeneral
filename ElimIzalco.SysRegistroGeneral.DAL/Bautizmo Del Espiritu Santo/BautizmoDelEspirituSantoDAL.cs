@@ -12,6 +12,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_Del_Espiritu_Santo
 {
     public class BautizmoDelEspirituSantoDAL
     {
+        #region ObtenerBautizmoEspirituSanto
         // Metodo para Obtener una lista completa
         public List<BautizmoDelEspirituSantoEN> ObtenerBautizmoEspirituSanto()
         {
@@ -44,6 +45,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_Del_Espiritu_Santo
             // Retornamos el listado 
             return listaBautizmoEspirituSanto;
         }
+        #endregion
+
+        #region ObtenerBautizoEspirituSantoPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public BautizmoDelEspirituSantoEN ObtenerBautizoEspirituSantoPorId(int? pId)
         {
@@ -71,6 +75,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_Del_Espiritu_Santo
             // Retornamos el listado 
             return bautizoEspirituSanto;
         }
-
+        #endregion
     }
 }

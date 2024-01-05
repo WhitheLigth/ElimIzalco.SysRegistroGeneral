@@ -12,6 +12,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Categoria_Para_Profesion_u_Oficio
 {
     public class CategoriaParaProfesionUOficioDAL
     {
+        #region ObtenerCategoriaProfesionUOficio
         // Metodo para Obtener una lista completa
         public List<CategoriaParaProfesionUOficioEN> ObtenerCategoriaProfesionUOficio()
         {
@@ -44,6 +45,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Categoria_Para_Profesion_u_Oficio
             // Retornamos el listado
             return listaCategoria;
         }
+        #endregion
+
+        #region ObtenerCategoriaProfesionUOficioPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public CategoriaParaProfesionUOficioEN ObtenerCategoriaProfesionUOficioPorId(int? pId)
         {
@@ -71,5 +75,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Categoria_Para_Profesion_u_Oficio
             // Retornamos el listado
             return categoria;
         }
+        #endregion
     }
 }

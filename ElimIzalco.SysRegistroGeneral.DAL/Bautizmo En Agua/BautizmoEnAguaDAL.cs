@@ -1,16 +1,17 @@
-﻿using ElimIzalco.SysRegistroGeneral.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 // REFERENCIAS NECESARIAS PARA EL FUNCIONAMIENTO
+using System.Data.SqlClient;
+using ElimIzalco.SysRegistroGeneral.DAL;
 
 namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_En_Agua
 {
     public class BautizmoEnAguaDAL
     {
+        #region ObtenerBautizmoEnAgua
         // Metodo para Obtener una lista completa
         public List<BautizmoEnAguaEN> ObtenerBautizmoEnAgua()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_En_Agua
             // Retornamos el listado 
             return listaBautizmoEnAgua;
         }
+        #endregion
+
+        #region ObtenerBautizoEnAguaPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public BautizmoEnAguaEN ObtenerBautizoEnAguaPorId(int? pId)
         {
@@ -69,7 +73,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Bautizmo_En_Agua
             }
             // Retornamos el listado
             return bautizmoEnAgua;
-
         }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Lista_de_Calendario
 {
     public class ListaDeCalendarioDAL
     {
+        #region ObtenerListaCalendario
         // Metodo para Obtener una lista completa
         public List<ListaDeCalendarioEN> ObtenerListaCalendario()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Lista_de_Calendario
             // Retornamos el listado
             return listaCalendario;
         }
+        #endregion
+
+        #region ObtenerListaCalendarioPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public ListaDeCalendarioEN ObtenerListaCalendarioPorId(int? pId)
         {
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Lista_de_Calendario
             // Retornamos el listado
             return listaCalendario;
         }
+        #endregion
     }
 }

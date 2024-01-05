@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sector
 {
     public class SectorDAL
     {
+        #region ObtenerSector
         // Metodo para Obtener una lista completa
         public List<SectorEN> ObtenerSector()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sector
             // Retornamos el listado
             return listaSector;
         }
+        #endregion
+
+        #region ObtenerSectorPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public SectorEN ObtenerSectorPorId(int? pId)
         {
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sector
             // Retornamos el listado
             return listaSector;
         }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Estado_Civil
 {
     public class EstadoCivilDAL
     {
+        #region ObtenerEstadoCivil
         // Metodo para Obtener una lista completa
         public List<EstadoCivilEN> ObtenerEstadoCivil()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Estado_Civil
             // Retornamos el listado
             return listaEstadoCivil;
         }
+        #endregion
+
+        #region ObtenerEstadoCivilPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public EstadoCivilEN ObtenerEstadoCivilPorId(int? pId)
         {
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Estado_Civil
             // Retornamos el listado
             return estadoCivil;
         }
+        #endregion
     }
 }

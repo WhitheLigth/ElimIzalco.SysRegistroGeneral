@@ -10,6 +10,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Zona
 {
     public class ZonaDAL
     {
+        #region ObtenerZona
         // Metodo para Obtener una lista completa
         public List<ZonaEN> ObtenerZona()
         {
@@ -42,6 +43,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Zona
             // Retornamos el listado
             return listaZona;
         }
+        #endregion
+
+        #region ObtenerZonaPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public ZonaEN ObtenerZonaPorId(int? pId)
         {
@@ -69,5 +73,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Zona
             // Retornamos el listado
             return listaZona;
         }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Pastores
 {
     public class PastoresDAL
     {
+        #region ObtenerPastor
         // Metodo para Obtener una lista completa
         public List<PastoresEN> ObtenerPastor()
         {
@@ -49,6 +50,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Pastores
             // Retornamos el listado
             return listaPastor;
         }
+        #endregion
+
+        #region ObtenerPastorPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public PastoresEN ObtenerPastorPorId(int? pId)
         {
@@ -82,5 +86,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Pastores
             // Retornamos el listado
             return pastor;
         }
+        #endregion
     }
 }

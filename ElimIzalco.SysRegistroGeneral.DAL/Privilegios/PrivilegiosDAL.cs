@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Privilegios
 {
     public class PrivilegiosDAL
     {
+        #region ObtenerPrivilegio
         // Metodo para Obtener una lista completa
         public List<PrivilegiosEN> ObtenerPrivilegio()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Privilegios
             // Retornamos el listado
             return listaPrivilegio;
         }
+        #endregion
+
+        #region ObtenerPrivilegioPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public PrivilegiosEN ObtenerPrivilegioPorId(int? pId)
         {
@@ -70,6 +74,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Privilegios
             // Retornamos el listado
             return listaPrivilegio;
         }
+        #endregion
+
+        #region ObtenerPrivilegioLike
         // Metodo para Obtener una lista en base al parametro Nombre
         public List<PrivilegiosEN> ObtenerPrivilegioLike(string pNombre)
         {
@@ -101,5 +108,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Privilegios
             // Retornamos el listado
             return listaPrivilegio;
         }
+        #endregion
     }
 }

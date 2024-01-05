@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sexo
 {
     public class SexoDAL
     {
+        #region ObtenerSexo
         // Metodo para Obtener una lista completa
         public List<SexoEN> ObtenerSexo()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sexo
             // Retornamos el listado
             return listaSexo;
         }
+        #endregion
+
+        #region ObtenerSexoPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public SexoEN ObtenerSexoPorId(int? pId)
         {
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Sexo
             // Retornamos el listado
             return listaSexo;
         }
+        #endregion
     }
 }

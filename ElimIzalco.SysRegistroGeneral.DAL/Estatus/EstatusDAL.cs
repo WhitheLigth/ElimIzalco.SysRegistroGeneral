@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Estatus
 {
     public class EstatusDAL
     {
+        #region ObtenerEstatus
         // Metodo para Obtener una lista completa
         public List<EstatusEN> ObtenerEstatus()
         {
@@ -43,6 +44,9 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Estatus
             // Retornamos el listado
             return listaEstatus;
         }
+        #endregion
+
+        #region ObtenerEstatusPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
         public EstatusEN ObtenerEstatusPorId(int? pId)
         {
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Estatus
             // Retornamos el listado
             return estatus;
         }
+        #endregion
     }
 }

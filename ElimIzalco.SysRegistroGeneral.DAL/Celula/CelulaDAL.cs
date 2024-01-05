@@ -11,6 +11,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Celula
 {
     public class CelulaDAL
     {
+        #region ObtenerCelula
         // Metodo para Obtener una lista completa
         public List<CelulaEN> ObtenerCelula()
         {
@@ -43,8 +44,11 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Celula
             // Retornamos el listado
             return listaCelula;
         }
+        #endregion
+
+        #region ObtenerCelulaPorId
         // Metodo para Obtener una lista segun el Id Proporcionado
-        public CelulaEN ObtenerCelulaPorId(int? pId)
+        public CelulaEN c(int? pId)
         {
             // Creamos una instancia de CelulaEN para acceder a los atributos
             CelulaEN celula = new CelulaEN();
@@ -70,5 +74,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Celula
             // Retornamos el listado
             return celula;
         }
+        #endregion
     }
 }
