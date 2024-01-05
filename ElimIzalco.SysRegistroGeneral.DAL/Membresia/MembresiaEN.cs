@@ -38,17 +38,17 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Membresia
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public byte[]? Fotografia { get; set; }
-        public SexoDAL IdSexo {  get; set; }
-        public EstatusDAL IdEstatus {  get; set; }
-        public EstadoCivildal IdEstadoCivil {  get; set; }
-        public BautizmoEnAguaDAL IdBautizmoEnAgua {  get; set; }
+        public SexoEN IdSexo {  get; set; }
+        public EstatusEN IdEstatus {  get; set; }
+        public EstadoCivilEN IdEstadoCivil {  get; set; }
+        public BautizmoEnAguaEN IdBautizmoEnAgua {  get; set; }
         public BautizmoDelEspirituSantoEN IdBautizmoDelEspirituSanto {  get; set; }
-        public ListaDeCalendarioDAL IdListaCalendario {  get; set; }
-        public PastoresDAL  IdPastores {  get; set; }
-        public SupervisoresDAL IdSupervisor {  get; set; }
-        public DistritoDAL IdDistrito {  get; set; }
-        public ZonaDAL IdZona {  get; set; }
-        public SectorDAL IdSector {  get; set; }
-        public CelulaDAL IdCelula {  get; set; }
+        public ListaDeCalendarioEN IdListaCalendario {  get; set; }
+        public PastoresEN  IdPastores {  get; set; }
+        public SupervisoresEN IdSupervisor {  get; set; }
+        public DistritoEN IdDistrito {  get; set; }
+        public ZonaEN IdZona {  get; set; }
+        public SectorEN IdSector {  get; set; }
+        public CelulaEN IdCelula {  get; set; }
     }
 }
