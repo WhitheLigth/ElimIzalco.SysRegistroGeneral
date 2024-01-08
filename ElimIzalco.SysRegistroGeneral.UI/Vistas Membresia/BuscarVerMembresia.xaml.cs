@@ -16,6 +16,7 @@ using System.Windows.Controls;
 using ElimIzalco.SysRegistroGeneral.EN.Membresia;
 using ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador;
 using static ElimIzalco.SysRegistroGeneral.EN.Acciones;
+using ElimIzalco.SysRegistroGeneral.BL.Membresia;
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
 {
@@ -40,6 +41,8 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
             dgvMostrar_Membresias.ItemsSource = null;
             dgvMostrar_Membresias.ItemsSource = null;
         }
+
+        #region Evento Click para Mostrar el Formulario para Agregar
         // Metodo para Navegar a la Vista de _MantenimientoMembresia Bajo la Accion de Agregar
         private void btnAgregarMembresia_Click(object sender, RoutedEventArgs e)
         {
@@ -83,7 +86,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Abiertas", "Alerta una Ventana en Ejecucion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+        #endregion
 
+        #region Evento Click para Mostrar el Formulario de Modificar
         private void btnModificarMembresia_Click(object sender, RoutedEventArgs e)
         {
             // Validamos si el Formulario esta abierto
@@ -138,11 +143,13 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Abiertas", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+        #endregion
 
+        #region Evento Click para Mostrar el Formulario de Eliminar
         private void btnEliminarMembresia_Click(object sender, RoutedEventArgs e)
         {
             // Incrustamos la variable accion que Usara el AccionEnum Declarado en la capa de Entidades Bajo la Accion de Eliminar
-            var accion = (byte)AccionEnum.Eliminar;
+            byte pAccion = (byte)AccionEnum.Eliminar;
 
             // Validamos si el Formulario esta abierto
             if (!MembresiaFormAbierto)
@@ -165,7 +172,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     int idMembresia = MembresiaSeleccionada.Id;
 
                     // Creamos una instancia de la Ventana _MantenimientoMembresia para mostrar la Informacion seleccionada utilizando su ID.
-                    _MantenimientoMembresia ElimFormulario = new _MantenimientoMembresia(idMembresia);
+                    _MantenimientoMembresia ElimFormulario = new _MantenimientoMembresia(idMembresia, pAccion);
 
                     // Acciones al cerrar el formulario de mantenimiento.
                     ElimFormulario.Closed += (s, args) =>
@@ -195,13 +202,14 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 // Ventana Emergente
                 MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Abiertas", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-
         }
+        #endregion
 
+        #region Evento Click para Mostrar el Formulario de Visualizar
         private void btnVerMembresia_Click(object sender, RoutedEventArgs e)
         {
             // Incrustamos la variable accion que Usara el AccionEnum Declarado en la capa de Entidades Bajo la Accion de Ver
-            var accion = (byte)AccionEnum.Ver;
+            byte pAccion = (byte)AccionEnum.Ver;
 
             // Validamos si el Formulario esta abierto
             if (!MembresiaFormAbierto)
@@ -224,7 +232,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     int idMembresia = MembresiaSeleccionada.Id;
 
                     // Creamos una instancia de la Ventana _MantenimientoMembresia para mostrar la Informacion seleccionada utilizando su ID.
-                    _MantenimientoMembresia VerFromulario = new _MantenimientoMembresia(idMembresia);
+                    _MantenimientoMembresia VerFromulario = new _MantenimientoMembresia(idMembresia, pAccion);
 
                     // Acciones al cerrar el formulario de mantenimiento.
                     VerFromulario.Closed += (s, args) =>
@@ -255,7 +263,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Abiertas", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+        #endregion
 
+        #region Evento Click para buscar una Membresia
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             // Llamamos al metodo para Actualizar el DatGridView
@@ -274,11 +284,14 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 dgvMostrar_Membresias.ItemsSource = Membresia;
             }
         }
+        #endregion
 
+        #region Evento Click para Recargar el DataGridView
         private void btnRecargar_Click(object sender, RoutedEventArgs e)
         {
             // Llamamo el Metodo para Actualizar el DataGridView
             ActualizarDataGrid();
         }
+        #endregion
     }
 }

@@ -92,31 +92,31 @@
         <TextBox x:Name="txtDigito" HorizontalAlignment="Left" Margin="766,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="20"/>
         <ComboBox x:Name="cbxListaCalendario"  HorizontalAlignment="Left" Margin="829,449,0,0" VerticalAlignment="Top" Width="95" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para ingresar a que Zona Pertenece-->
-        <Label Content="Zona:" HorizontalAlignment="Left" Margin="245,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
-        <ComboBox x:Name="cbxZona"  HorizontalAlignment="Left" Margin="215,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <Label Content="Zona:" HorizontalAlignment="Left" Margin="175,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxZona"  HorizontalAlignment="Left" Margin="145,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para ingresar a que Distrito Pertenece-->
-        <Label Content="Distrito:" HorizontalAlignment="Left" Margin="371,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="83"/>
-        <ComboBox x:Name="cbxDistrito"  HorizontalAlignment="Left" Margin="348,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <Label Content="Distrito:" HorizontalAlignment="Left" Margin="301,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="83"/>
+        <ComboBox x:Name="cbxDistrito"  HorizontalAlignment="Left" Margin="278,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para ingresar a que Sector Pertenece-->
-        <Label Content="Sector:" HorizontalAlignment="Left" Margin="506,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
-        <ComboBox x:Name="cbxSector"  HorizontalAlignment="Left" Margin="481,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <Label Content="Sector:" HorizontalAlignment="Left" Margin="436,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxSector"  HorizontalAlignment="Left" Margin="411,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para ingresar a que Celula Pertenece-->
-        <Label Content="Celula:" HorizontalAlignment="Center" Margin="0,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
-        <ComboBox x:Name="cbxCelula"  HorizontalAlignment="Left" Margin="614,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <Label Content="Celula:" HorizontalAlignment="Left" Margin="572,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxCelula"  HorizontalAlignment="Left" Margin="544,506,0,0" VerticalAlignment="Top" Width="104" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para Ingresar Comentario u Observaciones sobre la Membresia-->
         <Label Content="Comentarios y Observaciones:" HorizontalAlignment="Left" Margin="35,544,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="266"/>
-        <TextBox x:Name="txtDireccionDeConversion_Copiar" HorizontalAlignment="Left" Margin="35,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="895" Height="60"/>
+        <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Margin="35,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="895" Height="60"/>
         <!--Caja para agrupar la Fotografia Personal-->
         <GroupBox Header="Fotografia" Margin="997,31,42,353" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
         <Image x:Name="imgFoto" Height="246" Margin="1016,64,61,0" VerticalAlignment="Top"/>
         <!--Boton para Importarn una Imagen para la Membresia-->
         <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1086,303,0,0"/>
         <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
-        <Image x:Name="imgBarraCode" Height="88" Margin="1003,350,48,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgBarraCode" Height="70" Margin="1003,350,48,0" VerticalAlignment="Top"/>
         <!--Botones para las Acciones CRUD-->
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button Content="Modificar" HorizontalAlignment="Left" Margin="997,494,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="997,539,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="997,494,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="997,539,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <!--Conjunto Donde se muestra la Fecha de Creacion y Modificacion-->
         <Label Content="Fecha de Creacion:" HorizontalAlignment="Left" Margin="974,598,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <DatePicker x:Name="dtFechaDeCreacion" HorizontalAlignment="Left" Margin="977,624,0,0" VerticalAlignment="Top" Height="26" Width="149"/>
@@ -124,5 +124,10 @@
         <DatePicker x:Name="dtFechadeModificacion" HorizontalAlignment="Left" Margin="1149,625,0,0" VerticalAlignment="Top" Height="26" Width="147"/>
         <!--Campo para Id-->
         <TextBox x:Name="txtIdMembresia" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
+        <!--Boton para guarar el codigo de barras en formato Img-->
+        <Button x:Name="btnGuardaImg" Content="Guardar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1083,422,0,0"/>
+        <!--Conjunto Ingresar el Estatus de la Membresia-->
+        <Label Content="Estatus:" HorizontalAlignment="Left" Margin="725,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
+        <ComboBox x:Name="cbxEstatus"  HorizontalAlignment="Left" Margin="686,506,0,0" VerticalAlignment="Top" Width="132" Height="19" BorderBrush="Transparent" Background="Black"/>
     </Grid>
 </Window>
