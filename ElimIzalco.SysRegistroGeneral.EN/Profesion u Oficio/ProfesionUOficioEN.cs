@@ -11,6 +11,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Profesion_u_Oficio
     {
         public int Id {  get; set; }
         public string Nombre {  get; set; }
-        public CategoriaParaProfesionUOficioEN IdCategoria { get; set; }
+        public CategoriaParaProfesionUOficioEN Categoria { get; set; }
     }
 }
