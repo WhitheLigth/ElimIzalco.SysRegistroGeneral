@@ -64,10 +64,10 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             // Consulta hacia la Base de Datos
             string consultaSQL = "INSERT INTO Membresia (Nombre, Apellido, Dui, FechaNacimiento, Edad, Direccion, Telefono," +
                 " LugarDeTrabajo, TelefonoDelTrabajo, FechaConversion, LugarDeConversion, Digito, NombreLider, Observaciones, " +
-                "FechaCreacion, FechaModificacion, Fotografia, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto," +
+                "FechaCreacion, Fotografia, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto," +
                 " IdListaCalendario, IdNombrePastor, IdNombreSupervisor, IdDistrito, IdZona, IdSector, IdCelula, IdProfesionUOficio)" +
                 " VALUES (@Nombre, @Apellido, @Dui, @FechaNacimiento, @Edad, @Direccion, @Telefono, @LugarDeTrabajo, @TelefonoDelTrabajo," +
-                " @FechaConversion, @LugarDeConversion, @Digito, @NombreLider, @Observaciones, @FechaCreacion, @FechaModificacion, " +
+                " @FechaConversion, @LugarDeConversion, @Digito, @NombreLider, @Observaciones, @FechaCreacion," +
                 "@Fotografia, @IdSexo, @IdEstatus, @IdEstadoCivil, @IdBautizmoEnAgua, @IdBautizmoEspirituSanto, @IdListaCalendario," +
                 " @IdNombrePastor, @IdNombreSupervisor, @IdDistrito, @IdZona, @IdSector, @IdCelula, @IdProfesionUOficio)";
 
