@@ -40,8 +40,7 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Profesion_u_Oficio
                 ObjProfesionUOficio.Nombre = reader.GetString(1);
                 ObjProfesionUOficio.IdCategoria = new CategoriaParaProfesionUOficioEN
                 {
-                    Id = reader.GetInt32(3),
-                    Nombre = reader.GetString(4),
+                    Id = reader.GetInt32(2),
                 };
 
                 // A los atributos de la primera instancia se le asignan los datos encontrados del ObjProfesionUOficio
@@ -115,7 +114,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Profesion_u_Oficio
                 ObjProfesionUOficio.IdCategoria = new CategoriaParaProfesionUOficioEN
                 {
                     Id = reader.GetInt32(2),
-                    Nombre = reader.GetString(3),
                 };
 
                 // A los atributos de la primera instancia se le asignan los datos encontrados del ObjProfesionUOficio
