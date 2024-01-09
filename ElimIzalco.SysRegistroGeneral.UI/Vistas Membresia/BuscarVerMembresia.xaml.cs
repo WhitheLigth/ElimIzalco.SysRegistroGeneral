@@ -28,18 +28,22 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
         public BuscarVerMembresia()
         {
             InitializeComponent();
+            ActualizarDataGrid();
         }
         // Declaramos un Booliano para la Accion de Desahabilitar Botones Bajo Cualqueir Acccion Declara en Cada Metodo
         private bool MembresiaFormAbierto = false;
 
         //Creamos una Instancia de la Ventana Principal para acceder a sus Componentes
         VistaGeneralAdmin VentanaPrincipal = new VistaGeneralAdmin();
+
+        // Creamos una Instancia de la Clase MembresiaBL
+        MembresiaBL ObjMembresiaBL = new MembresiaBL();
         
         // Metodo Para Actualizar el DataGrid
         public void ActualizarDataGrid()
         {
             dgvMostrar_Membresias.ItemsSource = null;
-            dgvMostrar_Membresias.ItemsSource = null;
+            dgvMostrar_Membresias.ItemsSource = ObjMembresiaBL.ObtenerMembresia();
         }
 
         #region Evento Click para Mostrar el Formulario para Agregar
