@@ -50,7 +50,6 @@
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}"/>
             </DataGrid.Columns>
         </DataGrid>
         <!--Boton para confirmar la seleccion del datagrid-->
