@@ -24,10 +24,10 @@
         <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Margin="221,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="20"/>
         <!--Conjunto para ingresar el Dui-->
         <Label Content="Dui:" HorizontalAlignment="Left" Margin="407,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="86"/>
-        <TextBox x:Name="txtDui" HorizontalAlignment="Left" Margin="413,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Height="20"/>
+        <TextBox x:Name="txtDui" HorizontalAlignment="Left" Margin="413,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Height="20" TextChanged="txtDui_TextChanged"/>
         <!--Conjunto para ingresar Fecha de Nacimiento-->
         <Label Content="Fecha de Nacimiento:" HorizontalAlignment="Left" Margin="584,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
-        <DatePicker x:Name="dtbFechaDeNacimiento" HorizontalAlignment="Left" Margin="587,81,0,0" VerticalAlignment="Top" Height="26" Width="196"/>
+        <DatePicker x:Name="dtbFechaDeNacimiento" HorizontalAlignment="Left" Margin="587,81,0,0" VerticalAlignment="Top" Height="26" Width="196" SelectedDateChanged="dtbFechaDeNacimiento_SelectedDateChanged"/>
         <!--Conjunto para ingresar La Edad-->
         <Label Content="Edad:" HorizontalAlignment="Left" Margin="806,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Margin="810,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
@@ -44,7 +44,7 @@
         <Label Content="Direccion o Domicilio:" HorizontalAlignment="Left" Margin="470,111,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Margin="474,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="20"/>
         <Label Content="Buscar - Prefesion u Oficio:" HorizontalAlignment="Left" Margin="24,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="204"/>
-        <TextBox x:Name="txtBuscarProfesionUOficio" HorizontalAlignment="Left" Margin="30,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="20"/>
+        <TextBox x:Name="txtBuscarProfesionUOficio" HorizontalAlignment="Left" Margin="30,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="20" TextChanged="txtBuscarProfesionUOficio_TextChanged"/>
         <!--Grid donde se muestran todas las profesiones u Oficios Disponibles-->
         <DataGrid x:Name="dgvResumenProfesionUOficio" HorizontalAlignment="Left" Height="73" Margin="30,236,0,0" VerticalAlignment="Top" Width="211" AutoGenerateColumns="False" ColumnWidth="*">
             <!--Columnas del DataGrid-->
@@ -53,15 +53,15 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--Boton para confirmar la seleccion del datagrid-->
-        <Button x:Name="btnConfirmacionProfesionUOficio" Content="OK" HorizontalAlignment="Left" Margin="196,202,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="34"/>
+        <Button x:Name="btnConfirmacionProfesionUOficio" Content="OK" HorizontalAlignment="Left" Margin="196,202,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="34" Click="btnConfirmacionProfesionUOficio_Click"/>
         <!--Conjunto para Mostrar la Profesion u Oficio Seleccionada-->
         <Label Content="Prefesion u Oficio:" HorizontalAlignment="Left" Margin="276,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="133"/>
         <TextBox x:Name="txtProfesionUOficio" HorizontalAlignment="Left" Margin="282,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="20"/>
         <!--Conjunto para Ingresar el Lugar de trabajo-->
-        <Label Content="Lugar de Trabajo:" HorizontalAlignment="Left" Margin="470,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="133"/>
+        <Label Content="Lugar de Trabajo o Estudio:" HorizontalAlignment="Left" Margin="470,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="133"/>
         <TextBox x:Name="txtLugarDeTrabajo" HorizontalAlignment="Left" Margin="475,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="20"/>
         <!--Conjunto para Ingresar el Telefono del trabajo-->
-        <Label Content="Telefono del Trabajo:" HorizontalAlignment="Left" Margin="732,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="158"/>
+        <Label Content="Telefono del Trabajo o Estudio:" HorizontalAlignment="Left" Margin="722,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="218"/>
         <TextBox x:Name="txtTelefonoDelTrabajo" HorizontalAlignment="Left" Margin="736,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="20"/>
         <!--Caja para agrupar la Informacion Complementaria-->
         <GroupBox Header="Informacion Complementaria" Margin="10,340,372,35" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
@@ -109,11 +109,11 @@
         <GroupBox Header="Fotografia" Margin="997,31,42,353" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
         <Image x:Name="imgFoto" Height="246" Margin="1016,64,61,0" VerticalAlignment="Top"/>
         <!--Boton para Importarn una Imagen para la Membresia-->
-        <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1086,303,0,0"/>
+        <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1086,303,0,0" Click="btnAgregarImg_Click"/>
         <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
         <Image x:Name="imgBarraCode" Height="70" Margin="1003,350,48,0" VerticalAlignment="Top"/>
         <!--Botones para las Acciones CRUD-->
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="997,450,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnGuardar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="997,494,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="997,539,0,0" VerticalAlignment="Top" Height="42" Width="292" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <!--Conjunto Donde se muestra la Fecha de Creacion y Modificacion-->
@@ -124,7 +124,7 @@
         <!--Campo para Id-->
         <TextBox x:Name="txtIdMembresia" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
         <!--Boton para guarar el codigo de barras en formato Img-->
-        <Button x:Name="btnGuardaImg" Content="Guardar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1083,422,0,0"/>
+        <Button x:Name="btnGuardaImg" Content="Guardar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1083,422,0,0" Click="btnGuardaImg_Click"/>
         <!--Conjunto Ingresar el Estatus de la Membresia-->
         <Label Content="Estatus:" HorizontalAlignment="Left" Margin="725,476,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="57"/>
         <ComboBox x:Name="cbxEstatus"  HorizontalAlignment="Left" Margin="686,506,0,0" VerticalAlignment="Top" Width="132" Height="19" BorderBrush="Transparent" Background="Black"/>
