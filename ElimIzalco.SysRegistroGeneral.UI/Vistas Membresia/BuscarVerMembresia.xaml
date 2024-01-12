@@ -15,7 +15,7 @@
         <DataGrid x:Name="dgvMostrar_Membresias" AutoGenerateColumns="False" ColumnWidth="*" Margin="226,230,227,21">
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Dui" Binding="{Binding DUI}"/>
+                <DataGridTextColumn Header="Dui" Binding="{Binding Dui}"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
                 <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nombre}"/>
