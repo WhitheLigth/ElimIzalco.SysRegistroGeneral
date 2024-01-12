@@ -51,6 +51,6 @@ namespace ElimIzalco.SysRegistroGeneral.EN.Membresia
         public ZonaEN? Zona {  get; set; }
         public SectorEN? Sector {  get; set; }
         public CelulaEN? Celula {  get; set; }
-        public ProfesionUOficioEN? ProfesionUOficio { get; set; }
+        public string? ProfesionUOficio { get; set; }
     }
 }
