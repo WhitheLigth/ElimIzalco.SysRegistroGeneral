@@ -62,14 +62,15 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             }
 
             // Consulta hacia la Base de Datos
-            string consultaSQL = "INSERT INTO Membresia (Nombre, Apellido, Dui, FechaNacimiento, Edad, Direccion, Telefono," +
-                " LugarDeTrabajo, TelefonoDelTrabajo, FechaConversion, LugarDeConversion, Digito, NombreLider, Observaciones, " +
-                "FechaCreacion, Fotografia, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto," +
-                " IdListaCalendario, IdNombrePastor, IdNombreSupervisor, IdDistrito, IdZona, IdSector, IdCelula, ProfesionUOficio)" +
-                " VALUES (@Nombre, @Apellido, @Dui, @FechaNacimiento, @Edad, @Direccion, @Telefono, @LugarDeTrabajo, @TelefonoDelTrabajo," +
-                " @FechaConversion, @LugarDeConversion, @Digito, @NombreLider, @Observaciones, @FechaCreacion," +
-                "@Fotografia, @IdSexo, @IdEstatus, @IdEstadoCivil, @IdBautizmoEnAgua, @IdBautizmoEspirituSanto, @IdListaCalendario," +
-                " @IdNombrePastor, @IdNombreSupervisor, @IdDistrito, @IdZona, @IdSector, @IdCelula, @ProfesionUOficio)";
+            string consultaSQL = "INSERT INTO Membresia (Nombre, Apellido, Dui, FechaNacimiento, Edad, Direccion, Telefono, " +
+                "LugarDeTrabajo, TelefonoDelTrabajo, FechaConversion, LugarDeConversion, Digito, NombreLider, Observaciones, " +
+                "FechaCreacion, Fotografia, ProfesionUOficio, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto, " +
+                "IdListaCalendario, IdNombrePastor, IdNombreSupervisor, IdDistrito, IdZona, IdSector, IdCelula) " +
+
+                "VALUES (@Nombre, @Apellido, @Dui, @FechaNacimiento, @Edad, @Direccion, @Telefono, @LugarDeTrabajo, @TelefonoDelTrabajo, " +
+                "@FechaConversion, @LugarDeConversion, @Digito, @NombreLider, @Observaciones, @FechaCreacion, " +
+                "@Fotografia, @ProfesionUOficio, @IdSexo, @IdEstatus, @IdEstadoCivil, @IdBautizmoEnAgua, @IdBautizmoEspirituSanto, @IdListaCalendario, " +
+                "@IdNombrePastor, @IdNombreSupervisor, @IdDistrito, @IdZona, @IdSector, @IdCelula)";
 
             SqlCommand command = ComunDB.ObtenerComando();
             // Usar CommandType.Text para indicar que es una consulta directa en lugar de un procedimiento almacenado
@@ -93,6 +94,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@Observaciones", pMembresiaGuardar.Observaciones);
             command.Parameters.AddWithValue("@FechaCreacion", pMembresiaGuardar.FechaCreacion);
             command.Parameters.AddWithValue("@Fotografia", pMembresiaGuardar.Fotografia);
+            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaGuardar.ProfesionUOficio);
             command.Parameters.AddWithValue("@IdSexo", pMembresiaGuardar.Sexo.Id);
             command.Parameters.AddWithValue("@IdEstatus", pMembresiaGuardar.Estatus.Id);
             command.Parameters.AddWithValue("@IdEstadoCivil", pMembresiaGuardar.EstadoCivil.Id);
@@ -105,7 +107,6 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@IdZona", pMembresiaGuardar.Zona.Id);
             command.Parameters.AddWithValue("@IdSector", pMembresiaGuardar.Sector.Id);
             command.Parameters.AddWithValue("@IdCelula", pMembresiaGuardar.Celula.Id);
-            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaGuardar.ProfesionUOficio);
             return ComunDB.EjecutarComando(command);
         }
         #endregion
@@ -118,15 +119,15 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             string consultaSQL = "UPDATE Membresia SET Nombre = @Nombre, Apellido = @Apellido, Dui = @Dui, FechaNacimiento = @FechaNacimiento, Edad = @Edad, " +
                 "Direccion = @Direccion, Telefono = @Telefono, LugarDeTrabajo = @LugarDeTrabajo, TelefonoDelTrabajo = @TelefonoDelTrabajo, " +
                 "FechaConversion = @FechaConversion, LugarDeConversion = @LugarDeConversion, Digito = @Digito, NombreLider = @NombreLider, " +
-                "Observaciones = @Observaciones, FechaCreacion = @FechaCreacion, FechaModificacion = @FechaModificacion, Fotografia = @Fotografia, " +
+                "Observaciones = @Observaciones, FechaModificacion = @FechaModificacion, Fotografia = @Fotografia, ProfesionUOficio = @ProfesionUOficio, " +
                 "IdSexo = @IdSexo, IdEstatus = @IdEstatus, IdEstadoCivil = @IdEstadoCivil, IdBautizmoEnAgua = @IdBautizmoEnAgua, " +
                 "IdBautizmoEspirituSanto = @IdBautizmoEspirituSanto, IdListaCalendario = @IdListaCalendario, IdNombrePastor = @IdNombrePastor, " +
-                "IdNombreSupervisor = @IdNombreSupervisor, IdDistrito = @IdDistrito, IdZona = @IdZona, IdSector = @IdSector, IdCelula = @IdCelula, " +
-                "IdProfesionUOficio = @IdProfesionUOficio WHERE Id = @Id";
+                "IdNombreSupervisor = @IdNombreSupervisor, IdDistrito = @IdDistrito, IdZona = @IdZona, IdSector = @IdSector, IdCelula = @IdCelula " +
+                "WHERE Id = @Id";
 
             SqlCommand command = ComunDB.ObtenerComando();
             // Usar CommandType.Text para indicar que es una consulta directa en lugar de un procedimiento almacenado
-            command.CommandType = System.Data.CommandType.Text;
+            //command.CommandType = System.Data.CommandType.Text;
             command.CommandText = consultaSQL;
 
             // Asignacion de columnas
@@ -145,8 +146,9 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@Digito", pMembresiaModificar.Digito);
             command.Parameters.AddWithValue("@NombreLider", pMembresiaModificar.NombreLider);
             command.Parameters.AddWithValue("@Observaciones", pMembresiaModificar.Observaciones);
-            command.Parameters.AddWithValue("@FechaCreacion", pMembresiaModificar.FechaCreacion);
+            command.Parameters.AddWithValue("@FechaModificacion", pMembresiaModificar.FechaModificacion);
             command.Parameters.AddWithValue("@Fotografia", pMembresiaModificar.Fotografia);
+            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaModificar.ProfesionUOficio);
             command.Parameters.AddWithValue("@IdSexo", pMembresiaModificar.Sexo.Id);
             command.Parameters.AddWithValue("@IdEstatus", pMembresiaModificar.Estatus.Id);
             command.Parameters.AddWithValue("@IdEstadoCivil", pMembresiaModificar.EstadoCivil.Id);
@@ -159,7 +161,6 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@IdZona", pMembresiaModificar.Zona.Id);
             command.Parameters.AddWithValue("@IdSector", pMembresiaModificar.Sector.Id);
             command.Parameters.AddWithValue("@IdCelula", pMembresiaModificar.Celula.Id);
-            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaModificar.ProfesionUOficio);
             return ComunDB.EjecutarComando(command);
         }
         #endregion
