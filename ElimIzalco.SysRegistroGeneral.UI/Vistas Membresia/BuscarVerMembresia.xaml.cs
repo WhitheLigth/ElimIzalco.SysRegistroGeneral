@@ -184,7 +184,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                         // Actualizos el estado del Booliano a false refiriendo que la ventana esta Cerrada y Habilitamos los siguientes botones
                         MembresiaFormAbierto = false;
                         btnAgregarMembresia.IsEnabled = true;
-                        btnAgregarMembresia.IsEnabled = true;
+                        btnModificarMembresia.IsEnabled = true;
                         btnVerMembresia.IsEnabled = true;
                         // Ademas de Habilitar los siguientes Botontes de la Ventana Principal
                         VentanaPrincipal.btnInicio.IsEnabled = true;
@@ -244,7 +244,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                         // Actualizos el estado del Booliano a false refiriendo que la ventana esta Cerrada y Habilitamos los siguientes botones
                         MembresiaFormAbierto = false;
                         btnAgregarMembresia.IsEnabled = true;
-                        btnAgregarMembresia.IsEnabled = true;
+                        btnModificarMembresia.IsEnabled = true;
                         btnEliminarMembresia.IsEnabled = true;
                         // Ademas de Habilitar los siguientes Botontes de la Ventana Principal
                         VentanaPrincipal.btnInicio.IsEnabled = true;
