@@ -39,10 +39,10 @@
         <!--Caja de texto para ingresar la Busqueda-->
         <TextBox x:Name="txtBuscarServidor" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18"/>
         <!--Boton para las acciones de "Agregar, Modificar, Elminar y Visualizar"-->
-        <Button x:Name="btnAgregarServidor" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnAgregarMembresia_Click"/>
-        <Button x:Name="btnModificarServidorr" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnModificarMembresia_Click"/>
-        <Button x:Name="btnEliminarServidor" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnEliminarMembresia_Click"/>
-        <Button x:Name="btnVerServidor" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnVerMembresia_Click"/>
+        <Button x:Name="btnAgregarServidor" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnModificarServidorr" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnEliminarServidor" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnVerServidor" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
         <!--Campo para Id-->
         <TextBox x:Name="txtIdServidor" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
     </Grid>
