@@ -48,7 +48,7 @@
                 </Button.Background>
             </Button>
             <!--Boton Para Navegar hacia la Ventana de Servidores-->
-            <Button Width="68" Height="86" BorderBrush="Transparent">
+            <Button Width="68" Height="86" BorderBrush="Transparent" x:Name="btnServidor" Click="btnServidor_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Images/IconServidores.png"/>
                 </Button.Background>
