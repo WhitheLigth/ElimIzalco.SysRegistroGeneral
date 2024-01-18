@@ -13,7 +13,7 @@
     <!--Grid Principal-->
     <Grid>
         <!--Rectangulo Superior Titular-->
-        <Rectangle HorizontalAlignment="Center" Height="26" Stroke="#FF091C77" VerticalAlignment="Top" Width="1341" Fill="#FF091C77"/>
+        <Rectangle HorizontalAlignment="Center" Height="26" Stroke="#FF091C77" VerticalAlignment="Top" Width="982" Fill="#FF091C77"/>
         <!--Caja para agrupar la Informacion Personal-->
         <GroupBox Header="Informacion Personal De La Membresia" Margin="10,211,303,48" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
         <!--Conjunto para Mostrar el Nombre-->
@@ -39,7 +39,7 @@
         <ComboBox x:Name="cbxBautizmoEnEspirituSanto"  HorizontalAlignment="Left" Margin="343,325,0,0" VerticalAlignment="Top" Width="146" Height="19" BorderBrush="Transparent" Background="Black" IsEnabled="False"/>
         <!--Conjunto para Mostrar El Estatus-->
         <Label Content="Estatus:" HorizontalAlignment="Left" Margin="522,295,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="103"/>
-        <ComboBox x:Name="cbxEstatus"  HorizontalAlignment="Left" Margin="527,325,0,0" VerticalAlignment="Top" Width="120" Height="19" BorderBrush="Transparent" Background="Black" IsEnabled="False"/>
+        <ComboBox x:Name="cbxEstatus"  HorizontalAlignment="Left" Margin="527,325,0,0" VerticalAlignment="Top" Width="120" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para Mostrar El Nombre Del Pastor-->
         <Label Content="Pastor:" HorizontalAlignment="Left" Margin="38,355,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="103"/>
         <ComboBox x:Name="cbxNombreDelPastor"  HorizontalAlignment="Left" Margin="43,385,0,0" VerticalAlignment="Top" Width="205" Height="19" BorderBrush="Transparent" Background="Black" IsEnabled="False"/>
@@ -68,7 +68,7 @@
         <Label Content="Buscar Miembro:" HorizontalAlignment="Left" Margin="157,37,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="141"/>
         <TextBox x:Name="txtBuscarMiembro" MaxLength="100" HorizontalAlignment="Left" Margin="159,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="20"/>
         <!--Grid donde se muestran todos los Miembros-->
-        <DataGrid x:Name="dgvResumenProfesionUOficio" HorizontalAlignment="Left" Height="91" Margin="131,106,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" ColumnWidth="*">
+        <DataGrid x:Name="dgvListaMiembros" HorizontalAlignment="Left" Height="91" Margin="131,106,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" ColumnWidth="*">
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Dui" Binding="{Binding Dui}"/>
@@ -82,6 +82,8 @@
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="687,348,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="687,396,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="687,444,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <!--Campo para Almacenar y Mostrar el Id del Servidor-->
+        <TextBox x:Name="txtIdServidor" HorizontalAlignment="Left" Margin="32,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Visibility="Hidden"/>
 
     </Grid>
 </Window>
