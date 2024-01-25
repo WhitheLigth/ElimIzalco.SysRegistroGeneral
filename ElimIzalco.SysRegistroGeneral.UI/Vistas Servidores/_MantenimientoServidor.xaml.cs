@@ -20,6 +20,15 @@ using ElimIzalco.SysRegistroGeneral.BL.Privilegios;
 using ElimIzalco.SysRegistroGeneral.BL.Servidores;
 using ElimIzalco.SysRegistroGeneral.EN.Membresia;
 using System.IO;
+using ElimIzalco.SysRegistroGeneral.BL.Estado_Civil;
+using ElimIzalco.SysRegistroGeneral.BL.Sexo;
+using ElimIzalco.SysRegistroGeneral.BL.Bautizmo_Del_Espiritu_Santo;
+using ElimIzalco.SysRegistroGeneral.BL.Pastores;
+using ElimIzalco.SysRegistroGeneral.BL.Supervisores;
+using ElimIzalco.SysRegistroGeneral.BL.Celula;
+using ElimIzalco.SysRegistroGeneral.BL.Distrito;
+using ElimIzalco.SysRegistroGeneral.BL.Sector;
+using ElimIzalco.SysRegistroGeneral.BL.Zona;
 #endregion
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
@@ -36,6 +45,15 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             ActualizarDataGridMembresia();
             CargarEstatus();
             CargarPrivilegio();
+            CargarComboSexo();
+            CargarComboEstadoCivil();
+            CargarComboBautizmoEspirituSanto();
+            CargarPastor();
+            CargarSupervisor();
+            CargarDistrito();
+            CargarZona();
+            CargarSector();
+            CargarCelula();
         }
 
         #region Metodos para Cargar ComboBox's
@@ -46,7 +64,6 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             var estatus = estatusBl.ObtenerEstatus();
 
             cbxEstatus.ItemsSource = estatus;
-
             cbxEstatus.DisplayMemberPath = "Nombre";
             cbxEstatus.SelectedValuePath = "Id";
         }
@@ -57,9 +74,99 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             var privilegio = privilegioBl.ObtenerPrivilegio();
 
             cbxPrivilegio.ItemsSource = privilegio;
-
             cbxPrivilegio.DisplayMemberPath = "Nombre";
-            cbxPrivilegio.SelectedValuePath = "Ids";
+            cbxPrivilegio.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarComboSexo()
+        {
+            var sexoBl = new SexoBL();
+            var sexo = sexoBl.ObtenerSexo();
+
+            cbxSexo.ItemsSource = sexo;
+            cbxSexo.DisplayMemberPath = "Nombre";
+            cbxSexo.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarComboEstadoCivil()
+        {
+            var estadiCivilBl = new EstadoCivilBL();
+            var estadoCivil = estadiCivilBl.ObtenerEstadoCivil();
+
+            cbxEstadoCivil.ItemsSource = estadoCivil;
+            cbxEstadoCivil.DisplayMemberPath = "Nombre";
+            cbxEstadoCivil.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarComboBautizmoEspirituSanto()
+        {
+            var bautizmoEspirituSantoBl = new BautizmoDelEspirituSantoBL();
+            var bautizmoEspirituSanto = bautizmoEspirituSantoBl.ObtenerBautizmoDelEspirituSanto();
+
+            cbxBautizmoEnEspirituSanto.ItemsSource = bautizmoEspirituSanto;
+            cbxBautizmoEnEspirituSanto.DisplayMemberPath = "Nombre";
+            cbxBautizmoEnEspirituSanto.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarPastor()
+        {
+            var pastorBl = new PastoresBL();
+            var pastor = pastorBl.ObtenerPastor();
+
+            cbxNombreDelPastor.ItemsSource = pastor;
+            cbxNombreDelPastor.DisplayMemberPath = "Nombre";
+            cbxNombreDelPastor.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarSupervisor()
+        {
+            var supervisorBl = new SupervisoresBL();
+            var supervisor = supervisorBl.ObtenerSupervisor();
+
+            cbxNombreDelSupervisor.ItemsSource = supervisor;
+            cbxNombreDelSupervisor.DisplayMemberPath = "Nombre";
+            cbxNombreDelSupervisor.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarDistrito()
+        {
+            var distritoBl = new DistritoBL();
+            var distrito = distritoBl.ObtenerDistrito();
+
+            cbxDistrito.ItemsSource = distrito;
+            cbxDistrito.DisplayMemberPath = "Numero";
+            cbxDistrito.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarZona()
+        {
+            var zonaBl = new ZonaBL();
+            var zona = zonaBl.ObtenerZona();
+
+            cbxZona.ItemsSource = zona;
+            cbxZona.DisplayMemberPath = "Numero";
+            cbxZona.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarSector()
+        {
+            var sectorBl = new SectorBL();
+            var sector = sectorBl.ObtenerSector();
+
+            cbxSector.ItemsSource = sector;
+
+            cbxSector.DisplayMemberPath = "Numero";
+            cbxSector.SelectedValuePath = "Id";
+        }
+        // Metodo para Cargar el ComboBox
+        private void CargarCelula()
+        {
+            var celulaBl = new CelulaBL();
+            var celula = celulaBl.ObtenerCelula();
+
+            cbxCelula.ItemsSource = celula;
+            cbxCelula.DisplayMemberPath = "Numero";
+            cbxCelula.SelectedValuePath = "Id";
         }
         #endregion
 
