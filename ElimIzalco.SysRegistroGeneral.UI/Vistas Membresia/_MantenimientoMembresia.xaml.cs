@@ -892,6 +892,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 // Limpiamos el campo txtBuscarProfesionUOficio
                 txtBuscarProfesionUOficio.Text = string.Empty;
             }
+            else
+            {
+                MessageBox.Show("Debes Seleccionar Al Menos Un Registro", "Error En La Seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         #endregion
 
