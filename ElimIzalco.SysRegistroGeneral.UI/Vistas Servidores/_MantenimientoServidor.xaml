@@ -66,7 +66,7 @@
         <Image x:Name="imgFoto" Height="241" Margin="703,69,38,0" VerticalAlignment="Top"/>
         <!--Conjunto para Buscar una Membresia-->
         <Label Content="Buscar Miembro:" HorizontalAlignment="Left" Margin="157,37,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="141"/>
-        <TextBox x:Name="txtBuscarMiembro" MaxLength="100" HorizontalAlignment="Left" Margin="159,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="20"/>
+        <TextBox x:Name="txtBuscarMiembro" MaxLength="100" HorizontalAlignment="Left" Margin="159,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="20" TextChanged="txtBuscarMiembro_TextChanged"/>
         <!--Grid donde se muestran todos los Miembros-->
         <DataGrid x:Name="dgvListaMiembros" HorizontalAlignment="Left" Height="91" Margin="131,106,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" ColumnWidth="*">
             <!--Columnas del DataGrid-->
@@ -77,7 +77,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--Boton para Confirmar el Miembro Seleccionado-->
-        <Button x:Name="btnConfirmarMiembro" Content="Aceptar" HorizontalAlignment="Left" Margin="446,64,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="77"/>
+        <Button x:Name="btnConfirmarMiembro" Content="Aceptar" HorizontalAlignment="Left" Margin="446,64,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="77" Click="btnConfirmarMiembro_Click"/>
         <!--Botones para las Acciones CRUD-->
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="687,348,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="687,396,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
