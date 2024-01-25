@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElimIzalco.SysRegistroGeneral.BL.Membresia;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+// REFERENCIAS NECESARIAS PARA EL CORRECTO FUNCIONAMIENTO
+
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
 {
@@ -19,9 +22,21 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
     /// </summary>
     public partial class _MantenimientoServidor : Window
     {
+        // Metodo de Inicializacion para el Formulario
         public _MantenimientoServidor()
         {
             InitializeComponent();
+            ActualizarDataGridMembresia();
+        }
+
+        // Creacion de Instancias para Acceder a los metodos
+        MembresiaBL ObjMembresia = new MembresiaBL();
+
+        // Metodo para Cargar el DataGridView de Membresia
+        public void ActualizarDataGridMembresia()
+        {
+            dgvListaMiembros.ItemsSource = null;
+            dgvListaMiembros.ItemsSource = ObjMembresia.ObtenerMembresia();
         }
     }
 }
