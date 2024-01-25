@@ -80,5 +80,82 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
             return ComunDB.EjecutarComando(command);
         }
         #endregion
+
+        #region Metodo para Obtener Todos los Servidores
+        // Metodo para Obtener toda la lista de servidores Existentes en la Base de Datos
+        public List<ServidoresEN> ObtenerServidores()
+        {
+            // Creamos una instancia de MembresiaEN para acceder a los atributos
+            List<ServidoresEN> listaServidores = new List<ServidoresEN>();
+
+            // Consulta hacia la Base de Datos
+            string consultaSQL = "SELECT Servidores.Id, " +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad" +
+                "Sexo.Id, Sexo.Nombre, " +
+                "EstadoCivil.Id, EstadoCivil.Nombre, " +
+                "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
+                "Pastores.Id, Pastores.Nombre, " +
+                "Supervisores.Id, Supervisores.Nombre, " +
+                "Distrito.Id, Distrito.Numero, " +
+                "Zona.Id, Zona.Numero, " +
+                "Sector.Id, Sector.Numero, " +
+                "Celula.Id, Celula.Numero, " +
+                "Estatus.Id, Estatus.Nombre, " +
+                "Privilegios.Id, Privilegios.Nombre " +
+
+                "FROM Servidores JOIN Membresia ON Servidores.IdMembresia = Membresia.Id " +
+                "JOIN Sexo ON Membresia.IdSexo = Sexo.Id " +
+                "JOIN EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id " +
+                "JOIN BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
+                "JOIN Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
+                "JOIN Supervisores ON Membresia.IdNombreSupervisor = Supervisores.Id " +
+                "JOIN Distrito ON Membresia.IdDistrito = Distrito.Id " +
+                "JOIN Zona ON Membresia.IdZona = Zona.Id " +
+                "JOIN Sector ON Membresia.IdSector = Sector.Id " +
+                "JOIN Celula ON Membresia.IdCelula = Celula.Id " +
+                "JOIN Estatus ON Servidores.IdEstatus = Estatus.Id " +
+                "JOIN Privilegios ON Servidores.IdPrivilegio = Privilegios.Id;";
+
+            SqlCommand command = ComunDB.ObtenerComando();
+
+            // Usar CommandType.Text para indicar que es una consulta directa en lugar de un procedimiento almacenado
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = consultaSQL;
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(command);
+
+            while (reader.Read())
+            {
+                // Creamos una nueva instancia de ServidoresEN para acceder a los atributos
+                ServidoresEN ObjServidores = new ServidoresEN();
+
+                // Asignacion de Columnas
+                ObjServidores.Id = reader.GetInt32(0);
+
+
+                listaServidores.Add(ObjServidores);
+
+                return listaServidores;
+            }
+        }
+        #endregion
+
+        #region Metodo para Validar Existencia del Servidor
+        // Metodo para Validar si el Servidor ya esta existente
+        public int ValidarExistenciaServidor(ServidoresEN pServidorValidar)
+        {
+            var servidores = ObtenerServidores();
+            var servidor = servidores.FirstOrDefault(c => c.Membresia.Id == pServidorValidar.Membresia.Id);
+
+            if (servidor != null)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        #endregion
     }
 }
