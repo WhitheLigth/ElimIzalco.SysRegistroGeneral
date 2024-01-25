@@ -79,7 +79,7 @@
         <!--Boton para Confirmar el Miembro Seleccionado-->
         <Button x:Name="btnConfirmarMiembro" Content="Aceptar" HorizontalAlignment="Left" Margin="446,64,0,0" VerticalAlignment="Top" Background="#FF091C77" Foreground="White" FontWeight="Bold" Height="25" Width="77" Click="btnConfirmarMiembro_Click"/>
         <!--Botones para las Acciones CRUD-->
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="687,348,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="687,348,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnGuardar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="687,396,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="687,444,0,0" VerticalAlignment="Top" Height="42" Width="261" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <!--Campo para Almacenar y Mostrar el Id del Servidor y de la Membresia-->

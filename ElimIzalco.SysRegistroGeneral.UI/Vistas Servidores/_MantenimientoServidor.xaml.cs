@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 #region REFERENCIAS
 // REFERENCIAS NECESARIAS PARA EL CORRECTO FUNCIONAMIENTO
@@ -29,6 +27,12 @@ using ElimIzalco.SysRegistroGeneral.BL.Celula;
 using ElimIzalco.SysRegistroGeneral.BL.Distrito;
 using ElimIzalco.SysRegistroGeneral.BL.Sector;
 using ElimIzalco.SysRegistroGeneral.BL.Zona;
+using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using ElimIzalco.SysRegistroGeneral.EN.Servidores;
+using ElimIzalco.SysRegistroGeneral.EN.Celula;
+using ElimIzalco.SysRegistroGeneral.EN.Estatus;
+using ElimIzalco.SysRegistroGeneral.EN.Privilegios;
 #endregion
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
@@ -279,5 +283,32 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
         }
         #endregion
 
+        #region Metodo para Guardar
+        // Metodo Click para Guardar un Nuevo Servidor
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            // La Variable ObjServidor almacenara los Atributos de la Entidad con los Datos Proporcionado en la Vista Grafica
+            var ObjServidor = new ServidoresEN
+            {
+                Membresia = new MembresiaEN
+                {
+                    Id = Convert.ToInt32(txtIdMembresia.Text),
+                },
+                Estatus = new EstatusEN
+                {
+                    Id = Convert.ToInt32(cbxEstatus.SelectedValue),
+                },
+                Privilegio = new PrivilegiosEN
+                {
+                    Id = Convert.ToInt32(cbxPrivilegio.SelectedValue),
+                },
+            };
+            // Validamos que el ObjServidor sea diferente a NULL para poder continuar con lo siguiente
+            if(ObjServidor != null)
+            {
+
+            }
+        }
+        #endregion
     }
 }
