@@ -15,32 +15,32 @@
         <DataGrid x:Name="dgvMostrar_Servidores" AutoGenerateColumns="False" ColumnWidth="*" Margin="226,230,227,21">
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Dui" Binding="{Binding Dui}"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
-                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nombre}"/>
+                <DataGridTextColumn Header="Dui" Binding="{Binding Membresia.Dui}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Membresia.Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Membresia.Apellido}"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Membresia.Sexo.Nombre}"/>
                 <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus.Nombre}"/>
                 <DataGridTextColumn Header="Privilegio" Binding="{Binding Privilegio.Nombre}"/>
             </DataGrid.Columns>
 
         </DataGrid>
         <!--Boton Para Buscar-->
-        <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="998,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+        <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="998,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent" Click="btnBuscar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <!--Boton Para Recargar la Pagina-->
-        <Button x:Name="btnRecargar" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent">
+        <Button x:Name="btnRecargar" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Height="54" Width="69" Foreground="Transparent" BorderBrush="Transparent" Click="btnRecargar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/recargar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <!--Caja de texto para ingresar la Busqueda-->
-        <TextBox x:Name="txtBuscarServidor" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18"/>
+        <TextBox x:Name="txtBuscarServidor" HorizontalAlignment="Left" Margin="381,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585" Height="30" FontSize="18" TextChanged="txtBuscarServidor_TextChanged"/>
         <!--Boton para las acciones de "Agregar, Modificar, Elminar y Visualizar"-->
-        <Button x:Name="btnAgregarServidor" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnModificarServidorr" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnAgregarServidor" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnAgregarServidor_Click"/>
+        <Button x:Name="btnModificarServidor" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnModificarServidor_Click"/>
         <Button x:Name="btnEliminarServidor" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
         <Button x:Name="btnVerServidor" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
         <!--Campo para Id-->
