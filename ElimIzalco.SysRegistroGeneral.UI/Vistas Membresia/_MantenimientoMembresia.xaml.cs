@@ -66,6 +66,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
         {
             InitializeComponent();
 
+            // Deshabilitar el botón de cerrar
+            this.WindowStyle = WindowStyle.None;
+
             // Llamamos el metodo de ActualizarDataGrid para que se ejecute al iniciar la ventana
             ActualizarDataGrid();
             ActualizarDataGridProfesionUOficio();

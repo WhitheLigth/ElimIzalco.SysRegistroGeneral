@@ -47,6 +47,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
         public _MantenimientoServidor(int? pId = null, byte? pAccion = null)
         {
             InitializeComponent();
+            
+            // Deshabilitar el botón de cerrar
+            this.WindowStyle = WindowStyle.None;
+
             ActualizarDataGridMembresia();
             CargarEstatus();
             CargarPrivilegio();
