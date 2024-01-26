@@ -201,7 +201,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
         {
             // Creamos una instancia de la clase ServidorBL y Accedemos al Metodo ObtenerPorId
             var servidorBl = new ServidoresBL();
-            var servidor = servidorBl.ObtenerServidoresPorId(pId);
+            var servidor = servidorBl.ObtenerServidorPorId(pId);
 
             // Validamos que la variable servidor sea diferente de null que prociga
             if (servidor != null)
