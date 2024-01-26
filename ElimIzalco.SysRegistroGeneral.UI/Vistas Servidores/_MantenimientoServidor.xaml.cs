@@ -214,7 +214,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     txtIdServidor.Text = Convert.ToString(servidor.Id);
                     txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
                     txtNombre.Text = servidor.Membresia.Nombre;
-                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtApellidos.Text = servidor.Membresia.Apellido;
                     txtEdad.Text = servidor.Membresia.Edad;
                     txtDui.Text = servidor.Membresia.Dui;
 
@@ -292,7 +292,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     txtIdServidor.Text = Convert.ToString(servidor.Id);
                     txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
                     txtNombre.Text = servidor.Membresia.Nombre;
-                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtApellidos.Text = servidor.Membresia.Apellido;
                     txtEdad.Text = servidor.Membresia.Edad;
                     txtDui.Text = servidor.Membresia.Dui;
 
@@ -369,7 +369,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     txtIdServidor.Text = Convert.ToString(servidor.Id);
                     txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
                     txtNombre.Text = servidor.Membresia.Nombre;
-                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtApellidos.Text = servidor.Membresia.Apellido;
                     txtEdad.Text = servidor.Membresia.Edad;
                     txtDui.Text = servidor.Membresia.Dui;
 
