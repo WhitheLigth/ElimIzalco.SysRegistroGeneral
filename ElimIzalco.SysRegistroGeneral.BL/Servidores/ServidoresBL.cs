@@ -40,5 +40,15 @@ namespace ElimIzalco.SysRegistroGeneral.BL.Servidores
         {
             return ObjServidor.ObtenerServidores();
         }
+        // Metodo para Obtener un Registro en Base al Id
+        public ServidoresEN ObtenerServidorPorId(int? pId)
+        {
+            return ObjServidor.ObtenerServidoresPorId(pId);
+        }
+        // metodo para Obtener Registros por Similitud de Caracteres Proporcionados para la Busqueda
+        public List<ServidoresEN> ObtenerServidorLike(string pNombre)
+        {
+            return ObjServidor.ObtenerServidoresLike(pNombre);
+        }
     }
 }
