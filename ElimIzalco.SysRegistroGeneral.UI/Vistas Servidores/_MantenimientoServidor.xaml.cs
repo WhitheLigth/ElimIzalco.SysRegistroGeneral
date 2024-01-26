@@ -274,11 +274,12 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     cbxEstatus.IsEnabled = false;
                     cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
                     cbxPrivilegio.DisplayMemberPath = "Nombre";
-                    cbxPrivilegio.DisplayMemberPath = "Id";
-                    cbxPrivilegio.IsEditable = false;
+                    cbxPrivilegio.SelectedValuePath = "Id";
+                    cbxPrivilegio.IsEnabled = false;
 
                     txtBuscarMiembro.IsEnabled = false;
                     btnConfirmarMiembro.IsEnabled = false;
+                    dgvListaMiembros.IsEnabled = false;
 
                     btnGuardar.IsEnabled = false;
                     btnModificar.IsEnabled = false;
@@ -352,11 +353,12 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     cbxEstatus.IsEnabled = false;
                     cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
                     cbxPrivilegio.DisplayMemberPath = "Nombre";
-                    cbxPrivilegio.DisplayMemberPath = "Id";
-                    cbxPrivilegio.IsEditable = false;
+                    cbxPrivilegio.SelectedValuePath = "Id";
+                    cbxPrivilegio.IsEnabled = false;
 
                     txtBuscarMiembro.IsEnabled = false;
                     btnConfirmarMiembro.IsEnabled = false;
+                    dgvListaMiembros.IsEnabled = false;
 
                     btnGuardar.IsEnabled = false;
                     btnModificar.IsEnabled = false;
