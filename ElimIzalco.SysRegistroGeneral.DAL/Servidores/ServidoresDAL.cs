@@ -122,7 +122,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Servidores.Id, " +
-                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, " +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, Membresia.Fotografia, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre, " +
                 "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
@@ -170,61 +170,62 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                     Apellido = reader.GetString(3),
                     Dui = reader.GetString(4),
                     Edad = reader.GetString(5),
+                    Fotografia = reader.GetSqlBytes(6).Value,
                     Sexo = new SexoEN
                     {
-                        Id = reader.GetInt32(6),
-                        Nombre = reader.GetString(7)
+                        Id = reader.GetInt32(7),
+                        Nombre = reader.GetString(8)
                     },
                     EstadoCivil = new EstadoCivilEN
                     {
-                        Id = reader.GetInt32(8),
-                        Nombre = reader.GetString(9)
+                        Id = reader.GetInt32(9),
+                        Nombre = reader.GetString(10)
                     },
                     BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                     {
-                        Id = reader.GetInt32(10),
-                        Nombre = reader.GetString(11)
+                        Id = reader.GetInt32(11),
+                        Nombre = reader.GetString(12)
                     },
                     Pastores = new PastoresEN
                     {
-                        Id = reader.GetInt32(12),
-                        Nombre = reader.GetString(13)
+                        Id = reader.GetInt32(13),
+                        Nombre = reader.GetString(14)
                     },
                     Supervisor = new SupervisoresEN
                     {
-                        Id = reader.GetInt32(14),
-                        Nombre = reader.GetString(15)
+                        Id = reader.GetInt32(15),
+                        Nombre = reader.GetString(16)
                     },
                     Distrito = new DistritoEN
                     {
-                        Id = reader.GetInt32(16),
-                        Numero = reader.GetString(17)
+                        Id = reader.GetInt32(17),
+                        Numero = reader.GetString(18)
                     },
                     Zona = new ZonaEN
                     {
-                        Id = reader.GetInt32(18),
-                        Numero = reader.GetString(19)
+                        Id = reader.GetInt32(19),
+                        Numero = reader.GetString(20)
                     },
                     Sector = new SectorEN
                     {
-                        Id = reader.GetInt32(20),
-                        Numero = reader.GetString(21)
+                        Id = reader.GetInt32(21),
+                        Numero = reader.GetString(22)
                     },
                     Celula = new CelulaEN
                     {
-                        Id = reader.GetInt32(22),
-                        Numero = reader.GetString(23)
+                        Id = reader.GetInt32(23),
+                        Numero = reader.GetString(24)
                     }
                 };
                 ObjServidores.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(24),
-                    Nombre = reader.GetString(25)
+                    Id = reader.GetInt32(25),
+                    Nombre = reader.GetString(26)
                 };
                 ObjServidores.Privilegio = new PrivilegiosEN
                 {
-                    Id = reader.GetInt32(26),
-                    Nombre = reader.GetString(27)
+                    Id = reader.GetInt32(27),
+                    Nombre = reader.GetString(28)
                 };
                 listaServidores.Add(ObjServidores);
             }
@@ -242,7 +243,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Servidores.Id, " +
-                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, " +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, Membresia.Fotografia, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre, " +
                 "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
@@ -288,61 +289,62 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                     Apellido = reader.GetString(3),
                     Dui = reader.GetString(4),
                     Edad = reader.GetString(5),
+                    Fotografia = reader.GetSqlBytes(6).Value,
                     Sexo = new SexoEN
                     {
-                        Id = reader.GetInt32(6),
-                        Nombre = reader.GetString(7)
+                        Id = reader.GetInt32(7),
+                        Nombre = reader.GetString(8)
                     },
                     EstadoCivil = new EstadoCivilEN
                     {
-                        Id = reader.GetInt32(8),
-                        Nombre = reader.GetString(9)
+                        Id = reader.GetInt32(9),
+                        Nombre = reader.GetString(10)
                     },
                     BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                     {
-                        Id = reader.GetInt32(10),
-                        Nombre = reader.GetString(11)
+                        Id = reader.GetInt32(11),
+                        Nombre = reader.GetString(12)
                     },
                     Pastores = new PastoresEN
                     {
-                        Id = reader.GetInt32(12),
-                        Nombre = reader.GetString(13)
+                        Id = reader.GetInt32(13),
+                        Nombre = reader.GetString(14)
                     },
                     Supervisor = new SupervisoresEN
                     {
-                        Id = reader.GetInt32(14),
-                        Nombre = reader.GetString(15)
+                        Id = reader.GetInt32(15),
+                        Nombre = reader.GetString(16)
                     },
                     Distrito = new DistritoEN
                     {
-                        Id = reader.GetInt32(16),
-                        Numero = reader.GetString(17)
+                        Id = reader.GetInt32(17),
+                        Numero = reader.GetString(18)
                     },
                     Zona = new ZonaEN
                     {
-                        Id = reader.GetInt32(18),
-                        Numero = reader.GetString(19)
+                        Id = reader.GetInt32(19),
+                        Numero = reader.GetString(20)
                     },
                     Sector = new SectorEN
                     {
-                        Id = reader.GetInt32(20),
-                        Numero = reader.GetString(21)
+                        Id = reader.GetInt32(21),
+                        Numero = reader.GetString(22)
                     },
                     Celula = new CelulaEN
                     {
-                        Id = reader.GetInt32(22),
-                        Numero = reader.GetString(23)
+                        Id = reader.GetInt32(23),
+                        Numero = reader.GetString(24)
                     }
                 };
                 ObjServidores.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(24),
-                    Nombre = reader.GetString(25)
+                    Id = reader.GetInt32(25),
+                    Nombre = reader.GetString(26)
                 };
                 ObjServidores.Privilegio = new PrivilegiosEN
                 {
-                    Id = reader.GetInt32(26),
-                    Nombre = reader.GetString(27)
+                    Id = reader.GetInt32(27),
+                    Nombre = reader.GetString(28)
                 };
             }
             return ObjServidores;
@@ -358,7 +360,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Servidores.Id, " +
-                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, " +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, Membresia.Fotografia, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre, " +
                 "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
@@ -406,61 +408,62 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                     Apellido = reader.GetString(3),
                     Dui = reader.GetString(4),
                     Edad = reader.GetString(5),
+                    Fotografia = reader.GetSqlBytes(6).Value,
                     Sexo = new SexoEN
                     {
-                        Id = reader.GetInt32(6),
-                        Nombre = reader.GetString(7)
+                        Id = reader.GetInt32(7),
+                        Nombre = reader.GetString(8)
                     },
                     EstadoCivil = new EstadoCivilEN
                     {
-                        Id = reader.GetInt32(8),
-                        Nombre = reader.GetString(9)
+                        Id = reader.GetInt32(9),
+                        Nombre = reader.GetString(10)
                     },
                     BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                     {
-                        Id = reader.GetInt32(10),
-                        Nombre = reader.GetString(11)
+                        Id = reader.GetInt32(11),
+                        Nombre = reader.GetString(12)
                     },
                     Pastores = new PastoresEN
                     {
-                        Id = reader.GetInt32(12),
-                        Nombre = reader.GetString(13)
+                        Id = reader.GetInt32(13),
+                        Nombre = reader.GetString(14)
                     },
                     Supervisor = new SupervisoresEN
                     {
-                        Id = reader.GetInt32(14),
-                        Nombre = reader.GetString(15)
+                        Id = reader.GetInt32(15),
+                        Nombre = reader.GetString(16)
                     },
                     Distrito = new DistritoEN
                     {
-                        Id = reader.GetInt32(16),
-                        Numero = reader.GetString(17)
+                        Id = reader.GetInt32(17),
+                        Numero = reader.GetString(18)
                     },
                     Zona = new ZonaEN
                     {
-                        Id = reader.GetInt32(18),
-                        Numero = reader.GetString(19)
+                        Id = reader.GetInt32(19),
+                        Numero = reader.GetString(20)
                     },
                     Sector = new SectorEN
                     {
-                        Id = reader.GetInt32(20),
-                        Numero = reader.GetString(21)
+                        Id = reader.GetInt32(21),
+                        Numero = reader.GetString(22)
                     },
                     Celula = new CelulaEN
                     {
-                        Id = reader.GetInt32(22),
-                        Numero = reader.GetString(23)
+                        Id = reader.GetInt32(23),
+                        Numero = reader.GetString(24)
                     }
                 };
                 ObjServidores.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(24),
-                    Nombre = reader.GetString(25)
+                    Id = reader.GetInt32(25),
+                    Nombre = reader.GetString(26)
                 };
                 ObjServidores.Privilegio = new PrivilegiosEN
                 {
-                    Id = reader.GetInt32(26),
-                    Nombre = reader.GetString(27)
+                    Id = reader.GetInt32(27),
+                    Nombre = reader.GetString(28)
                 };
                 listaServidor.Add(ObjServidores);
             }
