@@ -116,9 +116,6 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
 
         #region Evento Click para Modificar
         // Evento Click para Abrir _MantenimientoServidor bajo la Accion de Modificar
-
-        #endregion
-
         private void btnModificarServidor_Click(object sender, RoutedEventArgs e)
         {
             if (!ServidorFormAbierto)
@@ -156,5 +153,92 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                 MessageBox.Show("No puedes tener 2 Ventanas Abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+        #endregion
+
+        #region Evento Click para Eliminar
+        // Evento Click para Abrir _MantenimientoServidor bajo la Accion de Eliminar
+        private void btnEliminarServidor_Click(object sender, RoutedEventArgs e)
+        {
+            byte pAccion = (byte)AccionEnum.Eliminar;
+
+            if (!ServidorFormAbierto)
+            {
+                if (dgvMostrar_Servidores.SelectedItem != null)
+                {
+                    ServidorFormAbierto = true;
+
+                    btnAgregarServidor.IsEnabled = false;
+                    btnModificarServidor.IsEnabled = false;
+                    btnVerServidor.IsEnabled = false;
+
+                    ServidoresEN ServidorSeleccionado = (ServidoresEN)dgvMostrar_Servidores.SelectedItem;
+                    int idServidor = ServidorSeleccionado.Id;
+
+                    _MantenimientoServidor ElimFormulario = new _MantenimientoServidor(idServidor, pAccion);
+
+                    ElimFormulario.Closed += (s, args) =>
+                    {
+                        ServidorFormAbierto = false;
+                        btnAgregarServidor.IsEnabled = true;
+                        btnModificarServidor.IsEnabled = true;
+                        btnVerServidor.IsEnabled = true;
+                    };
+                    ElimFormulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("No puedes tener 2 Ventanas Abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        #endregion
+
+        #region Evento Click para Visualizar
+        // Evento Click para Abrir _MantenimientoServidor bajo la Accion de Eliminar
+        private void btnVerServidor_Click(object sender, RoutedEventArgs e)
+        {
+            byte pAccion = (byte)AccionEnum.Ver;
+
+            if (!ServidorFormAbierto)
+            {
+                if (dgvMostrar_Servidores.SelectedItem != null)
+                {
+                    ServidorFormAbierto = true;
+
+                    btnAgregarServidor.IsEnabled = false;
+                    btnModificarServidor.IsEnabled = false;
+                    btnEliminarServidor.IsEnabled = false;
+
+                    ServidoresEN ServidorSeleccionado = (ServidoresEN)dgvMostrar_Servidores.SelectedItem;
+                    int idServidor = ServidorSeleccionado.Id;
+
+                    _MantenimientoServidor VerForm = new _MantenimientoServidor(idServidor, pAccion);
+
+                    VerForm.Closed += (s, args) =>
+                    {
+                        ServidorFormAbierto = false;
+                        btnAgregarServidor.IsEnabled = true;
+                        btnModificarServidor.IsEnabled = true;
+                        btnEliminarServidor.IsEnabled = true;
+                    };
+                    VerForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("No puedes tener 2 Ventanas Abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        #endregion
     }
 }

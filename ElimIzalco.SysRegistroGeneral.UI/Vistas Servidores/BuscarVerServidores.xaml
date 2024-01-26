@@ -41,8 +41,8 @@
         <!--Boton para las acciones de "Agregar, Modificar, Elminar y Visualizar"-->
         <Button x:Name="btnAgregarServidor" Content="AGREGAR" HorizontalAlignment="Left" Margin="352,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnAgregarServidor_Click"/>
         <Button x:Name="btnModificarServidor" Content="MODIFICAR" HorizontalAlignment="Left" Margin="527,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnModificarServidor_Click"/>
-        <Button x:Name="btnEliminarServidor" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnVerServidor" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnEliminarServidor" Content="ELIMINAR" HorizontalAlignment="Left" Margin="695,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnEliminarServidor_Click"/>
+        <Button x:Name="btnVerServidor" Content="VER" HorizontalAlignment="Left" Margin="863,174,0,0" VerticalAlignment="Top" Width="133" Height="33" BorderBrush="Transparent" Background="#FF091C77" Foreground="White" FontWeight="Bold" Click="btnVerServidor_Click"/>
         <!--Campo para Id-->
         <TextBox x:Name="txtIdServidor" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
     </Grid>
