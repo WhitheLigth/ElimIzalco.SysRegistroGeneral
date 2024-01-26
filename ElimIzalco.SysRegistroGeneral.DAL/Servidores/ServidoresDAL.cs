@@ -1,42 +1,74 @@
-﻿using ElimIzalco.SysRegistroGeneral.EN.Membresia;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#region REFERENCIAS
 // REFERENCIAS NECESARIAS PARA EL CORRECTO FUNCIONAMIENTO
 using System.Data.SqlClient;
 using ElimIzalco.SysRegistroGeneral.EN.Servidores;
+using ElimIzalco.SysRegistroGeneral.EN.Sexo;
+using ElimIzalco.SysRegistroGeneral.EN.Estado_Civil;
+using ElimIzalco.SysRegistroGeneral.EN.Membresia;
+using ElimIzalco.SysRegistroGeneral.EN.Bautizmo_Del_Espiritu_Santo;
+using ElimIzalco.SysRegistroGeneral.EN.Pastores;
+using ElimIzalco.SysRegistroGeneral.EN.Supervisores;
+using ElimIzalco.SysRegistroGeneral.EN.Distrito;
+using ElimIzalco.SysRegistroGeneral.EN.Zona;
+using ElimIzalco.SysRegistroGeneral.EN.Sector;
+using ElimIzalco.SysRegistroGeneral.EN.Celula;
+using ElimIzalco.SysRegistroGeneral.EN.Estatus;
+using ElimIzalco.SysRegistroGeneral.EN.Privilegios;
+
+#endregion
 
 namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 {
     public class ServidoresDAL
     {
+        #region Metodo para Validar Existencia del Servidor
+        // Metodo para Validar si el Servidor ya esta existente
+        public int ValidarExistenciaServidor(ServidoresEN pServidorValidar)
+        {
+            var servidores = ObtenerServidores();
+            var servidor = servidores.FirstOrDefault(c => c.Membresia.Id == pServidorValidar.Membresia.Id);
+
+            if (servidor != null)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        #endregion
+
         #region Metodo para Guardar un Servidor
         // Metodo para Guardar un Servidor a la Base de Datos
         public int GuardarServidor(ServidoresEN pServidorGuardar)
         {
             //// Accedemos al metodo ObtenerServidor y pedimos que nos muestre el primer resultado que encuentre
-            //var servidores = ObtenerServidor();
-            //var servidor = servidores.FirstOrDefault(c => c.Id == pServidorGuardar.Id);
+            var servidores = ObtenerServidores();
+            var servidor = servidores.FirstOrDefault(c => c.Id == pServidorGuardar.Id);
 
-            //// Validamos que si servidor es diferente que null devuelva un 0
-            //if (servidor != null)
-            //{
-            //    // Significa que no Existe
-            //    return 0;
-            //}
+            // Validamos que si servidor es diferente que null devuelva un 0
+            if (servidor != null)
+            {
+                // Significa que no Existe
+                return 0;
+            }
 
             // Consulta hacia la Base de Datos
-            string consulta = "INSERT INTO Servidores(IdMembresia, IdPrivilegio, IdEstatus) " +
-                "VALUES (@IdMembresia, @IdPrivilegio, @IdEstatus)";
+            string consulta = "INSERT INTO Servidores(IdMembresia, IdPrivilegios, IdEstatus) " +
+                "VALUES (@IdMembresia, @IdPrivilegios, @IdEstatus)";
             SqlCommand command = ComunDB.ObtenerComando();
             // Usar CommandType.Text para indicar que es una consulta directa en lugar de un procedimiento almacenado
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = consulta;
 
             command.Parameters.AddWithValue("@IdMembresia", pServidorGuardar.Membresia.Id);
-            command.Parameters.AddWithValue("@IdPrivilegio", pServidorGuardar.Privilegio.Id);
+            command.Parameters.AddWithValue("@IdPrivilegios", pServidorGuardar.Privilegio.Id);
             command.Parameters.AddWithValue("@IdEstatus", pServidorGuardar.Estatus.Id);
 
             return ComunDB.EjecutarComando(command);
@@ -90,7 +122,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Servidores.Id, " +
-                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad" +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre, " +
                 "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
@@ -114,7 +146,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                 "JOIN Sector ON Membresia.IdSector = Sector.Id " +
                 "JOIN Celula ON Membresia.IdCelula = Celula.Id " +
                 "JOIN Estatus ON Servidores.IdEstatus = Estatus.Id " +
-                "JOIN Privilegios ON Servidores.IdPrivilegio = Privilegios.Id;";
+                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id;";
 
             SqlCommand command = ComunDB.ObtenerComando();
 
@@ -131,31 +163,75 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
 
                 // Asignacion de Columnas
                 ObjServidores.Id = reader.GetInt32(0);
-
-
+                ObjServidores.Membresia = new MembresiaEN
+                {
+                    Id = reader.GetInt32(1),
+                    Nombre = reader.GetString(2),
+                    Apellido = reader.GetString(3),
+                    Dui = reader.GetString(4),
+                    Edad = reader.GetString(5),
+                    Sexo = new SexoEN
+                    {
+                        Id = reader.GetInt32(6),
+                        Nombre = reader.GetString(7)
+                    },
+                    EstadoCivil = new EstadoCivilEN
+                    {
+                        Id = reader.GetInt32(8),
+                        Nombre = reader.GetString(9)
+                    },
+                    BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
+                    {
+                        Id = reader.GetInt32(10),
+                        Nombre = reader.GetString(11)
+                    },
+                    Pastores = new PastoresEN
+                    {
+                        Id = reader.GetInt32(12),
+                        Nombre = reader.GetString(13)
+                    },
+                    Supervisor = new SupervisoresEN
+                    {
+                        Id = reader.GetInt32(14),
+                        Nombre = reader.GetString(15)
+                    },
+                    Distrito = new DistritoEN
+                    {
+                        Id = reader.GetInt32(16),
+                        Numero = reader.GetString(17)
+                    },
+                    Zona = new ZonaEN
+                    {
+                        Id = reader.GetInt32(18),
+                        Numero = reader.GetString(19)
+                    },
+                    Sector = new SectorEN
+                    {
+                        Id = reader.GetInt32(20),
+                        Numero = reader.GetString(21)
+                    },
+                    Celula = new CelulaEN
+                    {
+                        Id = reader.GetInt32(22),
+                        Numero = reader.GetString(23)
+                    }
+                };
+                ObjServidores.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(24),
+                    Nombre = reader.GetString(25)
+                };
+                ObjServidores.Privilegio = new PrivilegiosEN
+                {
+                    Id = reader.GetInt32(26),
+                    Nombre = reader.GetString(27)
+                };
                 listaServidores.Add(ObjServidores);
-
-                return listaServidores;
             }
+            // Retornamos la Lista de Servidores
+            return listaServidores;
         }
         #endregion
 
-        #region Metodo para Validar Existencia del Servidor
-        // Metodo para Validar si el Servidor ya esta existente
-        public int ValidarExistenciaServidor(ServidoresEN pServidorValidar)
-        {
-            var servidores = ObtenerServidores();
-            var servidor = servidores.FirstOrDefault(c => c.Membresia.Id == pServidorValidar.Membresia.Id);
-
-            if (servidor != null)
-            {
-                return -1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        #endregion
     }
 }
