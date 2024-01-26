@@ -80,17 +80,17 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
         public int ModificarServidor(ServidoresEN pServidorModificar)
         {
             // Consulta hacia la Base de Datos
-            string consulta = "UPDATE Servidores SET IdMembresia=@IdMembresia," +
-                " IdPrivilegio=@IdPrivilegio, IdEstatus=@IdEstatus, WHERE Id=@Id";
+            string consulta = "UPDATE Servidores SET IdMembresia = @IdMembresia, IdEstatus = @IdEstatus, IdPrivilegios = @IdPrivilegios WHERE Id = @Id";
 
             SqlCommand command = ComunDB.ObtenerComando();
             // Usar CommandType.Text para indicar que es una consulta directa en lugar de un procedimiento almacenado
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = consulta;
 
+            command.Parameters.AddWithValue("@Id", pServidorModificar.Id);
             command.Parameters.AddWithValue("@IdMembresia", pServidorModificar.Membresia.Id);
-            command.Parameters.AddWithValue("@IdPrivilegio", pServidorModificar.Privilegio.Id);
             command.Parameters.AddWithValue("@IdEstatus", pServidorModificar.Estatus.Id);
+            command.Parameters.AddWithValue("@IdPrivilegios", pServidorModificar.Privilegio.Id);
 
             return ComunDB.EjecutarComando(command);
         }
