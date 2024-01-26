@@ -441,6 +441,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
 
         // Creacion de Instancias para Acceder a los metodos
         MembresiaBL ObjMembresia = new MembresiaBL();
+        BuscarVerServidores formServidor = new BuscarVerServidores();
 
         // Metodo para Cargar el DataGridView de Membresia
         public void ActualizarDataGridMembresia()
@@ -621,5 +622,86 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             }
         }
         #endregion
+
+        #region Metodo para Modificar
+        // Evento Click Para Modificar un Servidor Existente
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener la imagen en formato BitmapSource desde el control de imagen 'imgFoto'.
+            BitmapSource? bitmapSource = imgFoto.Source as BitmapSource;
+            // Crear un flujo de memoria para almacenar los bytes de la imagen.
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Crear un codificador de imagen JPEG.
+                BitmapEncoder encoder = new JpegBitmapEncoder();
+                // Agregar el fotograma de la imagen al codificador.
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                // Guardar la imagen codificada en el flujo de memoria.
+                encoder.Save(ms);
+
+                // Obtener los bytes de la imagen desde el flujo de memoria.
+                byte[]? ImagenBytes = ms.ToArray();
+
+                // La Variable ObjServidor almacenara los Atributos de la Entidad con los Datos Proporcionado en cada Campo de la Vista Grafica
+                var ObjServidor = new ServidoresEN
+                {
+                    Id = Convert.ToInt32(txtIdServidor.Text),
+                    Membresia = new MembresiaEN
+                    {
+                        Id = Convert.ToInt32(txtIdMembresia.Text),
+                        Nombre = txtNombre.Text,
+                        Apellido = txtApellidos.Text,
+                    },
+                    Estatus = new EstatusEN
+                    {
+                        Id = Convert.ToInt32(cbxEstatus.SelectedValue),
+                    },
+                    Privilegio = new PrivilegiosEN
+                    {
+                        Id = Convert.ToInt32(cbxPrivilegio.SelectedValue),
+                        Nombre = cbxPrivilegio.Text
+                    }
+                };
+
+                // Validamos que ObjServidor sea Diferente de NULL para continuar con lo siguiente
+                if (ObjServidor != null)
+                {
+                    // Mandamos una Ventande Interaccion para Confirmar Si el Dui es Correcto y proseguir con lo siguiente
+                    MessageBoxResult messageBoxResult = MessageBox.Show($"Membresia a Nombre de: ' {ObjServidor.Membresia.Nombre} {ObjServidor.Membresia.Apellido}' . " +
+                      $"¿Estas Seguro de Modificarle el Privilegio a: {ObjServidor.Privilegio.Nombre}?", "Confirmación de Servidor - Modificar Servidor", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+
+                    // Si se Preciono el boton Ok se ejecuta lo siguiente
+                    if (messageBoxResult == MessageBoxResult.OK)
+                    {
+                        // Procedemos a Modificar la Membresia en la Base de Datos
+                        var pServidorBL = new ServidoresBL();
+                        pServidorBL.ModificarServidor(ObjServidor);
+                        var pServidorActualizado = pServidorBL.ObtenerServidores();
+
+                        formServidor.dgvMostrar_Servidores.ItemsSource = null;
+                        formServidor.dgvMostrar_Servidores.ItemsSource = pServidorActualizado;
+
+                        // Mostramos una Ventana De Exito
+                        MessageBox.Show("Servidor Modificado Con Exito", "Modificacion de Servidor", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                    }
+                    // Pero si se Preciona el Boton de Cancelar se ejecuta lo siguiente.
+                    else if (messageBoxResult == MessageBoxResult.Cancel)
+                    {
+                        MessageBox.Show("Operación Cancelada, Revisa el Formulario", "Cancelación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                // Si no Mostramos el Siguiente Mensaje
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+            }
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        #endregion
+
+
     }
 }
