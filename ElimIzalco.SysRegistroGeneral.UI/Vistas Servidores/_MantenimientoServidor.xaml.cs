@@ -428,7 +428,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     cbxEstatus.SelectedValuePath = "Id";
                     cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
                     cbxPrivilegio.DisplayMemberPath = "Nombre";
-                    cbxPrivilegio.DisplayMemberPath = "Id";
+                    cbxPrivilegio.SelectedValuePath = "Id";
 
                     btnGuardar.IsEnabled = false;
                     btnEliminar.IsEnabled = false;
