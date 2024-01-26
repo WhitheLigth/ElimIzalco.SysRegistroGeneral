@@ -26,8 +26,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
         {
             InitializeComponent();
 
-            // Deshabilitar el botón de maximizar
-            this.ResizeMode = ResizeMode.CanMinimize;
+            // Deshabilitar el botón de cerrar
+            this.WindowStyle = WindowStyle.None;
+
         }
         // Metodo para Limpiar la Ventana Principal
         private void btnInicio_Click(object sender, RoutedEventArgs e)
