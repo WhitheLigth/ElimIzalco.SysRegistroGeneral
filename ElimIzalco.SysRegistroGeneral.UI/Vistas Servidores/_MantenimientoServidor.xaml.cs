@@ -699,9 +699,58 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     return;
                 }
             }
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        }
         #endregion
 
+        #region Metodo para Eliminar
+        // Evento Click para Elimianr un Servidor Existente
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtenermos el Id del registro a Eliminar
+            var ObjServidor = new ServidoresEN
+            {
+                Id = int.Parse(txtIdServidor.Text),
+                Membresia = new MembresiaEN
+                {
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellidos.Text,
+                },
+                Privilegio = new PrivilegiosEN
+                {
+                    Nombre = cbxPrivilegio.Text,    
+                }
+            };
 
+            // Validamos que si ObjServidor es diferente de NULL que prosiga con lo siguiente
+            if (ObjServidor != null)
+            {
+                // Mandamos una Ventande Interaccion para Confirmar Si el Dui es Correcto y proseguir con lo siguiente
+                MessageBoxResult messageBoxResult = MessageBox.Show($"Membresia a Nombre de: ' {ObjServidor.Membresia.Nombre} {ObjServidor.Membresia.Apellido}' . " +
+                  $" Con el Privilegio: {ObjServidor.Privilegio.Nombre} , Estas Seguro de Eliminar Este Servidor", "Confirmación de Servidor - Eliminar Servidor", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+
+                if (messageBoxResult == MessageBoxResult.OK)
+                {
+                    // Procedemos a Eliminar El Servidor en la Base de Datos
+                    var pServidor = new ServidoresBL();
+                    pServidor.EliminarServidor(ObjServidor);
+                    var ServidorActualizado = pServidor.ObtenerServidores();
+
+                    formServidor.dgvMostrar_Servidores.ItemsSource = null;
+                    formServidor.dgvMostrar_Servidores.ItemsSource = ServidorActualizado;
+
+                    // Mostramos una Ventana De Exito
+                    MessageBox.Show("Servidor Eliminado Con Exito", "Eliminar Servidor", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                // Pero si se Preciona el Boton de Cancelar se ejecuta lo siguiente.
+                else if (messageBoxResult == MessageBoxResult.Cancel)
+                {
+                    MessageBox.Show("Operación Cancelada, Revisa el Formulario", "Cancelación", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            // Se Procede a Cerrar el Formulario
+            Close();
+        }
+        #endregion
     }
 }
