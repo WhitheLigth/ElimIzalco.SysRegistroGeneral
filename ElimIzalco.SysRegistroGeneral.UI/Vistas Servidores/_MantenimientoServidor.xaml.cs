@@ -293,6 +293,8 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                 Membresia = new MembresiaEN
                 {
                     Id = Convert.ToInt32(txtIdMembresia.Text),
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellidos.Text,
                 },
                 Estatus = new EstatusEN
                 {
@@ -301,12 +303,56 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                 Privilegio = new PrivilegiosEN
                 {
                     Id = Convert.ToInt32(cbxPrivilegio.SelectedValue),
+                    Nombre = cbxPrivilegio.Text
                 },
             };
             // Validamos que el ObjServidor sea diferente a NULL para poder continuar con lo siguiente
-            if(ObjServidor != null)
+            if (ObjServidor != null)
             {
+                // Accedemos al Metodo de Validacion de Existencia de la Capa BL  
+                var ObjServidorBLL = new ServidoresBL();
+                var resultt = ObjServidorBLL.ValidarExistenciaServidor(ObjServidor);
 
+                //Validamos si el Resultado es igual a '0' que prosiga a lo siguiente
+                if (resultt == 0)
+                {
+                    // Mandamos una Ventande Interaccion para Confirmar Si el Dui es Correcto y proseguir con lo siguiente
+                    MessageBoxResult messageBoxResult = MessageBox.Show($"Membresia a Nombre de: ' {ObjServidor.Membresia.Nombre} {ObjServidor.Membresia.Apellido}' . " +
+                      $"¿Estas Seguro de Asignarle el Privilegio de: {ObjServidor.Privilegio.Nombre}?", "Confirmación de Servidor - Guardar Servidor", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+
+                    // Si se Preciona el OK ejecuta lo siguiente
+                    if (messageBoxResult == MessageBoxResult.OK)
+                    {
+                        // Procedemos a Guardar en la Base de Datos
+                        var ObjServidorBL = new ServidoresBL();
+                        var result = ObjServidorBL.GuardarServidor(ObjServidor);
+
+                        // Si result es diferente de 0 Muestra una Ventana al Usuario
+                        if (result != 0)
+                        {
+                            MessageBox.Show("Servidor Agregado con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Close();
+                        }
+                    }
+                    // Pero si se preciona el boton de cancelar ejecute lo siguiente
+                    else if (messageBoxResult == MessageBoxResult.Cancel)
+                    {
+                        MessageBox.Show("Operación Cancelada, Revisa el Formulario", "Cancelación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                //Pero si es igual a ' 1 ' Procedemos con lo siguiente
+                else
+                {
+                    MessageBox.Show("El Servidor que intentas agregar ya existe", "Error al Guardar", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            // Si no Mostramos el Siguiente Mensaje
+            else
+            {
+                MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
         }
         #endregion
