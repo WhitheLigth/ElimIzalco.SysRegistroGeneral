@@ -42,8 +42,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
     /// </summary>
     public partial class _MantenimientoServidor : Window
     {
+        #region Metodo de Inicializacion
         // Metodo de Inicializacion para el Formulario
-        public _MantenimientoServidor()
+        public _MantenimientoServidor(int? pId = null, byte? pAccion = null)
         {
             InitializeComponent();
             ActualizarDataGridMembresia();
@@ -58,7 +59,27 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             CargarZona();
             CargarSector();
             CargarCelula();
+
+            // Validamos que la variable pId sea diferente a null para que proceda
+            if (pId != null)
+            {
+                // Llamamos el Metodo SetServidor para que se ejecute en base al pId y la pAccion
+                SetServidores(pId, pAccion);
+            }
+
+            // Validamos que si pAccion es igual a Crear se Ejecute lo siguiente
+            if (pAccion == (byte)AccionEnum.Crear)
+            {
+                // Procedemos a Vaciar todos los Campos para la accion de Crear
+                cbxEstatus.SelectedIndex = 0;
+                cbxPrivilegio.SelectedIndex = 0;
+
+                // Inabilitamos los Botones Agenos a la Accion de Guardar o Crear
+                btnEliminar.IsEnabled = false;
+                btnModificar.IsEnabled = false;
+            }
         }
+        #endregion
 
         #region Metodos para Cargar ComboBox's
         // Metodo para Cargar el Cbx de Estatus
@@ -171,6 +192,248 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
             cbxCelula.ItemsSource = celula;
             cbxCelula.DisplayMemberPath = "Numero";
             cbxCelula.SelectedValuePath = "Id";
+        }
+        #endregion
+
+        #region Metodo para Validar que Accion de Ver, Modificar y Elinminar se ejecuta Haciendo Uso del Parametro Id
+        // Metodo para Validar que Accion se ha de Ejecutar
+        public void SetServidores(int? pId, byte? pAccion)
+        {
+            // Creamos una instancia de la clase ServidorBL y Accedemos al Metodo ObtenerPorId
+            var servidorBl = new ServidoresBL();
+            var servidor = servidorBl.ObtenerServidoresPorId(pId);
+
+            // Validamos que la variable servidor sea diferente de null que prociga
+            if (servidor != null)
+            {
+                // Validamos que si la accion es Ver ejecute lo siguiente
+                if (pAccion == (byte)AccionEnum.Ver)
+                {
+                    // Procedemos a llenar todos los campos con el registro correspondiente en base al Id Proporcionado
+                    // Ademas de Deshabilitar los campos para unicamente Visualizar el Registro.
+                    txtIdServidor.Text = Convert.ToString(servidor.Id);
+                    txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
+                    txtNombre.Text = servidor.Membresia.Nombre;
+                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtEdad.Text = servidor.Membresia.Edad;
+                    txtDui.Text = servidor.Membresia.Dui;
+
+                    cbxSexo.SelectedValue = servidor.Membresia.Sexo.Id;
+                    cbxSexo.DisplayMemberPath = "Nombre";
+                    cbxSexo.SelectedValuePath = "Id";
+                    cbxEstadoCivil.SelectedValue = servidor.Membresia.EstadoCivil.Id;
+                    cbxEstadoCivil.DisplayMemberPath = "Nombre";
+                    cbxEstadoCivil.SelectedValuePath = "Id";
+                    cbxBautizmoEnEspirituSanto.SelectedValue = servidor.Membresia.BautizmoDelEspirituSanto.Id;
+                    cbxBautizmoEnEspirituSanto.DisplayMemberPath = "Nombre";
+                    cbxBautizmoEnEspirituSanto.SelectedValuePath = "Id";
+                    cbxNombreDelPastor.SelectedValue = servidor.Membresia.Pastores.Id;
+                    cbxNombreDelPastor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelPastor.SelectedValuePath = "Id";
+                    cbxNombreDelSupervisor.SelectedValue = servidor.Membresia.Supervisor.Id;
+                    cbxNombreDelSupervisor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelSupervisor.SelectedValuePath = "Id";
+                    cbxZona.SelectedValue = servidor.Membresia.Zona.Id;
+                    cbxZona.DisplayMemberPath = "Numero";
+                    cbxZona.SelectedValuePath = "Id";
+                    cbxDistrito.SelectedValue = servidor.Membresia.Distrito.Id;
+                    cbxDistrito.DisplayMemberPath = "Numero";
+                    cbxDistrito.SelectedValuePath = "Id";
+                    cbxSector.SelectedValue = servidor.Membresia.Sector.Id;
+                    cbxSector.DisplayMemberPath = "Numero";
+                    cbxSector.SelectedValuePath = "Id";
+                    cbxCelula.SelectedValue = servidor.Membresia.Celula.Id;
+                    cbxCelula.DisplayMemberPath = "Numero";
+                    cbxCelula.SelectedValuePath = "Id";
+
+                    // Obtener los bytes de una imagen de la membresía (si existen).
+                    byte[]? ImagenBytes = servidor.Membresia.Fotografia;
+
+                    // Validamos si existen bytes de imagen y si la longitud es mayor que cero.
+                    if (ImagenBytes != null && ImagenBytes.Length > 0)
+                    {
+                        // Crear un flujo de memoria a partir de los bytes de la imagen.
+                        using (MemoryStream stream = new MemoryStream(ImagenBytes))
+                        {
+                            // Crear una nueva instancia de BitmapImage para mostrar la imagen.
+                            BitmapImage bitmapImage = new BitmapImage();
+                            // Iniciar la inicialización del BitmapImage.
+                            bitmapImage.BeginInit();
+                            // Establecer el flujo de memoria como origen para el BitmapImage.
+                            bitmapImage.StreamSource = new MemoryStream(ImagenBytes);
+                            // Finalizar la inicialización del BitmapImage.
+                            bitmapImage.EndInit();
+                            // Asignar la imagen al control de imagen 'imgFoto'.
+                            imgFoto.Source = bitmapImage;
+                        }
+                    }
+
+                    cbxEstatus.SelectedValue = servidor.Estatus.Id;
+                    cbxEstatus.DisplayMemberPath = "Nombre";
+                    cbxEstatus.SelectedValuePath = "Id";
+                    cbxEstatus.IsEnabled = false;
+                    cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
+                    cbxPrivilegio.DisplayMemberPath = "Nombre";
+                    cbxPrivilegio.DisplayMemberPath = "Id";
+                    cbxPrivilegio.IsEditable = false;
+
+                    txtBuscarMiembro.IsEnabled = false;
+                    btnConfirmarMiembro.IsEnabled = false;
+
+                    btnGuardar.IsEnabled = false;
+                    btnModificar.IsEnabled = false;
+                    btnEliminar.IsEnabled = false;
+                }
+                // Validamos que si la Accion no es ver que Ejecute la siguiente accion
+                else if (pAccion == (byte)AccionEnum.Eliminar)
+                {
+                    // Procedemos a llenar todos los campos con el registro correspondiente en base al Id Proporcionado
+                    // Ademas de Deshabilitar los campos para unicamente Visualizar el Registro.
+                    txtIdServidor.Text = Convert.ToString(servidor.Id);
+                    txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
+                    txtNombre.Text = servidor.Membresia.Nombre;
+                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtEdad.Text = servidor.Membresia.Edad;
+                    txtDui.Text = servidor.Membresia.Dui;
+
+                    cbxSexo.SelectedValue = servidor.Membresia.Sexo.Id;
+                    cbxSexo.DisplayMemberPath = "Nombre";
+                    cbxSexo.SelectedValuePath = "Id";
+                    cbxEstadoCivil.SelectedValue = servidor.Membresia.EstadoCivil.Id;
+                    cbxEstadoCivil.DisplayMemberPath = "Nombre";
+                    cbxEstadoCivil.SelectedValuePath = "Id";
+                    cbxBautizmoEnEspirituSanto.SelectedValue = servidor.Membresia.BautizmoDelEspirituSanto.Id;
+                    cbxBautizmoEnEspirituSanto.DisplayMemberPath = "Nombre";
+                    cbxBautizmoEnEspirituSanto.SelectedValuePath = "Id";
+                    cbxNombreDelPastor.SelectedValue = servidor.Membresia.Pastores.Id;
+                    cbxNombreDelPastor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelPastor.SelectedValuePath = "Id";
+                    cbxNombreDelSupervisor.SelectedValue = servidor.Membresia.Supervisor.Id;
+                    cbxNombreDelSupervisor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelSupervisor.SelectedValuePath = "Id";
+                    cbxZona.SelectedValue = servidor.Membresia.Zona.Id;
+                    cbxZona.DisplayMemberPath = "Numero";
+                    cbxZona.SelectedValuePath = "Id";
+                    cbxDistrito.SelectedValue = servidor.Membresia.Distrito.Id;
+                    cbxDistrito.DisplayMemberPath = "Numero";
+                    cbxDistrito.SelectedValuePath = "Id";
+                    cbxSector.SelectedValue = servidor.Membresia.Sector.Id;
+                    cbxSector.DisplayMemberPath = "Numero";
+                    cbxSector.SelectedValuePath = "Id";
+                    cbxCelula.SelectedValue = servidor.Membresia.Celula.Id;
+                    cbxCelula.DisplayMemberPath = "Numero";
+                    cbxCelula.SelectedValuePath = "Id";
+
+                    // Obtener los bytes de una imagen de la membresía (si existen).
+                    byte[]? ImagenBytes = servidor.Membresia.Fotografia;
+
+                    // Validamos si existen bytes de imagen y si la longitud es mayor que cero.
+                    if (ImagenBytes != null && ImagenBytes.Length > 0)
+                    {
+                        // Crear un flujo de memoria a partir de los bytes de la imagen.
+                        using (MemoryStream stream = new MemoryStream(ImagenBytes))
+                        {
+                            // Crear una nueva instancia de BitmapImage para mostrar la imagen.
+                            BitmapImage bitmapImage = new BitmapImage();
+                            // Iniciar la inicialización del BitmapImage.
+                            bitmapImage.BeginInit();
+                            // Establecer el flujo de memoria como origen para el BitmapImage.
+                            bitmapImage.StreamSource = new MemoryStream(ImagenBytes);
+                            // Finalizar la inicialización del BitmapImage.
+                            bitmapImage.EndInit();
+                            // Asignar la imagen al control de imagen 'imgFoto'.
+                            imgFoto.Source = bitmapImage;
+                        }
+                    }
+
+                    cbxEstatus.SelectedValue = servidor.Estatus.Id;
+                    cbxEstatus.DisplayMemberPath = "Nombre";
+                    cbxEstatus.SelectedValuePath = "Id";
+                    cbxEstatus.IsEnabled = false;
+                    cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
+                    cbxPrivilegio.DisplayMemberPath = "Nombre";
+                    cbxPrivilegio.DisplayMemberPath = "Id";
+                    cbxPrivilegio.IsEditable = false;
+
+                    txtBuscarMiembro.IsEnabled = false;
+                    btnConfirmarMiembro.IsEnabled = false;
+
+                    btnGuardar.IsEnabled = false;
+                    btnModificar.IsEnabled = false;
+                }
+                // Si no se cumple ninguna de las Validaciones Anteriores que se ejecute la siguiente
+                else
+                {
+                    // Procedemos a llenar todos los campos con el registro correspondiente en base al Id Proporcionado
+                    // Ademas de Deshabilitar los campos para unicamente Visualizar el Registro.
+                    txtIdServidor.Text = Convert.ToString(servidor.Id);
+                    txtIdMembresia.Text = Convert.ToString(servidor.Membresia.Id);
+                    txtNombre.Text = servidor.Membresia.Nombre;
+                    txtApellidos.Text = servidor.Membresia.Apellidos;
+                    txtEdad.Text = servidor.Membresia.Edad;
+                    txtDui.Text = servidor.Membresia.Dui;
+
+                    cbxSexo.SelectedValue = servidor.Membresia.Sexo.Id;
+                    cbxSexo.DisplayMemberPath = "Nombre";
+                    cbxSexo.SelectedValuePath = "Id";
+                    cbxEstadoCivil.SelectedValue = servidor.Membresia.EstadoCivil.Id;
+                    cbxEstadoCivil.DisplayMemberPath = "Nombre";
+                    cbxEstadoCivil.SelectedValuePath = "Id";
+                    cbxBautizmoEnEspirituSanto.SelectedValue = servidor.Membresia.BautizmoDelEspirituSanto.Id;
+                    cbxBautizmoEnEspirituSanto.DisplayMemberPath = "Nombre";
+                    cbxBautizmoEnEspirituSanto.SelectedValuePath = "Id";
+                    cbxNombreDelPastor.SelectedValue = servidor.Membresia.Pastores.Id;
+                    cbxNombreDelPastor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelPastor.SelectedValuePath = "Id";
+                    cbxNombreDelSupervisor.SelectedValue = servidor.Membresia.Supervisor.Id;
+                    cbxNombreDelSupervisor.DisplayMemberPath = "Nombre";
+                    cbxNombreDelSupervisor.SelectedValuePath = "Id";
+                    cbxZona.SelectedValue = servidor.Membresia.Zona.Id;
+                    cbxZona.DisplayMemberPath = "Numero";
+                    cbxZona.SelectedValuePath = "Id";
+                    cbxDistrito.SelectedValue = servidor.Membresia.Distrito.Id;
+                    cbxDistrito.DisplayMemberPath = "Numero";
+                    cbxDistrito.SelectedValuePath = "Id";
+                    cbxSector.SelectedValue = servidor.Membresia.Sector.Id;
+                    cbxSector.DisplayMemberPath = "Numero";
+                    cbxSector.SelectedValuePath = "Id";
+                    cbxCelula.SelectedValue = servidor.Membresia.Celula.Id;
+                    cbxCelula.DisplayMemberPath = "Numero";
+                    cbxCelula.SelectedValuePath = "Id";
+
+                    // Obtener los bytes de una imagen de la membresía (si existen).
+                    byte[]? ImagenBytes = servidor.Membresia.Fotografia;
+
+                    // Validamos si existen bytes de imagen y si la longitud es mayor que cero.
+                    if (ImagenBytes != null && ImagenBytes.Length > 0)
+                    {
+                        // Crear un flujo de memoria a partir de los bytes de la imagen.
+                        using (MemoryStream stream = new MemoryStream(ImagenBytes))
+                        {
+                            // Crear una nueva instancia de BitmapImage para mostrar la imagen.
+                            BitmapImage bitmapImage = new BitmapImage();
+                            // Iniciar la inicialización del BitmapImage.
+                            bitmapImage.BeginInit();
+                            // Establecer el flujo de memoria como origen para el BitmapImage.
+                            bitmapImage.StreamSource = new MemoryStream(ImagenBytes);
+                            // Finalizar la inicialización del BitmapImage.
+                            bitmapImage.EndInit();
+                            // Asignar la imagen al control de imagen 'imgFoto'.
+                            imgFoto.Source = bitmapImage;
+                        }
+                    }
+
+                    cbxEstatus.SelectedValue = servidor.Estatus.Id;
+                    cbxEstatus.DisplayMemberPath = "Nombre";
+                    cbxEstatus.SelectedValuePath = "Id";
+                    cbxPrivilegio.SelectedValue = servidor.Privilegio.Id;
+                    cbxPrivilegio.DisplayMemberPath = "Nombre";
+                    cbxPrivilegio.DisplayMemberPath = "Id";
+
+                    btnGuardar.IsEnabled = false;
+                    btnEliminar.IsEnabled = false;
+                }
+            }
         }
         #endregion
 
