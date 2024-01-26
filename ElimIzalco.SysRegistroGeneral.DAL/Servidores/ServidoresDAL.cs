@@ -266,7 +266,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                 "JOIN Sector ON Membresia.IdSector = Sector.Id " +
                 "JOIN Celula ON Membresia.IdCelula = Celula.Id " +
                 "JOIN Estatus ON Servidores.IdEstatus = Estatus.Id " +
-                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id WHERE Membresia.Id = @Id";
+                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id WHERE Servidores.Id = @Id";
 
             SqlCommand command = ComunDB.ObtenerComando();
 
@@ -346,6 +346,126 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                 };
             }
             return ObjServidores;
+        }
+        #endregion
+
+        #region Metodo Obtener un Servidor que Coincida o se Parezca al parametro Nombre
+        // Metodo para Obtener una lista en base al parametro Nombre
+        public List<ServidoresEN> ObtenerServidoresLike(string pNombre)
+        {
+            // Creamos una instancia de ServidoresEN para acceder a los atributos
+            List<ServidoresEN> listaServidor = new List<ServidoresEN>();
+
+            // Consulta hacia la Base de Datos
+            string consultaSQL = "SELECT Servidores.Id, " +
+                "Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.Edad, " +
+                "Sexo.Id, Sexo.Nombre, " +
+                "EstadoCivil.Id, EstadoCivil.Nombre, " +
+                "BautizmoEspirituSanto.Id, BautizmoEspirituSanto.Nombre, " +
+                "Pastores.Id, Pastores.Nombre, " +
+                "Supervisores.Id, Supervisores.Nombre, " +
+                "Distrito.Id, Distrito.Numero, " +
+                "Zona.Id, Zona.Numero, " +
+                "Sector.Id, Sector.Numero, " +
+                "Celula.Id, Celula.Numero, " +
+                "Estatus.Id, Estatus.Nombre, " +
+                "Privilegios.Id, Privilegios.Nombre " +
+
+                "FROM Servidores JOIN Membresia ON Servidores.IdMembresia = Membresia.Id " +
+                "JOIN Sexo ON Membresia.IdSexo = Sexo.Id " +
+                "JOIN EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id " +
+                "JOIN BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
+                "JOIN Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
+                "JOIN Supervisores ON Membresia.IdNombreSupervisor = Supervisores.Id " +
+                "JOIN Distrito ON Membresia.IdDistrito = Distrito.Id " +
+                "JOIN Zona ON Membresia.IdZona = Zona.Id " +
+                "JOIN Sector ON Membresia.IdSector = Sector.Id " +
+                "JOIN Celula ON Membresia.IdCelula = Celula.Id " +
+                "JOIN Estatus ON Servidores.IdEstatus = Estatus.Id " +
+                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id WHERE Membresia.Nombre = @Nombre";
+
+            SqlCommand command = ComunDB.ObtenerComando();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = consultaSQL;
+            command.Parameters.AddWithValue("@Nombre", "%" + pNombre + "%"); // Se Agregan caracteres comodín para buscar coincidencias parciales
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(command);
+
+
+            while (reader.Read())
+            {
+                // Creamos una instancia de ServidoresEN para acceder a los atributos
+                ServidoresEN ObjServidores = new ServidoresEN();
+
+                // Asignacion de Columnas
+                ObjServidores.Id = reader.GetInt32(0);
+                ObjServidores.Membresia = new MembresiaEN
+                {
+                    Id = reader.GetInt32(1),
+                    Nombre = reader.GetString(2),
+                    Apellido = reader.GetString(3),
+                    Dui = reader.GetString(4),
+                    Edad = reader.GetString(5),
+                    Sexo = new SexoEN
+                    {
+                        Id = reader.GetInt32(6),
+                        Nombre = reader.GetString(7)
+                    },
+                    EstadoCivil = new EstadoCivilEN
+                    {
+                        Id = reader.GetInt32(8),
+                        Nombre = reader.GetString(9)
+                    },
+                    BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
+                    {
+                        Id = reader.GetInt32(10),
+                        Nombre = reader.GetString(11)
+                    },
+                    Pastores = new PastoresEN
+                    {
+                        Id = reader.GetInt32(12),
+                        Nombre = reader.GetString(13)
+                    },
+                    Supervisor = new SupervisoresEN
+                    {
+                        Id = reader.GetInt32(14),
+                        Nombre = reader.GetString(15)
+                    },
+                    Distrito = new DistritoEN
+                    {
+                        Id = reader.GetInt32(16),
+                        Numero = reader.GetString(17)
+                    },
+                    Zona = new ZonaEN
+                    {
+                        Id = reader.GetInt32(18),
+                        Numero = reader.GetString(19)
+                    },
+                    Sector = new SectorEN
+                    {
+                        Id = reader.GetInt32(20),
+                        Numero = reader.GetString(21)
+                    },
+                    Celula = new CelulaEN
+                    {
+                        Id = reader.GetInt32(22),
+                        Numero = reader.GetString(23)
+                    }
+                };
+                ObjServidores.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(24),
+                    Nombre = reader.GetString(25)
+                };
+                ObjServidores.Privilegio = new PrivilegiosEN
+                {
+                    Id = reader.GetInt32(26),
+                    Nombre = reader.GetString(27)
+                };
+                listaServidor.Add(ObjServidores);
+            }
+            // Retornamos la Lista de Servidores
+            return listaServidor;
         }
         #endregion
     }
