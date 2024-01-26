@@ -30,5 +30,15 @@ namespace ElimIzalco.SysRegistroGeneral.BL.Servidores
         {
             return ObjServidor.EliminarServidor(pServidorEliminar);
         }
+        // Metodo Para Validar la Existencia del Servidor
+        public int ValidarExistenciaServidor(ServidoresEN pServidorValidar)
+        {
+            return ObjServidor.ValidarExistenciaServidor(pServidorValidar);
+        }
+        // Metodo para Obtener todos los Servidores
+        public List<ServidoresEN> ObtenerServidores()
+        {
+            return ObjServidor.ObtenerServidores();
+        }
     }
 }
