@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador"
         mc:Ignorable="d"
-        Title="  Sistema de Registro - ¨Mision Cristiana Elim Izalco¨ - Vista General Administador" Height="722" Width="1341" WindowStartupLocation="CenterScreen">
+        Title="  Sistema de Registro - ¨Mision Cristiana Elim Izalco¨ - Vista General Administador" Height="722" Width="1212" WindowStartupLocation="CenterScreen">
     <!--Insersion de Icono a la ventana-->
     <Window.Icon>
         <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
@@ -13,11 +13,11 @@
     <!--Grid Principal-->
     <Grid Background="WhiteSmoke">
         <!--Panel Superior - Menu Principal-->
-        <DockPanel HorizontalAlignment="Center" Height="82" LastChildFill="False" VerticalAlignment="Top" Width="1342" Background="#091C77">
+        <DockPanel HorizontalAlignment="Center" Height="82" LastChildFill="False" VerticalAlignment="Top" Width="1212" Background="#091C77">
             <!--Panel De Separacion-->
             <StackPanel Width="32"/>
             <!--Logo Principal-->
-            <Image Source="/Images/Logo-Elim-White.png" Stretch="Uniform" Width="152" Height="56" x:Name="LogoPrincipal"/>
+            <Image Source="/Images/Logo-Elim-White.png" Stretch="Uniform" Width="152" Height="56" x:Name="LogoPrincipal" Margin="5,0,0,0"/>
             <!--Panel De Separacion-->
             <StackPanel Width="32" DockPanel.Dock="Right"/>
             <!--Boton Para Cerrar Sesion-->
@@ -36,7 +36,7 @@
             <!--Panel De Separacion-->
             <StackPanel Width="60" DockPanel.Dock="Right"/>
             <!--Boton Para Navegar hacia el Inicio el Sistema-->
-            <Button Width="73" Height="89" BorderBrush="Transparent" x:Name="btnInicio" Click="btnInicio_Click">
+            <Button Width="73" Height="89" BorderBrush="Transparent" x:Name="btnInicio" Click="btnInicio_Click" Margin="-50,0,0,0">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/IconHogar.png" Stretch="Uniform"/>
                 </Button.Background>
@@ -54,13 +54,10 @@
                 </Button.Background>
             </Button>
         </DockPanel>
-        <!--Pie de Pagina-->
-        <Label Content="Derechos Reservados" HorizontalAlignment="Left" Margin="589,638,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold"/>
-        <Label Content="&quot;Misión Cristiana Elim Izalco&quot;" HorizontalAlignment="Center" Margin="0,650,0,0" VerticalAlignment="Top" Width="188" Height="28"/>
         <!--Logo Central-->
-        <Image Margin="517,250,518,189" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Fill"/>
+        <Image Margin="465,236,432,180" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Uniform"/>
         <Frame x:Name="FrameContenido" NavigationUIVisibility="Hidden" Margin="0,82,0,42">
-            <!-- Contenido principal -->
+             <!--Contenido principal--> 
         </Frame>
 
     </Grid>
