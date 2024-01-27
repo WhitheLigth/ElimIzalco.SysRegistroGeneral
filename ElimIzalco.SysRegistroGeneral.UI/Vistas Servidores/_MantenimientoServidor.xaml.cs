@@ -48,6 +48,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
         {
             InitializeComponent();
 
+            // Deshabilitamos el Boton de Maximizar
+            this.ResizeMode = ResizeMode.CanMinimize;
+
             ActualizarDataGridMembresia();
             CargarEstatus();
             CargarPrivilegio();

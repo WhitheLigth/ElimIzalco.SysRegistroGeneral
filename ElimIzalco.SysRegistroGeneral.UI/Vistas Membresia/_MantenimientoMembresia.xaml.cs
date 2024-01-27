@@ -66,6 +66,9 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
         {
             InitializeComponent();
 
+            // Deshabilitamos el Boton de Maximizar
+            this.ResizeMode = ResizeMode.CanMinimize;
+
             // Llamamos el metodo de ActualizarDataGrid para que se ejecute al iniciar la ventana
             ActualizarDataGrid();
             ActualizarDataGridProfesionUOficio();
