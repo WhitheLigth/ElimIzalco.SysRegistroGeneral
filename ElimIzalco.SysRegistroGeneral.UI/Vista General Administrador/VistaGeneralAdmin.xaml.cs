@@ -25,10 +25,6 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
         public VistaGeneralAdmin()
         {
             InitializeComponent();
-
-            // Deshabilitar el botón de cerrar
-            this.WindowStyle = WindowStyle.None;
-
         }
         // Metodo para Limpiar la Ventana Principal
         private void btnInicio_Click(object sender, RoutedEventArgs e)
