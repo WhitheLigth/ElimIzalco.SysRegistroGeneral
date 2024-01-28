@@ -64,12 +64,12 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             // Consulta hacia la Base de Datos
             string consultaSQL = "INSERT INTO Membresia (Nombre, Apellido, Dui, FechaNacimiento, Edad, Direccion, Telefono, " +
                 "LugarDeTrabajo, TelefonoDelTrabajo, FechaConversion, LugarDeConversion, Digito, NombreLider, Observaciones, " +
-                "FechaCreacion, Fotografia, ProfesionUOficio, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto, " +
+                "FechaCreacion, Fotografia, IdProfesionUOficio, IdSexo, IdEstatus, IdEstadoCivil, IdBautizmoEnAgua, IdBautizmoEspirituSanto, " +
                 "IdListaCalendario, IdNombrePastor, IdNombreSupervisor, IdDistrito, IdZona, IdSector, IdCelula) " +
 
                 "VALUES (@Nombre, @Apellido, @Dui, @FechaNacimiento, @Edad, @Direccion, @Telefono, @LugarDeTrabajo, @TelefonoDelTrabajo, " +
                 "@FechaConversion, @LugarDeConversion, @Digito, @NombreLider, @Observaciones, @FechaCreacion, " +
-                "@Fotografia, @ProfesionUOficio, @IdSexo, @IdEstatus, @IdEstadoCivil, @IdBautizmoEnAgua, @IdBautizmoEspirituSanto, @IdListaCalendario, " +
+                "@Fotografia, @IdProfesionUOficio, @IdSexo, @IdEstatus, @IdEstadoCivil, @IdBautizmoEnAgua, @IdBautizmoEspirituSanto, @IdListaCalendario, " +
                 "@IdNombrePastor, @IdNombreSupervisor, @IdDistrito, @IdZona, @IdSector, @IdCelula)";
 
             SqlCommand command = ComunDB.ObtenerComando();
@@ -94,7 +94,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@Observaciones", pMembresiaGuardar.Observaciones);
             command.Parameters.AddWithValue("@FechaCreacion", pMembresiaGuardar.FechaCreacion);
             command.Parameters.AddWithValue("@Fotografia", pMembresiaGuardar.Fotografia);
-            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaGuardar.ProfesionUOficio);
+            command.Parameters.AddWithValue("@IdProfesionUOficio", pMembresiaGuardar.ProfesionUOficio.Id);
             command.Parameters.AddWithValue("@IdSexo", pMembresiaGuardar.Sexo.Id);
             command.Parameters.AddWithValue("@IdEstatus", pMembresiaGuardar.Estatus.Id);
             command.Parameters.AddWithValue("@IdEstadoCivil", pMembresiaGuardar.EstadoCivil.Id);
@@ -119,7 +119,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             string consultaSQL = "UPDATE Membresia SET Nombre = @Nombre, Apellido = @Apellido, Dui = @Dui, FechaNacimiento = @FechaNacimiento, Edad = @Edad, " +
                 "Direccion = @Direccion, Telefono = @Telefono, LugarDeTrabajo = @LugarDeTrabajo, TelefonoDelTrabajo = @TelefonoDelTrabajo, " +
                 "FechaConversion = @FechaConversion, LugarDeConversion = @LugarDeConversion, Digito = @Digito, NombreLider = @NombreLider, " +
-                "Observaciones = @Observaciones, FechaModificacion = @FechaModificacion, Fotografia = @Fotografia, ProfesionUOficio = @ProfesionUOficio, " +
+                "Observaciones = @Observaciones, FechaModificacion = @FechaModificacion, Fotografia = @Fotografia, IdProfesionUOficio = @IdProfesionUOficio, " +
                 "IdSexo = @IdSexo, IdEstatus = @IdEstatus, IdEstadoCivil = @IdEstadoCivil, IdBautizmoEnAgua = @IdBautizmoEnAgua, " +
                 "IdBautizmoEspirituSanto = @IdBautizmoEspirituSanto, IdListaCalendario = @IdListaCalendario, IdNombrePastor = @IdNombrePastor, " +
                 "IdNombreSupervisor = @IdNombreSupervisor, IdDistrito = @IdDistrito, IdZona = @IdZona, IdSector = @IdSector, IdCelula = @IdCelula " +
@@ -148,7 +148,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             command.Parameters.AddWithValue("@Observaciones", pMembresiaModificar.Observaciones);
             command.Parameters.AddWithValue("@FechaModificacion", pMembresiaModificar.FechaModificacion);
             command.Parameters.AddWithValue("@Fotografia", pMembresiaModificar.Fotografia);
-            command.Parameters.AddWithValue("@ProfesionUOficio", pMembresiaModificar.ProfesionUOficio);
+            command.Parameters.AddWithValue("@IdProfesionUOficio", pMembresiaModificar.ProfesionUOficio.Id);
             command.Parameters.AddWithValue("@IdSexo", pMembresiaModificar.Sexo.Id);
             command.Parameters.AddWithValue("@IdEstatus", pMembresiaModificar.Estatus.Id);
             command.Parameters.AddWithValue("@IdEstadoCivil", pMembresiaModificar.EstadoCivil.Id);
@@ -194,7 +194,8 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             string consultaSQL = "SELECT Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.FechaNacimiento, Membresia.Edad, Membresia.Direccion, " +
                 "Membresia.Telefono, Membresia.LugarDeTrabajo, Membresia.TelefonoDelTrabajo, Membresia.FechaConversion, Membresia.LugarDeConversion, " +
                 "Membresia.Digito, Membresia.NombreLider, Membresia.Observaciones, Membresia.FechaCreacion, Membresia.FechaModificacion, " +
-                "Membresia.Fotografia, Membresia.ProfesionUOficio, " +
+                "Membresia.Fotografia, " +
+                "ProfesionUOficio.Id, ProfesionUOficio.Nombre, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "Estatus.Id, Estatus.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre," +
@@ -208,7 +209,8 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 "Sector.Id, Sector.Numero," +
                 "Celula.Id, Celula.Numero " +
 
-                "FROM Membresia join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
+                "FROM Membresia join ProfesionUOficio ON Membresia.IdProfesionUOficio = ProfesionUOficio.Id" +
+                "join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
                 "join EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id join BautizmoEnAgua ON Membresia.IdBautizmoEnAgua = BautizmoEnAgua.Id " +
                 "join BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
                 "join ListaCalendario ON Membresia.IdListaCalendario = ListaCalendario.Id join Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
@@ -247,66 +249,70 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 ObjMembresia.FechaCreacion = reader.GetDateTime(15);
                 ObjMembresia.FechaModificacion = reader.GetDateTime(16);
                 ObjMembresia.Fotografia = reader.GetSqlBytes(17).Value;
-                ObjMembresia.ProfesionUOficio = reader.GetString(18);
+                ObjMembresia.ProfesionUOficio = new ProfesionUOficioEN
+                {
+                    Id = reader.GetInt32(18),
+                    Nombre = reader.GetString(19),
+                };
                 ObjMembresia.Sexo = new SexoEN
                 {
-                    Id = reader.GetInt32(19),
-                    Nombre = reader.GetString(20)
+                    Id = reader.GetInt32(20),
+                    Nombre = reader.GetString(21)
                 };
                 ObjMembresia.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(21),
-                    Nombre = reader.GetString(22)
+                    Id = reader.GetInt32(22),
+                    Nombre = reader.GetString(23)
                 };
                 ObjMembresia.EstadoCivil = new EstadoCivilEN
                 {
-                    Id = reader.GetInt32(23),
-                    Nombre = reader.GetString(24)
+                    Id = reader.GetInt32(24),
+                    Nombre = reader.GetString(25)
                 };
                 ObjMembresia.BautizmoEnAgua = new BautizmoEnAguaEN
                 {
-                    Id = reader.GetInt32(25),
-                    Nombre = reader.GetString(26)
+                    Id = reader.GetInt32(26),
+                    Nombre = reader.GetString(27)
                 };
                 ObjMembresia.BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                 {
-                    Id = reader.GetInt32(27),
-                    Nombre = reader.GetString(28)
+                    Id = reader.GetInt32(28),
+                    Nombre = reader.GetString(29)
                 };
                 ObjMembresia.ListaCalendario = new ListaDeCalendarioEN
                 {
-                    Id = reader.GetInt32(29),
-                    Nombre = reader.GetString(30)
+                    Id = reader.GetInt32(30),
+                    Nombre = reader.GetString(31)
                 };
                 ObjMembresia.Pastores = new PastoresEN
                 {
-                    Id = reader.GetInt32(31),
-                    Nombre = reader.GetString(32)
+                    Id = reader.GetInt32(32),
+                    Nombre = reader.GetString(33)
                 };
                 ObjMembresia.Supervisor = new SupervisoresEN
                 {
-                    Id = reader.GetInt32(33),
-                    Nombre = reader.GetString(34)
+                    Id = reader.GetInt32(34),
+                    Nombre = reader.GetString(35)
                 };
                 ObjMembresia.Distrito = new DistritoEN
                 {
-                    Id = reader.GetInt32(35),
-                    Numero = reader.GetString(36)
+                    Id = reader.GetInt32(36),
+                    Numero = reader.GetString(37)
                 };
                 ObjMembresia.Zona = new ZonaEN
                 {
-                    Id = reader.GetInt32(37),
-                    Numero = reader.GetString(38)
+                    Id = reader.GetInt32(38),
+                    Numero = reader.GetString(39)
                 };
                 ObjMembresia.Sector = new SectorEN
                 {
-                    Id = reader.GetInt32(39),
-                    Numero = reader.GetString(40)
+                    Id = reader.GetInt32(40),
+                    Numero = reader.GetString(41)
                 };
                 ObjMembresia.Celula = new CelulaEN
                 {
-                    Id = reader.GetInt32(41),
-                    Numero = reader.GetString(42)
+                    Id = reader.GetInt32(42),
+                    Numero = reader.GetString(43)
                 };
                 listaMembresia.Add(ObjMembresia);
             }
@@ -324,8 +330,8 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.FechaNacimiento, Membresia.Edad, Membresia.Direccion, " +
                 "Membresia.Telefono, Membresia.LugarDeTrabajo, Membresia.TelefonoDelTrabajo, Membresia.FechaConversion, Membresia.LugarDeConversion, " +
-                "Membresia.Digito, Membresia.NombreLider, Membresia.Observaciones, Membresia.FechaCreacion, Membresia.FechaModificacion, " +
-                "Membresia.Fotografia, Membresia.ProfesionUOficio, " +
+                "Membresia.Digito, Membresia.NombreLider, Membresia.Observaciones, Membresia.FechaCreacion, Membresia.FechaModificacion, Membresia.Fotografia, " +
+                "ProfesionUOficio.Id, ProfesionUOficio.Nombre, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "Estatus.Id, Estatus.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre," +
@@ -339,7 +345,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 "Sector.Id, Sector.Numero," +
                 "Celula.Id, Celula.Numero " +
 
-                "FROM Membresia join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
+                "FROM Membresia join ProfesionUOficio ON Membresia.IdProfesionUOficio = ProfesionUOficio.Id join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
                 "join EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id join BautizmoEnAgua ON Membresia.IdBautizmoEnAgua = BautizmoEnAgua.Id " +
                 "join BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
                 "join ListaCalendario ON Membresia.IdListaCalendario = ListaCalendario.Id join Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
@@ -376,66 +382,70 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 ObjMembresia.FechaCreacion = reader.GetDateTime(15);
                 ObjMembresia.FechaModificacion = reader.GetDateTime(16);
                 ObjMembresia.Fotografia = reader.GetSqlBytes(17).Value;
-                ObjMembresia.ProfesionUOficio = reader.GetString(18);
+                ObjMembresia.ProfesionUOficio = new ProfesionUOficioEN
+                {
+                    Id = reader.GetInt32(18),
+                    Nombre = reader.GetString(19),
+                };
                 ObjMembresia.Sexo = new SexoEN
                 {
-                    Id = reader.GetInt32(19),
-                    Nombre = reader.GetString(20)
+                    Id = reader.GetInt32(20),
+                    Nombre = reader.GetString(21)
                 };
                 ObjMembresia.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(21),
-                    Nombre = reader.GetString(22)
+                    Id = reader.GetInt32(22),
+                    Nombre = reader.GetString(23)
                 };
                 ObjMembresia.EstadoCivil = new EstadoCivilEN
                 {
-                    Id = reader.GetInt32(23),
-                    Nombre = reader.GetString(24)
+                    Id = reader.GetInt32(24),
+                    Nombre = reader.GetString(25)
                 };
                 ObjMembresia.BautizmoEnAgua = new BautizmoEnAguaEN
                 {
-                    Id = reader.GetInt32(25),
-                    Nombre = reader.GetString(26)
+                    Id = reader.GetInt32(26),
+                    Nombre = reader.GetString(27)
                 };
                 ObjMembresia.BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                 {
-                    Id = reader.GetInt32(27),
-                    Nombre = reader.GetString(28)
+                    Id = reader.GetInt32(28),
+                    Nombre = reader.GetString(29)
                 };
                 ObjMembresia.ListaCalendario = new ListaDeCalendarioEN
                 {
-                    Id = reader.GetInt32(29),
-                    Nombre = reader.GetString(30)
+                    Id = reader.GetInt32(30),
+                    Nombre = reader.GetString(31)
                 };
                 ObjMembresia.Pastores = new PastoresEN
                 {
-                    Id = reader.GetInt32(31),
-                    Nombre = reader.GetString(32)
+                    Id = reader.GetInt32(32),
+                    Nombre = reader.GetString(33)
                 };
                 ObjMembresia.Supervisor = new SupervisoresEN
                 {
-                    Id = reader.GetInt32(33),
-                    Nombre = reader.GetString(34)
+                    Id = reader.GetInt32(34),
+                    Nombre = reader.GetString(35)
                 };
                 ObjMembresia.Distrito = new DistritoEN
                 {
-                    Id = reader.GetInt32(35),
-                    Numero = reader.GetString(36)
+                    Id = reader.GetInt32(36),
+                    Numero = reader.GetString(37)
                 };
                 ObjMembresia.Zona = new ZonaEN
                 {
-                    Id = reader.GetInt32(37),
-                    Numero = reader.GetString(38)
+                    Id = reader.GetInt32(38),
+                    Numero = reader.GetString(39)
                 };
                 ObjMembresia.Sector = new SectorEN
                 {
-                    Id = reader.GetInt32(39),
-                    Numero = reader.GetString(40)
+                    Id = reader.GetInt32(40),
+                    Numero = reader.GetString(41)
                 };
                 ObjMembresia.Celula = new CelulaEN
                 {
-                    Id = reader.GetInt32(41),
-                    Numero = reader.GetString(42)
+                    Id = reader.GetInt32(42),
+                    Numero = reader.GetString(43)
                 };
             }
             return ObjMembresia;
@@ -452,8 +462,8 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
             // Consulta hacia la Base de Datos
             string consultaSQL = "SELECT Membresia.Id, Membresia.Nombre, Membresia.Apellido, Membresia.Dui, Membresia.FechaNacimiento, Membresia.Edad, Membresia.Direccion, " +
                 "Membresia.Telefono, Membresia.LugarDeTrabajo, Membresia.TelefonoDelTrabajo, Membresia.FechaConversion, Membresia.LugarDeConversion, " +
-                "Membresia.Digito, Membresia.NombreLider, Membresia.Observaciones, Membresia.FechaCreacion, Membresia.FechaModificacion, " +
-                "Membresia.Fotografia, Membresia.ProfesionUOficio, " +
+                "Membresia.Digito, Membresia.NombreLider, Membresia.Observaciones, Membresia.FechaCreacion, Membresia.FechaModificacion, Membresia.Fotografia, " +
+                "ProfesionUOficio.Id, ProfesionUOficio.Nombre, " +
                 "Sexo.Id, Sexo.Nombre, " +
                 "Estatus.Id, Estatus.Nombre, " +
                 "EstadoCivil.Id, EstadoCivil.Nombre," +
@@ -467,7 +477,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 "Sector.Id, Sector.Numero," +
                 "Celula.Id, Celula.Numero " +
 
-                "FROM Membresia join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
+                "FROM Membresia join ProfesionUOficio ON Membresia.IdProfesionUOficio = ProfesionUOficio.Id join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
                 "join EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id join BautizmoEnAgua ON Membresia.IdBautizmoEnAgua = BautizmoEnAgua.Id " +
                 "join BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
                 "join ListaCalendario ON Membresia.IdListaCalendario = ListaCalendario.Id join Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
@@ -506,66 +516,70 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 ObjMembresia.FechaCreacion = reader.GetDateTime(15);
                 ObjMembresia.FechaModificacion = reader.GetDateTime(16);
                 ObjMembresia.Fotografia = reader.GetSqlBytes(17).Value;
-                ObjMembresia.ProfesionUOficio = reader.GetString(18);
+                ObjMembresia.ProfesionUOficio = new ProfesionUOficioEN
+                {
+                    Id = reader.GetInt32(18),
+                    Nombre = reader.GetString(19),
+                };
                 ObjMembresia.Sexo = new SexoEN
                 {
-                    Id = reader.GetInt32(19),
-                    Nombre = reader.GetString(20)
+                    Id = reader.GetInt32(20),
+                    Nombre = reader.GetString(21)
                 };
                 ObjMembresia.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(21),
-                    Nombre = reader.GetString(22)
+                    Id = reader.GetInt32(22),
+                    Nombre = reader.GetString(23)
                 };
                 ObjMembresia.EstadoCivil = new EstadoCivilEN
                 {
-                    Id = reader.GetInt32(23),
-                    Nombre = reader.GetString(24)
+                    Id = reader.GetInt32(24),
+                    Nombre = reader.GetString(25)
                 };
                 ObjMembresia.BautizmoEnAgua = new BautizmoEnAguaEN
                 {
-                    Id = reader.GetInt32(25),
-                    Nombre = reader.GetString(26)
+                    Id = reader.GetInt32(26),
+                    Nombre = reader.GetString(27)
                 };
                 ObjMembresia.BautizmoDelEspirituSanto = new BautizmoDelEspirituSantoEN
                 {
-                    Id = reader.GetInt32(27),
-                    Nombre = reader.GetString(28)
+                    Id = reader.GetInt32(28),
+                    Nombre = reader.GetString(29)
                 };
                 ObjMembresia.ListaCalendario = new ListaDeCalendarioEN
                 {
-                    Id = reader.GetInt32(29),
-                    Nombre = reader.GetString(30)
+                    Id = reader.GetInt32(30),
+                    Nombre = reader.GetString(31)
                 };
                 ObjMembresia.Pastores = new PastoresEN
                 {
-                    Id = reader.GetInt32(31),
-                    Nombre = reader.GetString(32)
+                    Id = reader.GetInt32(32),
+                    Nombre = reader.GetString(33)
                 };
                 ObjMembresia.Supervisor = new SupervisoresEN
                 {
-                    Id = reader.GetInt32(33),
-                    Nombre = reader.GetString(34)
+                    Id = reader.GetInt32(34),
+                    Nombre = reader.GetString(35)
                 };
                 ObjMembresia.Distrito = new DistritoEN
                 {
-                    Id = reader.GetInt32(35),
-                    Numero = reader.GetString(36)
+                    Id = reader.GetInt32(36),
+                    Numero = reader.GetString(37)
                 };
                 ObjMembresia.Zona = new ZonaEN
                 {
-                    Id = reader.GetInt32(37),
-                    Numero = reader.GetString(38)
+                    Id = reader.GetInt32(38),
+                    Numero = reader.GetString(39)
                 };
                 ObjMembresia.Sector = new SectorEN
                 {
-                    Id = reader.GetInt32(39),
-                    Numero = reader.GetString(40)
+                    Id = reader.GetInt32(40),
+                    Numero = reader.GetString(41)
                 };
                 ObjMembresia.Celula = new CelulaEN
                 {
-                    Id = reader.GetInt32(41),
-                    Numero = reader.GetString(42)
+                    Id = reader.GetInt32(42),
+                    Numero = reader.GetString(43)
                 };
                 // A los atributos de la primera instancia se le asignan los datos encontrados del membresia
                 listaMembresia.Add(ObjMembresia);
