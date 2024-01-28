@@ -105,7 +105,7 @@
         <TextBox x:Name="txtObservaciones" MaxLength="500" HorizontalAlignment="Left" Margin="35,483,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="818" Height="60"/>
         <!--Caja para agrupar la Fotografia Personal-->
         <GroupBox Header="Fotografia" Margin="916,31,34,309" BorderBrush="#FF091C77" Foreground="#FF091C77" Background="Transparent" FontWeight="Bold" FontSize="16"/>
-        <Image x:Name="imgFoto" Height="204" Margin="934,58,52,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgFoto" Height="191" Margin="934,58,52,0" VerticalAlignment="Top"/>
         <!--Boton para Importarn una Imagen para la Membresia-->
         <Button x:Name="btnAgregarImg" Content="Importar Imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="999,252,0,0" Click="btnAgregarImg_Click" Height="18"/>
         <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
