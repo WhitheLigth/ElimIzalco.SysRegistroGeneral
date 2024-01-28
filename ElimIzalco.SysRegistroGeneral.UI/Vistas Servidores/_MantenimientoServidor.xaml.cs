@@ -33,6 +33,8 @@ using ElimIzalco.SysRegistroGeneral.EN.Servidores;
 using ElimIzalco.SysRegistroGeneral.EN.Celula;
 using ElimIzalco.SysRegistroGeneral.EN.Estatus;
 using ElimIzalco.SysRegistroGeneral.EN.Privilegios;
+using ElimIzalco.SysRegistroGeneral.BL.Historial_Servidores;
+using ElimIzalco.SysRegistroGeneral.EN.Historial_Servidores;
 #endregion
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
@@ -576,8 +578,24 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                     Nombre = cbxPrivilegio.Text
                 },
             };
+            // Creamos una Nueva varible igual a la anterior pero designada para el Historial
+            var ObjServidorHistorial = new HistorialServidoresEN
+            {
+                Membresia = new MembresiaEN
+                {
+                    Id = Convert.ToInt32(txtIdMembresia.Text),
+                },
+                Estatus = new EstatusEN
+                {
+                    Id = Convert.ToInt32(cbxEstatus.SelectedValue),
+                },
+                Privilegio = new PrivilegiosEN
+                {
+                    Id = Convert.ToInt32(cbxPrivilegio.SelectedValue),
+                },
+            };
             // Validamos que el ObjServidor sea diferente a NULL para poder continuar con lo siguiente
-            if (ObjServidor != null)
+            if (ObjServidor != null && ObjServidorHistorial != null)
             {
                 // Accedemos al Metodo de Validacion de Existencia de la Capa BL  
                 var ObjServidorBLL = new ServidoresBL();
@@ -597,8 +615,12 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                         var ObjServidorBL = new ServidoresBL();
                         var result = ObjServidorBL.GuardarServidor(ObjServidor);
 
+                        // Procedemos a Guardar simultaneamente a la tabla Historial_Servidores
+                        var ObjServidorHistorialBL = new HistorialServidoresBL();
+                        var resultado = ObjServidorHistorialBL.GuardarHistorialServidor(ObjServidorHistorial);
+
                         // Si result es diferente de 0 Muestra una Ventana al Usuario
-                        if (result != 0)
+                        if (result != 0 && resultado != 0)
                         {
                             MessageBox.Show("Servidor Agregado con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
                             Close();
@@ -666,6 +688,22 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                         Nombre = cbxPrivilegio.Text
                     }
                 };
+                // Creamos una Nueva varible igual a la anterior pero designada para el Historial
+                var ObjServidorHistorial = new HistorialServidoresEN
+                {
+                    Membresia = new MembresiaEN
+                    {
+                        Id = Convert.ToInt32(txtIdMembresia.Text),
+                    },
+                    Estatus = new EstatusEN
+                    {
+                        Id = Convert.ToInt32(cbxEstatus.SelectedValue),
+                    },
+                    Privilegio = new PrivilegiosEN
+                    {
+                        Id = Convert.ToInt32(cbxPrivilegio.SelectedValue),
+                    },
+                };
 
                 // Validamos que ObjServidor sea Diferente de NULL para continuar con lo siguiente
                 if (ObjServidor != null)
@@ -681,6 +719,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores
                         var pServidorBL = new ServidoresBL();
                         pServidorBL.ModificarServidor(ObjServidor);
                         var pServidorActualizado = pServidorBL.ObtenerServidores();
+
+                        // Procedemos a Guardar simultaneamente a la tabla Historial_Servidores
+                        var ObjServidorHistorialBL = new HistorialServidoresBL();
+                        var resultado = ObjServidorHistorialBL.GuardarHistorialServidor(ObjServidorHistorial);
 
                         formServidor.dgvMostrar_Servidores.ItemsSource = null;
                         formServidor.dgvMostrar_Servidores.ItemsSource = pServidorActualizado;
