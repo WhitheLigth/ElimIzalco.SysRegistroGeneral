@@ -36,7 +36,7 @@
         <TextBox x:Name="txtDui" MaxLength="9" HorizontalAlignment="Left" Margin="391,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Height="20" TextChanged="txtDui_TextChanged"/>
         <!--Conjunto para ingresar Fecha de Nacimiento-->
         <Label Content="Fecha de Nacimiento:" HorizontalAlignment="Left" Margin="554,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
-        <DatePicker x:Name="dtbFechaDeNacimiento" HorizontalAlignment="Left" Margin="557,81,0,0" VerticalAlignment="Top" Height="26" Width="196" SelectedDateChanged="dtbFechaDeNacimiento_SelectedDateChanged"/>
+        <DatePicker x:Name="dtbFechaDeNacimiento" HorizontalAlignment="Left" Margin="557,81,0,0" VerticalAlignment="Top" Height="26" Width="209" SelectedDateChanged="dtbFechaDeNacimiento_SelectedDateChanged"/>
         <!--Conjunto para ingresar La Edad-->
         <Label Content="Edad:" HorizontalAlignment="Left" Margin="782,54,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="164"/>
         <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Margin="786,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Height="20"/>
@@ -71,7 +71,7 @@
         <TextBox x:Name="txtDireccionDeConversion" MaxLength="100" HorizontalAlignment="Left" Margin="255,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="20"/>
         <!--Conjunto para ingresar Si es Bautizado en Agua-->
         <Label Content="Bautizmo en Agua:" HorizontalAlignment="Left" Margin="510,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="152"/>
-        <ComboBox x:Name="cbxBautizmoEnAgua"  HorizontalAlignment="Left" Margin="512,308,0,0" VerticalAlignment="Top" Width="136" Height="19" BorderBrush="Transparent" Background="Black"/>
+        <ComboBox x:Name="cbxBautizmoEnAgua"  HorizontalAlignment="Left" Margin="512,308,0,0" VerticalAlignment="Top" Width="150" Height="19" BorderBrush="Transparent" Background="Black"/>
         <!--Conjunto para ingresar Si es Bautizado en Espiritu Santo-->
         <Label Content="Bautizmo en Espiritu Santo:" HorizontalAlignment="Left" Margin="672,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="198"/>
         <ComboBox x:Name="cbxBautizmoEnEspirituSanto"  HorizontalAlignment="Left" Margin="688,308,0,0" VerticalAlignment="Top" Width="156" Height="19" BorderBrush="Transparent" Background="Black"/>
