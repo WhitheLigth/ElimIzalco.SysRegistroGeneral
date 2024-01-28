@@ -71,7 +71,6 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
 
             // Llamamos el metodo de ActualizarDataGrid para que se ejecute al iniciar la ventana
             ActualizarDataGrid();
-            ActualizarDataGridProfesionUOficio();
 
             // Quitamos la Visibilidad del btnGuardarImg hasta que aparezca la img de Codebar ( El codigo de barras )
             btnGuardaImg.Visibility = Visibility.Collapsed;
@@ -92,6 +91,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
             CargarZona();
             CargarSector();
             CargarCelula();
+            CargarProfesionUOficio();
 
             // Validamos que la variable pId sea diferente a null para que proceda
             if (pId != null)
@@ -117,12 +117,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 cbxEstadoCivil.SelectedIndex = 0;
                 txtTelefono.Text = "";
                 txtDireccion.Text = "";
-                txtBuscarProfesionUOficio.Text = "";
-                txtProfesionUOficio.Text = "";
-                txtProfesionUOficio.IsEnabled = false;
+                cbxProfesionUOficio.SelectedIndex = 0;
                 txtLugarDeTrabajo.Text = "";
                 txtTelefonoDelTrabajo.Text = "";
-                
+
                 dtFechaDeConversion.IsEnabled = true;
                 dtFechaDeConversion.SelectedDateFormat = DatePickerFormat.Long;
 
@@ -278,6 +276,16 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
             cbxCelula.DisplayMemberPath = "Numero";
             cbxCelula.SelectedValuePath = "Id";
         }
+        // Metodo para Cargar el ComboBox
+        private void CargarProfesionUOficio()
+        {
+            var profesionuoficioBl = new ProfesionUOficioBL();
+            var profesionuoficio = profesionuoficioBl.ObtenerProfesionUOficio();
+
+            cbxProfesionUOficio.ItemsSource = profesionuoficio;
+            cbxProfesionUOficio.DisplayMemberPath = "Nombre";
+            cbxProfesionUOficio.SelectedValuePath= "Id";
+        }
         #endregion
 
         #region Metodo para Validar que Accion de Ver, Modificar y Elinminar se ejecuta Haciendo Uso del Parametro Id
@@ -324,12 +332,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     txtDireccion.Text = membresia.Direccion;
                     txtDireccion.IsEnabled = false;
 
-                    txtBuscarProfesionUOficio.IsEnabled = false;
-                    btnConfirmacionProfesionUOficio.IsEnabled = false;
-                    dgvResumenProfesionUOficio.IsEnabled = false;
-
-                    txtProfesionUOficio.Text = membresia.ProfesionUOficio;
-                    txtProfesionUOficio.IsEnabled = false;
+                    cbxProfesionUOficio.SelectedValue = membresia.ProfesionUOficio.Id;
+                    cbxProfesionUOficio.DisplayMemberPath = "Nombre";
+                    cbxProfesionUOficio.SelectedValuePath = "Id";
+                    cbxProfesionUOficio.IsEnabled = false;
                     txtLugarDeTrabajo.Text = membresia.LugarDeTrabajo;
                     txtLugarDeTrabajo.IsEnabled = false;
                     txtTelefonoDelTrabajo.Text = membresia.TelefonoDelTrabajo;
@@ -461,12 +467,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     txtDireccion.Text = membresia.Direccion;
                     txtDireccion.IsEnabled = false;
 
-                    txtBuscarProfesionUOficio.IsEnabled = false;
-                    btnConfirmacionProfesionUOficio.IsEnabled = false;
-                    dgvResumenProfesionUOficio.IsEnabled = false;
-
-                    txtProfesionUOficio.Text = membresia.ProfesionUOficio;
-                    txtProfesionUOficio.IsEnabled = false;
+                    cbxProfesionUOficio.SelectedValue = membresia.ProfesionUOficio.Id;
+                    cbxProfesionUOficio.DisplayMemberPath = "Nombre";
+                    cbxProfesionUOficio.SelectedValuePath = "Id";
+                    cbxProfesionUOficio.IsEnabled = false;
                     txtLugarDeTrabajo.Text = membresia.LugarDeTrabajo;
                     txtLugarDeTrabajo.IsEnabled = false;
                     txtTelefonoDelTrabajo.Text = membresia.TelefonoDelTrabajo;
@@ -591,8 +595,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     txtTelefono.Text = membresia.Telefono;
                     txtDireccion.Text = membresia.Direccion;
 
-                    txtProfesionUOficio.Text = membresia.ProfesionUOficio;
-                    txtProfesionUOficio.IsEnabled = false;
+                    cbxProfesionUOficio.SelectedValue = membresia.ProfesionUOficio.Id;
+                    cbxProfesionUOficio.DisplayMemberPath = "Nombre";
+                    cbxProfesionUOficio.SelectedValuePath = "Id";
+
                     txtLugarDeTrabajo.Text = membresia.LugarDeTrabajo;
                     txtTelefonoDelTrabajo.Text = membresia.TelefonoDelTrabajo;
 
@@ -846,62 +852,6 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
         }
         #endregion
 
-        // Metodo para Cargar el DataGridView de las Profesiones u Oficios
-        public void ActualizarDataGridProfesionUOficio()
-        {
-            dgvResumenProfesionUOficio.ItemsSource = null;
-            dgvResumenProfesionUOficio.ItemsSource = ObjProfesionUOficio.ObtenerProfesionUOficio();
-        }
-
-        #region Metodo para Buscar Profesion u Oficio haciendo uso del metodo Like Ademas del Boton de Confirmacion
-        // Metodo para Buscar Profesion u Oficio en Base contenido del texBox txtBuscarProfesionUOficio
-        public void BuscarProfesionUOficioLike()
-        {
-            // Llamamos al metodo para Actualizar el DatGridView
-            ActualizarDataGridProfesionUOficio();
-
-            // Le asignamos a la Variable busqueda el contenido del TextBox de la vista Grafica
-            string busqueda = txtBuscarProfesionUOficio.Text;
-
-            if (!string.IsNullOrEmpty(busqueda))
-            {
-                // Creamos la una Variable para poder acceder a los metodos de ProfesionUOficio
-                var profesionUOficioBl = new ProfesionUOficioBL();
-                // Accedesmos al Metodo ObtenerProfesionUOficioLike para buscar en base al contenido de la Variable busqueda y se lo asignamos a la variable ProfesionUOficio
-                var ProfesionUOficio = profesionUOficioBl.ObtenerProfesionUOficioLike(busqueda);
-                // En el DataGridView Mostramos los resultados obtenidos del la Variable ProfesionUOficio
-                dgvResumenProfesionUOficio.ItemsSource = ProfesionUOficio;
-            }
-        }
-        // Evento TextChanged para Buscar una Profesion u Oficio bajo el metodo Like
-        private void txtBuscarProfesionUOficio_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Llamamos al Metodo BuscarProfesionUOficioLike
-            BuscarProfesionUOficioLike();
-        }
-
-        // Metodo para Confirmar y Llenar el Campo de Profesion u Oficio
-        private void btnConfirmacionProfesionUOficio_Click(object sender, RoutedEventArgs e)
-        {
-            if (dgvResumenProfesionUOficio.SelectedItem != null)
-            {
-                // Obtenemos la Profesion u Oficio Seleccionada del DataGridView
-                ProfesionUOficioEN profesionUOficioSeleccionada = (ProfesionUOficioEN)dgvResumenProfesionUOficio.SelectedItem;
-
-                // Llenamos el TextBox con la Informacion Correspondiente Obtenida
-                txtProfesionUOficio.Text = profesionUOficioSeleccionada.Nombre;
-                // Desseleccionamos todas las Filas del DataGridview
-                dgvResumenProfesionUOficio.UnselectAll();
-                // Limpiamos el campo txtBuscarProfesionUOficio
-                txtBuscarProfesionUOficio.Text = string.Empty;
-            }
-            else
-            {
-                MessageBox.Show("Debes Seleccionar Al Menos Un Registro", "Error En La Seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-        #endregion
-
         #region Evento Click Para guardar una nueva membresia
         // Metodo para Guardar una Membresia
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -934,7 +884,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                 },
                 Telefono = txtTelefono.Text,
                 Direccion = txtDireccion.Text,
-                ProfesionUOficio = txtProfesionUOficio.Text,
+                ProfesionUOficio = new ProfesionUOficioEN
+                {
+                    Id = Convert.ToInt32(cbxProfesionUOficio.SelectedValue),
+                },
                 LugarDeTrabajo = txtLugarDeTrabajo.Text,
                 TelefonoDelTrabajo = txtTelefonoDelTrabajo.Text,
                 FechaConversion = dtFechaDeConversion.SelectedDate.Value,
@@ -1126,7 +1079,10 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     },
                     Telefono = txtTelefono.Text,
                     Direccion = txtDireccion.Text,
-                    ProfesionUOficio = txtProfesionUOficio.Text,
+                    ProfesionUOficio = new ProfesionUOficioEN
+                    {
+                        Id = Convert.ToInt32(cbxProfesionUOficio.SelectedValue),
+                    },
                     LugarDeTrabajo = txtLugarDeTrabajo.Text,
                     TelefonoDelTrabajo = txtTelefonoDelTrabajo.Text,
                     FechaConversion = dtFechaDeConversion.SelectedDate.Value,
