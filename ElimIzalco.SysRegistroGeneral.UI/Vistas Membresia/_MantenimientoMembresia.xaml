@@ -111,13 +111,13 @@
         <!--Espacio para la creacion del Codigo de Barras en Base al Numero de DUI-->
         <Image x:Name="imgBarraCode" Height="59" Margin="921,281,34,0" VerticalAlignment="Top"/>
         <!--Botones para las Acciones CRUD-->
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="916,377,0,0" VerticalAlignment="Top" Height="35" Width="276" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnGuardar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="916,414,0,0" VerticalAlignment="Top" Height="35" Width="276" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnModificar_Click"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="916,452,0,0" VerticalAlignment="Top" Height="36" Width="276" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnEliminar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="916,377,0,0" VerticalAlignment="Top" Height="35" Width="265" Background="#FF091C77" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnGuardar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="916,414,0,0" VerticalAlignment="Top" Height="35" Width="265" Background="#FF98A2D4" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnModificar_Click"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="916,452,0,0" VerticalAlignment="Top" Height="36" Width="265" Background="#FFE84E4E" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnEliminar_Click"/>
         <!--Conjunto Donde se muestra la Fecha de Creacion y Modificacion-->
-        <Label Content="Fecha de Creacion:" HorizontalAlignment="Left" Margin="894,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="27" Width="154"/>
+        <Label Content="Creacion:" HorizontalAlignment="Left" Margin="894,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="27" Width="154"/>
         <DatePicker x:Name="dtFechaDeCreacion" HorizontalAlignment="Left" Margin="897,527,0,0" VerticalAlignment="Top" Height="21" Width="140"/>
-        <Label Content="Fecha de Modificacion:" HorizontalAlignment="Left" Margin="1053,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="28" Width="155"/>
+        <Label Content="Modificacion:" HorizontalAlignment="Left" Margin="1053,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="28" Width="155"/>
         <DatePicker x:Name="dtFechadeModificacion" HorizontalAlignment="Left" Margin="1059,528,0,0" VerticalAlignment="Top" Height="20" Width="139"/>
         <!--Campo para Id-->
         <TextBox x:Name="txtIdMembresia" Grid.Row="2" Grid.Column="1" Margin="126,8,185,5" Visibility="Hidden" Grid.ColumnSpan="2" />
