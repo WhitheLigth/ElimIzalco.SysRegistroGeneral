@@ -209,7 +209,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 "Sector.Id, Sector.Numero," +
                 "Celula.Id, Celula.Numero " +
 
-                "FROM Membresia join ProfesionUOficio ON Membresia.IdProfesionUOficio = ProfesionUOficio.Id" +
+                "FROM Membresia join ProfesionUOficio ON Membresia.IdProfesionUOficio = ProfesionUOficio.Id " +
                 "join Sexo ON Membresia.IdSexo = Sexo.Id join Estatus ON Membresia.IdEstatus = Estatus.Id " +
                 "join EstadoCivil ON Membresia.IdEstadoCivil = EstadoCivil.Id join BautizmoEnAgua ON Membresia.IdBautizmoEnAgua = BautizmoEnAgua.Id " +
                 "join BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
