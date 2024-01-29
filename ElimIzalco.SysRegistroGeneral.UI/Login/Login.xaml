@@ -1,0 +1,39 @@
+﻿<Window x:Class="ElimIzalco.SysRegistroGeneral.UI.Login.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Login"
+        mc:Ignorable="d"
+        Title="  Inicio de Sesion - Sistema de Registro - ¨Mision Cristiana Elim Izalco¨" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <!--Insersion de Icono a la ventana-->
+    <Window.Icon>
+        <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
+    </Window.Icon>
+    <!--Grid Principal-->
+    <Grid Margin="0,0,400,0">
+        <!--Grid Interno Division de Color con el Logo-->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF091C77" Offset="0.522"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!--Logo Oficial de Fondo-->
+        <Image Margin="72,95,72,95" Source="/Images/Logo-Sin-Letras-White.png" Stretch="Fill"/>
+        <!--Conjunto para Ingresar el Correo Electronico-->
+        <Label Content="Correo Electronico:" Margin="469,85,-288,0" VerticalAlignment="Top" Height="45" Foreground="#FF091C77" FontWeight="Bold" FontSize="20"/>
+        <TextBox x:Name="txtCorreoElectronico" Margin="469,125,-313,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" SelectionBrush="#FF499CDE" BorderBrush="#FF091C77"/>
+        <!--Conjunto para Ingresar el Password-->
+        <Label Content="Contraseña:" Margin="469,164,-288,0" VerticalAlignment="Top" Height="45" Foreground="#FF091C77" FontWeight="Bold" FontSize="20"/>
+        <PasswordBox x:Name="txtPassw" Margin="469,204,-313,0" VerticalAlignment="Top" FontSize="15" SelectionBrush="#FF2C91E2" BorderBrush="#FF091C77"/>
+        <!--Boton para Iniciar Sesion-->
+        <Button x:Name="btnIniciarSesion" Content="Iniciar Sesion" Margin="485,262,-295,0" VerticalAlignment="Top" Height="40" FontSize="15" FontWeight="Bold" BorderBrush="#FF091C77" Foreground="White" Background="#FF091C77" Click="btnIniciarSesion_Click"/>
+        <!--Mensajes de Alerta cuando las credenciales sean Incorrrectas-->
+        <Label x:Name="lblAlertaVuelveAIntentarloSuperior" Content="Correo o Contraseña Invalidos - Vuelve a Intentarlo" Height="39" Margin="436,147,-382,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lblAlertaVuelveAIntentarloInferior" Content="Correo o Contraseña Invalidos - Vuelve a Intentarlo" Height="39" Margin="436,228,-382,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" Visibility="Hidden"/>
+        <!--pie de pagina-->
+        <Label Content="Derechos Reservador 2024 - Elim Izalco" Margin="478,382,-341,0" VerticalAlignment="Top" Height="37"/>
+    </Grid>
+</Window>
