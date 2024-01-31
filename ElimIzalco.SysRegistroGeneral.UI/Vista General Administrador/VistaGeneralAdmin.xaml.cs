@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows;
 using ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia;
 using ElimIzalco.SysRegistroGeneral.UI.Vistas_Servidores;
+using ElimIzalco.SysRegistroGeneral.UI.Login;
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
 {
@@ -43,6 +44,33 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador
         private void btnServidor_Click(object sender, RoutedEventArgs e)
         {
             FrameContenido.NavigationService.Navigate(new BuscarVerServidores());
+        }
+        // Metodo para Cerrar Sesion ( Cerrar todas las ventanas y redirigir al Login)
+        private void btnLagout_Click(object sender, RoutedEventArgs e)
+        {
+            // Mandamos una ventana Emergente para Confirmar si quiere cerrar sesión
+            MessageBoxResult messageBoxResult = MessageBox.Show($"¿Estás seguro de cerrar sesión?", "Confirmación Cerrar Sesión", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+
+            if (messageBoxResult == MessageBoxResult.OK)
+            {
+                // Cierra todas las ventanas abiertas excepto la ventana principal
+                List<Window> windowsToClose = Application.Current.Windows.OfType<Window>().Where(w => w != Application.Current.MainWindow).ToList();
+
+                foreach (Window window in windowsToClose)
+                {
+                    // Abre la ventana de inicio de sesión si no está abierta
+                    if (Application.Current.Windows.OfType<InicioDeSesion>().Count() == 0)
+                    {
+                        InicioDeSesion loginForm = new InicioDeSesion();
+                        loginForm.Show();
+                    }
+                    window.Close();
+                }
+            }
+            else if (messageBoxResult == MessageBoxResult.Cancel)
+            {
+                return;
+            }
         }
     }
 }

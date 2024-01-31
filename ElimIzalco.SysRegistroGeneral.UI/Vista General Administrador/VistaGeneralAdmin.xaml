@@ -21,7 +21,7 @@
             <!--Panel De Separacion-->
             <StackPanel Width="32" DockPanel.Dock="Right"/>
             <!--Boton Para Cerrar Sesion-->
-            <Button x:Name="btnLagout" Content="Cerrar Sesión" Width="NaN" BorderBrush="Transparent" Foreground="White" DockPanel.Dock="Right" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Focusable="False">
+            <Button x:Name="btnLagout" Content="Cerrar Sesión" Width="NaN" BorderBrush="Transparent" Foreground="White" DockPanel.Dock="Right" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Focusable="False" Click="btnLagout_Click">
                 <Button.Background>
                     <SolidColorBrush Opacity="0.1"/>
                 </Button.Background>
