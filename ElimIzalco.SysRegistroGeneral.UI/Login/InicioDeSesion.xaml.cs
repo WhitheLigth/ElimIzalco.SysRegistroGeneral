@@ -20,14 +20,13 @@ using ElimIzalco.SysRegistroGeneral.UI.Vista_General_Administrador;
 namespace ElimIzalco.SysRegistroGeneral.UI.Login
 {
     /// <summary>
-    /// Lógica de interacción para Login.xaml
+    /// Lógica de interacción para InicioDeSesion.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class InicioDeSesion : Window
     {
-        public Login()
+        public InicioDeSesion()
         {
             InitializeComponent();
-
             // Deshabilitamos el Boton de Maximizar
             this.ResizeMode = ResizeMode.CanMinimize;
         }

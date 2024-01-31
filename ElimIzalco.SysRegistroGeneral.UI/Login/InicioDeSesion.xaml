@@ -1,11 +1,11 @@
-﻿<Window x:Class="ElimIzalco.SysRegistroGeneral.UI.Login.Login"
+﻿<Window x:Class="ElimIzalco.SysRegistroGeneral.UI.Login.InicioDeSesion"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElimIzalco.SysRegistroGeneral.UI.Login"
         mc:Ignorable="d"
-        Title="  Inicio de Sesion - Sistema de Registro - ¨Mision Cristiana Elim Izalco¨" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+            Title="  Inicio de Sesion - Sistema de Registro - ¨Mision Cristiana Elim Izalco¨" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <!--Insersion de Icono a la ventana-->
     <Window.Icon>
         <ImageSource>/Images/Logo-Sin-Letras-White.png</ImageSource>
