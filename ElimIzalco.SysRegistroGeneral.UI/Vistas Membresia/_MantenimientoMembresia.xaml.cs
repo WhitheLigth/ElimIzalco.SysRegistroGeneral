@@ -647,7 +647,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
                     dtFechaDeCreacion.SelectedDate = membresia.FechaCreacion;
                     dtFechaDeCreacion.SelectedDateFormat = DatePickerFormat.Long;
                     dtFechaDeCreacion.IsEnabled = false;
-                    dtFechadeModificacion.SelectedDate = membresia.FechaModificacion;
+                    dtFechadeModificacion.SelectedDate = DateTime.Now;
                     dtFechadeModificacion.SelectedDateFormat = DatePickerFormat.Long;
                     dtFechadeModificacion.IsEnabled = false;
 
