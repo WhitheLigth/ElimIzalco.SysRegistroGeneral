@@ -482,7 +482,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Membresia
                 "join BautizmoEspirituSanto ON Membresia.IdBautizmoEspirituSanto = BautizmoEspirituSanto.Id " +
                 "join ListaCalendario ON Membresia.IdListaCalendario = ListaCalendario.Id join Pastores ON Membresia.IdNombrePastor = Pastores.Id " +
                 "join Supervisores ON Membresia.IdNombreSupervisor = Supervisores.Id join Distrito ON Membresia.IdDistrito = Distrito.Id " +
-                "join Zona ON Membresia.IdZona = Zona.Id join Sector ON Membresia.IdSector = Sector.Id join Celula ON Membresia.IdCelula = Celula.Id WHERE Membresia.Nombre = @Nombre";
+                "join Zona ON Membresia.IdZona = Zona.Id join Sector ON Membresia.IdSector = Sector.Id join Celula ON Membresia.IdCelula = Celula.Id WHERE Membresia.Nombre LIKE @Nombre";
 
             SqlCommand command = ComunDB.ObtenerComando();
             command.CommandType = System.Data.CommandType.Text;
