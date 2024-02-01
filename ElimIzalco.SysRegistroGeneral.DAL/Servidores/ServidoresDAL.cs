@@ -384,7 +384,7 @@ namespace ElimIzalco.SysRegistroGeneral.DAL.Servidores
                 "JOIN Sector ON Membresia.IdSector = Sector.Id " +
                 "JOIN Celula ON Membresia.IdCelula = Celula.Id " +
                 "JOIN Estatus ON Servidores.IdEstatus = Estatus.Id " +
-                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id WHERE Membresia.Nombre = @Nombre";
+                "JOIN Privilegios ON Servidores.IdPrivilegios = Privilegios.Id WHERE Membresia.Nombre LIKE @Nombre";
 
             SqlCommand command = ComunDB.ObtenerComando();
             command.CommandType = System.Data.CommandType.Text;
