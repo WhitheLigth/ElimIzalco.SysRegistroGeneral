@@ -270,7 +270,7 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
         #endregion
 
         #region Evento Click para buscar una Membresia
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void txtBuscarMembre_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Llamamos al metodo para Actualizar el DatGridView
             ActualizarDataGrid();
