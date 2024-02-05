@@ -12,7 +12,7 @@
         <Rectangle HorizontalAlignment="Center" Height="61" Margin="0,32,0,0" Stroke="#FF091C77" VerticalAlignment="Top" Width="870" Fill="#FF091C77"/>
         <Label Content="Buscar Servidores" HorizontalAlignment="Left" Margin="483,35,0,0" VerticalAlignment="Top" Width="272" Foreground="White" FontSize="30" FontWeight="Bold"/>
         <!--Data Grid - Con el Resumen de la Informacion de la Membresia-->
-        <DataGrid x:Name="dgvMostrar_Servidores" AutoGenerateColumns="False" ColumnWidth="*" Margin="226,230,227,21">
+        <DataGrid x:Name="dgvMostrar_Servidores" AutoGenerateColumns="False" ColumnWidth="*" Margin="226,230,227,21" IsReadOnly="True" SelectionUnit="FullRow">
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Dui" Binding="{Binding Membresia.Dui}"/>
