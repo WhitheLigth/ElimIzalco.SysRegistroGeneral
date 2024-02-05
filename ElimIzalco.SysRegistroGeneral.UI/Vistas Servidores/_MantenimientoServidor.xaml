@@ -68,7 +68,7 @@
         <Label Content="Buscar Miembro:" HorizontalAlignment="Left" Margin="157,37,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FF091C77" Height="33" Width="141"/>
         <TextBox x:Name="txtBuscarMiembro" MaxLength="100" HorizontalAlignment="Left" Margin="159,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="20" TextChanged="txtBuscarMiembro_TextChanged"/>
         <!--Grid donde se muestran todos los Miembros-->
-        <DataGrid x:Name="dgvListaMiembros" HorizontalAlignment="Left" Height="91" Margin="131,106,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" ColumnWidth="*">
+        <DataGrid x:Name="dgvListaMiembros" HorizontalAlignment="Left" Height="91" Margin="131,106,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" SelectionUnit="FullRow">
             <!--Columnas del DataGrid-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Dui" Binding="{Binding Dui}"/>
