@@ -48,6 +48,12 @@ using BarcodeStandard;
 using SkiaSharp;
 using Microsoft.Win32;
 using ElimIzalco.SysRegistroGeneral.BL.Profesion_u_Oficio;
+using System.Reflection.Metadata;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using Document = iTextSharp.text.Document;
+using Barcode = BarcodeStandard.Barcode;
 #endregion
 
 namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
@@ -1254,6 +1260,49 @@ namespace ElimIzalco.SysRegistroGeneral.UI.Vistas_Membresia
             }
             // Se Procede a Cerrar el Formulario
             Close();
+        }
+        #endregion
+
+        #region Metodo para Crear PDF en base a la Informacion de la Membresia
+        // Metodo para Crear Ficha Digital en PDF Haciendo uso de la informacion de Membresia
+        public void ImprimirFichaDigital()
+        {
+            // Se crea una instancia de la clase MembresiaEN
+            MembresiaEN ObjMembresiaEN = new MembresiaEN();
+
+            // Se crea un cuadro de diálogo para guardar archivos
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            // Establecemos el nombre del archivo
+            saveFileDialog.FileName = ObjMembresiaEN.Nombre + ObjMembresiaEN.Apellido + "Ficha Virtual" + ".pdf";
+
+            // Se crea una cadena que contiene una tabla HTML básica
+            string paginaHTMLTexto = "<table border=1> <tr><td>Hola Mundo   </td></tr></table>";
+
+            // Se verifica si el usuario ha seleccionado un archivo para guardar
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                // Se utiliza un bloque using para asegurarse de que los recursos se liberen correctamente
+                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    // Se crea un documento PDF con un tamaño de página A4 y márgenes de 25 unidades
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    // Se crea un escritor de PDF asociado al documento y al flujo de salida
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    // Se abre el documento PDF para agregar contenido
+                    pdfDoc.Open();
+                    // Se agrega una cadena vacía como espacio reservado
+                    pdfDoc.Add(new Phrase(""));
+
+                    // Se utiliza un bloque using para procesar la cadena HTML y convertirla en contenido PDF
+                    using (StringReader sr = new StringReader(paginaHTMLTexto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+                    // Se cierra el documento PDF y el flujo de salida
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+            }
         }
         #endregion
     }
