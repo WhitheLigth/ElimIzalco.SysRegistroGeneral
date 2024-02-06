@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="BarcodeLib" Version="3.0.3" />
-    <PackageReference Include="DinkToPdf" Version="1.0.8" />
   </ItemGroup>
 
   <ItemGroup>
